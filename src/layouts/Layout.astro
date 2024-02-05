@@ -28,8 +28,8 @@ const { title } = Astro.props;
 						/>
 					</a>
 					<div class="flex items-center lg:order-2">
-						<a href="#" class="text-gray-800 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800">Log in</a>
-						<a href="#" class="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800">Get started</a>
+						<a href="#" class="text-gray-800 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800">Ingresar</a>
+						<a href="#" class="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800">Contactanos</a>
 						<button
 							data-collapse-toggle="mobile-menu-2"
 							type="button"
@@ -117,7 +117,29 @@ const { title } = Astro.props;
 					</ul>
 				</div>
 				<hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+				<div class="
+					flex flex-col
+					justify-between
+					sm:flex-row
+					sm:items-center
+					sm:justify-between
+				">
 				<span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 <a href="#" class="hover:underline">Fralch™</a>. All Rights Reserved.</span>
+				<span class="text-sm text-texto-primary sm:text-center dark:text-texto-primary flex items-center space-x-2 rtl:space-x-reverse gap-3">
+					<p class="flex items-center space-x-2 rtl:space-x-reverse gap-2">
+						<svg  class="icon icon-tabler icon-tabler-phone" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2" /></svg>
+						+51 123 456 789
+					</p>
+					<p class="flex items-center space-x-2 rtl:space-x-reverse gap-2">
+						<svg class="icon icon-tabler icon-tabler-map-pin" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" /><path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z" /></svg>
+						Jr. Talara 123, Lima, Perú
+					</p>
+					<p class="flex items-center space-x-2 rtl:space-x-reverse gap-2">
+						<svg  class="icon icon-tabler icon-tabler-mail" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z" /><path d="M3 7l9 6l9 -6" /></svg>
+						 ingfralch@gmai.com
+					</p>
+				</span>
+				</div>
 			</div>
 		</footer>
 
