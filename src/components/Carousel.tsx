@@ -46,7 +46,7 @@ const Carousel = () => {
                 <figure key={index} className={`h-96 ${currentIndex === index + 1 ? '' : 'hidden'}`}>
                     <img src={image[0]} alt={image[1]} className="absolute inset-0 z-10 h-full w-full object-cover opacity-70"/>
                     <figcaption className="absolute inset-x-0 bottom-1 z-20 w-96 mx-auto p-4 font-light text-sm text-center tracking-widest leading-snug ">
-                        <h2 className="text-lg font-semibold ">{image[1]}</h2>
+                        <h2 className="text-xl font-semibold ">{image[1]}</h2>
                         <p className='mb-3'>{image[2]}</p>
                         {image[3] && <a href={image[3]} target="_blank" rel="noreferrer" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full ">Photo by Unsplash</a>} 
                     </figcaption>
