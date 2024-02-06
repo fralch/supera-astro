@@ -4,27 +4,34 @@ export default {
 	theme: {
 		extend: {
 			colors: {
-				primary: {
-					"50": "#D1EDE5",
-					"100": "#A3D9CB",
-					"200": "#75C4B1",
-					"300": "#47AF97",
-					"400": "#199A7D",
-					"500": "#0A4033", // Cambié el color base a #0A4033
-					"600": "#0A392E", // Puedes ajustar los tonos según tus preferencias
-					"700": "#092F26",
-					"800": "#08261F",
-					"900": "#071D17",
-					"950": "#05140F"
-				}, 
-				texto: {
-					"primary": "#fff",
-					"secondary": "#EED5AC",
-				}
-				
-				
+			  primary: {
+				'50': '#D1EDE5',
+				'100': '#A3D9CB',
+				'200': '#75C4B1',
+				'300': '#47AF97',
+				'400': '#199A7D',
+				'500': '#0A4033',
+				'600': '#0A392E',
+				'700': '#092F26',
+				'800': '#08261F',
+				'900': '#071D17',
+				'950': '#05140F'
+			  },
+			  secondary: {
+				'50': '#053036',
+				'100': '#002E1F',
+				'200': '#EDD6A9',
+				'300': '#D07131',
+				// Puedes seguir agregando tonos según tus necesidades
+			  },
+			  texto: {
+				primary: '#fff',
+				secondary: '#EED5AC',
+				// Puedes ajustar los colores de texto según tus preferencias
+			  }
 			}
-		},
+		  },
+		  
 		fontFamily: {
 			'body': [
 				'Inter',
