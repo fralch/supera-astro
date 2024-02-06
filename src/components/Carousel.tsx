@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const Hello = () => {
+const Carousel = () => {
     const [currentIndex, setCurrentIndex] = useState(1);
     const images = [
         'https://source.unsplash.com/1600x900/?beach',
@@ -62,4 +62,4 @@ const Hello = () => {
     );
 };
 
-export default Hello;
+export default Carousel;
