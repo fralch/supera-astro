@@ -27,6 +27,7 @@ export default {
 			  texto: {
 				primary: '#fff',
 				secondary: '#EED5AC',
+				tertiary : '#E58E52',
 				// Puedes ajustar los colores de texto según tus preferencias
 			  }
 			}
