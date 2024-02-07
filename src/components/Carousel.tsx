@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 
 const Carousel = () => {
+    
     const [currentIndex, setCurrentIndex] = useState(1);
     const images = [
-        ['https://source.unsplash.com/1600x900/?beach', 'Beach', 'Beach image', 'https://unsplash.com/photos/5Lb1tUd8g2E'],
+        ['https://source.unsplash.com/1600x900/?beach', 'Servicio Consultoria legal', 'Nest provides a level of abstraction above these common Node.js frameworks (Express/Fastify)', 'https://unsplash.com/photos/5Lb1tUd8g2E'],
         ['https://source.unsplash.com/1600x900/?cat', 'Cat', 'Cat image' , 'https://unsplash.com/photos/5Lb1tUd8g2E'],
         ['https://source.unsplash.com/1600x900/?dog', 'Dog', 'Dog image', 'https://unsplash.com/photos/5Lb1tUd8g2E'],
         ['https://source.unsplash.com/1600x900/?lego', 'Lego', 'Lego image', 'https://unsplash.com/photos/5Lb1tUd8g2E'],
@@ -43,9 +44,9 @@ const Carousel = () => {
             </div>
 
             {images.map((image, index) => (
-                <figure key={index} className={`h-96 ${currentIndex === index + 1 ? '' : 'hidden'}`}>
-                    <img src={image[0]} alt={image[1]} className="absolute inset-0 z-10 h-full w-full object-cover opacity-70"/>
-                    <figcaption className="absolute inset-x-0 bottom-1 z-20 w-96 mx-auto p-4 font-light text-sm text-center tracking-widest leading-snug ">
+                <figure id="contenedor_figura" key={index} className={`h-96 ${currentIndex === index + 1 ? '' : 'hidden'}`}>
+                    <img src={image[0]} alt={image[1]} className="absolute inset-0 z-10 h-full w-full object-cover opacity-60"/>
+                    <figcaption id="text_figura" className="absolute inset-x-0 bottom-1 md:right-auto md:left-20 z-20 p-4 font-light text-sm text-center md:text-left mx-auto tracking-widest leading-snug">
                         <h2 className="text-xl font-semibold ">{image[1]}</h2>
                         <p className='mb-3'>{image[2]}</p>
                         {image[3] && <a href={image[3]} target="_blank" rel="noreferrer" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full ">Photo by Unsplash</a>} 
@@ -60,6 +61,16 @@ const Carousel = () => {
             <button onClick={next} className="absolute right-14 top-1/2 -translate-y-1/2 w-11 h-11 flex justify-center items-center rounded-full shadow-md z-10 bg-gray-100 hover:bg-gray-200">
                 {/* Left arrow SVG */}
             </button>
+            <style>
+                {`
+                    @media screen and (min-width: 640px) {
+                        #contenedor_figura {
+                         
+                        }
+                      }
+                `}
+
+            </style>
         </article>
     );
 };
