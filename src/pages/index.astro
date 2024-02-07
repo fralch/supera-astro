@@ -7,7 +7,9 @@ import Carousel from '../components/Carousel.tsx';
 
 <Layout title="SuperaAbogados">
 	<main class="mt-0 sm:mt-32 md:mt-64 lg:mt-96 xl:mt-128">
-		<Carousel client:visible/>
+		<div class="mb-2 md:mb-8">
+			<Carousel client:visible />
+		</div>
 		<ul role="list" class="link-card-grid">
 			<Card
 				href="https://docs.astro.build/"
