@@ -35,6 +35,8 @@ const Carousel = () => {
     const back = () => {
         if (currentIndex > 1) {
             setCurrentIndex(currentIndex - 1);
+        } else {
+            setCurrentIndex(images.length); // Reset to the last image if currentIndex is 1
         }
     };
 
