@@ -64,9 +64,9 @@ const Carousel = () => {
             </div>
 
             {images.map((image, index) => (
-                <figure  key={index} className={`h-96 ${currentIndex === index + 1 ? '' : 'hidden'}`}>
+                <figure  key={index} className={`${currentIndex === index + 1 ? '' : 'hidden'}`} style={{ height: "500px"}} >
                     <img id="contenedor_figura" src={image[0]} alt={image[1]} className="absolute inset-0 z-10 h-full w-full object-cover opacity-60" style={{ objectPosition: 'center top' }}/>
-                    <figcaption id="text_figura" className="absolute inset-x-0 bottom-1 md:bottom-20 md:right-auto md:left-20 z-20 p-4 font-light text-sm text-center md:text-left mx-auto tracking-widest leading-snug">
+                    <figcaption  className="absolute inset-x-0 bottom-1 md:bottom-20 md:right-auto md:left-20 z-20 p-4 font-light text-sm text-center md:text-left mx-auto tracking-widest leading-snug">
                         <h2 className="text-xl font-semibold ">{image[1]}</h2>
                         <p className='mb-3'>{image[2]}</p>
                         {image[3] && <a href={image[3]} target="_blank" rel="noreferrer" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full ">Photo by Unsplash</a>} 
@@ -83,10 +83,12 @@ const Carousel = () => {
             </button>
             <style>
                 {`
+                   
                     @media (min-width: 768px) 
                         #contenedor_figura {
                             object-position:  center;
                         }
+                       
                       }
                 `}
 
