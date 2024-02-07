@@ -4,11 +4,11 @@ const Carousel = () => {
     
     const [currentIndex, setCurrentIndex] = useState(1);
     const images = [
-        ['https://source.unsplash.com/1600x900/?beach', 'Servicio Consultoria legal', 'Nest provides a level of abstraction above these common Node.js frameworks (Express/Fastify)', 'https://unsplash.com/photos/5Lb1tUd8g2E'],
-        ['https://source.unsplash.com/1600x900/?cat', 'Cat', 'Cat image' , 'https://unsplash.com/photos/5Lb1tUd8g2E'],
-        ['https://source.unsplash.com/1600x900/?dog', 'Dog', 'Dog image', 'https://unsplash.com/photos/5Lb1tUd8g2E'],
-        ['https://source.unsplash.com/1600x900/?lego', 'Lego', 'Lego image', 'https://unsplash.com/photos/5Lb1tUd8g2E'],
-        ['https://source.unsplash.com/1600x900/?textures&patterns', 'Textures & Patterns', 'Textures & Patterns image', 'https://unsplash.com/photos/5Lb1tUd8g2E']
+        ['https://source.unsplash.com/1600x900/?legal', 'Servicio Consultoria legal', 'Nest provides a level of abstraction above these common Node.js frameworks (Express/Fastify)', 'https://unsplash.com/photos/5Lb1tUd8g2E'],
+        ['https://source.unsplash.com/1600x900/?lawyer', 'Cat', 'Cat image' , 'https://unsplash.com/photos/5Lb1tUd8g2E'],
+        ['https://source.unsplash.com/1600x900/?attorney', 'Dog', 'Dog image', 'https://unsplash.com/photos/5Lb1tUd8g2E'],
+        ['https://source.unsplash.com/1600x900/?legislation', 'Lego', 'Lego image', 'https://unsplash.com/photos/5Lb1tUd8g2E'],
+        ['https://source.unsplash.com/1600x900/?law', 'Textures & Patterns', 'Textures & Patterns image', 'https://unsplash.com/photos/5Lb1tUd8g2E']
     ];
     
 
@@ -45,7 +45,7 @@ const Carousel = () => {
 
             {images.map((image, index) => (
                 <figure id="contenedor_figura" key={index} className={`h-96 ${currentIndex === index + 1 ? '' : 'hidden'}`}>
-                    <img src={image[0]} alt={image[1]} className="absolute inset-0 z-10 h-full w-full object-cover opacity-60"/>
+                    <img src={image[0]} alt={image[1]} className="absolute inset-0 z-10 h-full w-full object-cover opacity-60" style={{ objectPosition: 'center top' }}/>
                     <figcaption id="text_figura" className="absolute inset-x-0 bottom-1 md:bottom-20 md:right-auto md:left-20 z-20 p-4 font-light text-sm text-center md:text-left mx-auto tracking-widest leading-snug">
                         <h2 className="text-xl font-semibold ">{image[1]}</h2>
                         <p className='mb-3'>{image[2]}</p>
