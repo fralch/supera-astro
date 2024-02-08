@@ -2,13 +2,16 @@
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
 import Carousel from '../components/Carousel.tsx';
+import Areas from '../components/Areas.astro';
 ---
 
 <Layout title="SuperaAbogados">
 	<main class="mt-0 sm:mt-32 md:mt-64 lg:mt-96 xl:mt-128">
 		<div class="mb-2 md:mb-8">
 			<Carousel client:visible />
-		</div>
+			
+		</div>	
+		<Areas />
 		<ul role="list" class="link-card-grid">
 			<Card
 				href="https://docs.astro.build/"
