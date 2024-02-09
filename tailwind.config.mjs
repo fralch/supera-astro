@@ -68,7 +68,15 @@ export default {
 				'Segoe UI Emoji',
 				'Segoe UI Symbol',
 				'Noto Color Emoji'
-			]
+			], 
+			'serif': [
+				'ui-serif',
+				'Georgia',
+				'Cambria',
+				'Times New Roman',
+				'Times',
+				'serif'
+			],
 		}
 	},
 	plugins: [],
