@@ -270,15 +270,24 @@ import StatsBlock from '../components/StatsBlock.astro';
 <style>
 	main {
 		margin: auto;
-		padding: 1rem;
 		width: 100%;
-		max-width: calc(100% - 2rem);
 		color: white;
 		font-size: 20px;
 		line-height: 1.6;
 		
 	}
 	
+	@media (max-width: 767px) {
+		main {
+			margin: auto;
+			padding: 1rem;
+			width: 100%;
+			max-width: calc(100% - 2rem);
+			color: white;
+			font-size: 20px;
+			line-height: 1.6;
+		}
+	}
 	
 	.link-card-grid {
 		display: grid;
