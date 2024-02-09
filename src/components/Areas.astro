@@ -1,6 +1,6 @@
 
 <div class="flex mx-auto justify-center items-center w-full flex-col lg:flex-row xl:flex-row">
-    <div class="column flex flex-col text-right z-10 " style="margin-right: -30px;">
+    <div id="izquierda" class="column flex flex-col text-right z-10 " >
         <div class="flex justify-end mb-10 items-center mr-8 lg:mr-0 xl:mr-0 ">
             <div class="mr-5 xl:w-1/2 lg:w-2/4">
                 <h3 class="text-secondary-300">Family Law</h3>
@@ -32,7 +32,7 @@
     <div class=" xl:w-1/6 lg:w-4/12">
        <img class="" src="https://kinforce.net/adwocat/wp-content/uploads/2023/06/bronze-statuette-with-scales-of-justice-isolated-o-253MJCL.jpg" alt="img" >
     </div>
-    <div class="column flex flex-col text-left z-10" style="margin-left: -30px;">
+    <div id="derecha" class="column flex flex-col text-left z-10" >
         <div class="flex justify-start mb-10 items-center ml-8 lg:ml-0 xl:ml-0 ">
             <div class="bg-secondary-300 xl:w-20 lg:w-16 flex items-center justify-center h-16">
                 <img class="lg:w-8 h-auto " src="https://kinforce.net/adwocat/wp-content/uploads/2023/06/law-icons-W55LGC-6.png">
@@ -63,3 +63,18 @@
     </div>
    
 </div>
+
+<style>
+    #izquierda{
+        margin-right: -30px;
+    }
+    #derecha{
+        margin-left: -30px; 
+    }
+    @media (max-width: 767px) {
+        #izquierda, #derecha {
+            margin-right: 0;
+            margin-left: 0;
+        }
+    }
+</style>
