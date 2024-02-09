@@ -1,10 +1,7 @@
 import { useState, useEffect } from 'react';
 import { r } from '../../dist/_astro/index.LFf77hJu';
 import { set } from 'astro/zod';
-const StatsBlock = () => {
-
-    // autoimcrementa el valor de un numero y lo muestra en pantalla
-   
+const StatsBlock = () => {  
     const [count, setCount] = useState(0);
     const autoimcrement = (num: number) => {
         const interval = setInterval(() => {
