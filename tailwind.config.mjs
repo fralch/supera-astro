@@ -21,7 +21,8 @@ export default {
 				'50': '#053036',
 				'100': '#002E1F',
 				'200': '#EDD6A9',
-				'300': '#D07131',
+				'300' : '#E58E52',
+				'400': '#D07131',
 				// Puedes seguir agregando tonos según tus necesidades
 			  },
 			  texto: {
