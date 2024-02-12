@@ -1,6 +1,4 @@
 import { useState, useEffect } from 'react';
-import { r } from '../../dist/_astro/index.LFf77hJu';
-import { set } from 'astro/zod';
 const StatsBlock = () => {  
     const [count, setCount] = useState(0);
     const autoimcrement = (num: number) => {
