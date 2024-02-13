@@ -20,12 +20,11 @@ const StatsBlock = () => {
         <div className="bg-gray-50 py-16  mx-0" >
         <div className="max-w-7xl mx-auto px-0 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto text-center">
-                <h2 className="text-3xl font-serif  text-secondary-400 sm:text-4xl  font-bold" >
-                    Sobre nuestros servicios
+                <h2 className="text-3xl text-primary-450 sm:text-3xl  font-bold" >
+                    Nuestra Experiencia
                 </h2>
                 <p className="mt-3 text-xl text-gray-500 sm:mt-4 ">
-                    Organic, genuine conversations with higher response rates than
-                    LinkedIn or cold email.
+                Nos enorgullecemos de mantener una sólida reputación en la resolución exitosa de caso
                 </p>
             </div>
         </div>
