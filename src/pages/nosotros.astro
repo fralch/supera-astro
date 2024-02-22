@@ -1,0 +1,34 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ImgHeader from '../components/image_head.astro';
+import SecRight from '../components/seccion_right.astro';
+import SecLeft from '../components/seccion_left.astro';
+
+
+---
+
+<Layout title="Nosotros">
+	<main>
+        <ImgHeader />
+        <SecRight title='Sobre Nosotros'  />
+		<SecLeft title='Sobre el Estudio'  />
+	</main>
+</Layout>
+
+<style>
+	html, body {
+		overflow-x: hidden;
+	}
+	main {
+		margin: 0;
+		padding: 0;
+		width: 100%;
+		color: white;
+		font-size: 20px;
+		line-height: 1.6;
+	}
+
+
+   
+	
+</style>
