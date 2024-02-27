@@ -64,23 +64,24 @@ import ImgHeader from '../components/home/image_head.astro';
                                     to hear from you
                                 </p>
         
-                                <form class="mt-6">
+                                <form class="mt-6" action="https://formspree.io/f/meqyklan"
+                                method="POST">
                                     <div class="flex-1">
                                         <label class="block mb-2 text-sm text-gray-600 ">Nombre Completo</label>
-                                        <input type="text" placeholder="Nombre" class="block w-full px-5 py-3 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md    focus:border-primary-400 focus:ring-primary-300 focus:ring-opacity-40  focus:outline-none focus:ring" />
+                                        <input type="text" placeholder="Nombre" class="block w-full px-5 py-3 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md    focus:border-primary-400 focus:ring-primary-300 focus:ring-opacity-40  focus:outline-none focus:ring" name="name" />
                                     </div>
         
                                     <div class="flex-1 mt-6">
                                         <label class="block mb-2 text-sm text-gray-600 ">Email </label>
-                                        <input type="email" placeholder="correo@example.com" class="block w-full px-5 py-3 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md    focus:border-primary-400 focus:ring-primary-300 focus:ring-opacity-40  focus:outline-none focus:ring" />
+                                        <input type="email" placeholder="correo@example.com" class="block w-full px-5 py-3 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md    focus:border-primary-400 focus:ring-primary-300 focus:ring-opacity-40  focus:outline-none focus:ring"  name="email"/>
                                     </div>
         
                                     <div class="w-full mt-6">
                                         <label class="block mb-2 text-sm text-gray-600 ">Mensaje</label>
-                                        <textarea class="block w-full h-32 px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md md:h-48   focus:border-primary-400 focus:ring-primary-300 focus:ring-opacity-40 dark:focus:border-primary-300 focus:outline-none focus:ring" placeholder="Mensaje"></textarea>
+                                        <textarea class="block w-full h-32 px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md md:h-48   focus:border-primary-400 focus:ring-primary-300 focus:ring-opacity-40 dark:focus:border-primary-300 focus:outline-none focus:ring" placeholder="Mensaje" name="message"></textarea>
                                     </div>
         
-                                    <button class="w-full px-6 py-3 mt-6 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-primary-600 rounded-md hover:bg-primary-450 focus:outline-none focus:ring focus:ring-primary-400 focus:ring-opacity-50">
+                                    <button class="w-full px-6 py-3 mt-6 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-primary-450 rounded-md hover:bg-primary-600 focus:outline-none focus:ring focus:ring-primary-400 focus:ring-opacity-50" type="submit">
                                         get in touch
                                     </button>
                                 </form>
