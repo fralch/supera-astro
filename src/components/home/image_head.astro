@@ -1,8 +1,17 @@
+---
+interface Props {
+	title: string;
+}
+
+const {title} = Astro.props;
+
+---
+
 <div class="contenedor ">
     <div class="parallax-img"></div>
     <div class="filtro-oscuro"></div>
     <div class="texto">
-        <p>Nosotros</p>
+        <p>{title}</p>
     </div>
 </div>
 
