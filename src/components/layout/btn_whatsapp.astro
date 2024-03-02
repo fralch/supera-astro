@@ -1,6 +1,6 @@
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link id="arrow" rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <a  href="https://wa.me/51961610362?text=Quisiera%20m%C3%A1s%20informacion"
-    class="whatsapp"
+    class="whatsapp bounce"
     target="_blank">
     <i class="fa fa-whatsapp whatsapp-icon"></i>
 </a>
@@ -11,7 +11,7 @@
   height:60px;
   bottom:40px;
   right:40px;
-  background-color:#25d366;
+  background-color:#0A6C48;
   color:#FFF;
   border-radius:50px;
   text-align:center;
@@ -37,5 +37,20 @@
     right: 10px;
     font-size: 25px;
   }
+}
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-30px);
+  }
+  60% {
+    transform: translateY(-15px);
+  }
+}
+
+.bounce {
+  animation: bounce 2s infinite;
 }
 </style>
