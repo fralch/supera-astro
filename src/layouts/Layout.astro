@@ -105,10 +105,10 @@ const { title } = Astro.props;
 							<svg :class="{ 'transform rotate-180': open }" class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 11.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
 						</button>
 						<div x-show="open" class="absolute z-10 w-500 max-w-xl py-2 mt-2 space-y-2 bg-white rounded-lg shadow-lg dark:bg-gray-800" x-transition:enter="transition transform duration-300 ease-out" x-transition:enter-start="opacity-0 -translate-y-2" x-transition:enter-end="opacity-100 translate-y-0" x-transition:leave="transition transform duration-300 ease-in" x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 -translate-y-3">
-							<a href="#" class="block py-2 pl-3 text-gray-700 hover:bg-gray-50 dark:text-gray-400 dark:hover:bg-gray-700 pr-20">Penal</a>
-							<a href="#" class="block py-2 pl-3 text-gray-700 hover:bg-gray-50 dark:text-gray-400 dark:hover:bg-gray-700">Civil</a>
-							<a href="#" class="block py-2 pl-3 text-gray-700 hover:bg-gray-50 dark:text-gray-400 dark:hover:bg-gray-700">Laboral</a>
-							<a href="#" class="block py-2 pl-3 text-gray-700 hover:bg-gray-50 dark:text-gray-400 dark:hover:bg-gray-700">Corporativo</a>
+							<a href="/penal" class="block py-2 pl-3 text-gray-700 hover:bg-gray-50 dark:text-gray-400 dark:hover:bg-gray-700 pr-20">Penal</a>
+							<a href="/civil" class="block py-2 pl-3 text-gray-700 hover:bg-gray-50 dark:text-gray-400 dark:hover:bg-gray-700">Civil</a>
+							<a href="/laboral" class="block py-2 pl-3 text-gray-700 hover:bg-gray-50 dark:text-gray-400 dark:hover:bg-gray-700">Laboral</a>
+							<a href="/corporativo" class="block py-2 pl-3 text-gray-700 hover:bg-gray-50 dark:text-gray-400 dark:hover:bg-gray-700">Corporativo</a>
 						</div>
 					</li>
 					<li class="text-gray-300">
@@ -158,10 +158,10 @@ const { title } = Astro.props;
 									<svg :class="{ 'transform rotate-180': open }" class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 11.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
 								</button>
 								<div x-show="open" class="absolute z-10 w-500 max-w-xl py-2 mt-2 space-y-2 bg-white rounded-lg shadow-lg dark:bg-gray-800" x-transition:enter="transition transform duration-300 ease-out" x-transition:enter-start="opacity-0 -translate-y-2" x-transition:enter-end="opacity-100 translate-y-0" x-transition:leave="transition transform duration-300 ease-in" x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 -translate-y-3">
-									<a href="#" class="block py-2 pl-3 text-gray-700 hover:bg-gray-50 dark:text-gray-400 dark:hover:bg-gray-700 pr-20">Penal</a>
-									<a href="#" class="block py-2 pl-3 text-gray-700 hover:bg-gray-50 dark:text-gray-400 dark:hover:bg-gray-700">Civil</a>
-									<a href="#" class="block py-2 pl-3 text-gray-700 hover:bg-gray-50 dark:text-gray-400 dark:hover:bg-gray-700">Laboral</a>
-									<a href="#" class="block py-2 pl-3 text-gray-700 hover:bg-gray-50 dark:text-gray-400 dark:hover:bg-gray-700">Corporativo</a>
+									<a href="/penal" class="block py-2 pl-3 text-gray-700 hover:bg-gray-50 dark:text-gray-400 dark:hover:bg-gray-700 pr-20">Penal</a>
+									<a href="/civil" class="block py-2 pl-3 text-gray-700 hover:bg-gray-50 dark:text-gray-400 dark:hover:bg-gray-700">Civil</a>
+									<a href="/laboral" class="block py-2 pl-3 text-gray-700 hover:bg-gray-50 dark:text-gray-400 dark:hover:bg-gray-700">Laboral</a>
+									<a href="/corporativo" class="block py-2 pl-3 text-gray-700 hover:bg-gray-50 dark:text-gray-400 dark:hover:bg-gray-700">Corporativo</a>
 								</div>
 							</li>
 							<li class="mb-1">
@@ -202,16 +202,16 @@ const { title } = Astro.props;
 					</a>
 					<ul class="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
 						<li>
-							<a href="#" class="hover:underline me-4 md:me-6">Penal</a>
+							<a href="/penal" class="hover:underline me-4 md:me-6">Penal</a>
 						</li>
 						<li>
-							<a href="#" class="hover:underline me-4 md:me-6">Civil</a>
+							<a href="/civil" class="hover:underline me-4 md:me-6">Civil</a>
 						</li>
 						<li>
-							<a href="#" class="hover:underline me-4 md:me-6">Laboral</a>
+							<a href="/laboral" class="hover:underline me-4 md:me-6">Laboral</a>
 						</li>
 						<li>
-							<a href="#" class="hover:underline">Corporativo</a>
+							<a href="/corporativo" class="hover:underline">Corporativo</a>
 						</li>
 					</ul>
 				</div>
