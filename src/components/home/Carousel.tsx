@@ -5,29 +5,24 @@ const Carousel = () => {
     const [currentIndex, setCurrentIndex] = useState(1);
     const images = [
         [   'https://images.unsplash.com/photo-1619771678310-9f1e06085d86?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=MnwxfDB8MXxyYW5kb218MHx8bGF3fHx8fHx8MTcwNzM0MDExOQ&ixlib=rb-4.0.3&q=80&w=1600', 
-            'Servicio Consultoria legal', 
-            'Nest provides a level of abstraction above these common Node.js frameworks (Express/Fastify)', 
-            'https://unsplash.com/photos/5Lb1tUd8g2E'
-        ],
-        [   'https://images.unsplash.com/photo-1521791055366-0d553872125f?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=MnwxfDB8MXxyYW5kb218MHx8bGF3eWVyfHx8fHx8MTcwNzMzOTk3OQ&ixlib=rb-4.0.3&q=80&w=1600', 
-            'Servicio Area de Litigio', 
-            'Most package managers will install associated peer dependencies as well. If you see a ',  
-            'https://unsplash.com/photos/5Lb1tUd8g2E'
-        ],
-        [   'https://images.unsplash.com/photo-1447968954315-3f0c44f7313c?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=MnwxfDB8MXxyYW5kb218MHx8bGVnaXNsYXRpb258fHx8fHwxNzA3MzM5OTk0&ixlib=rb-4.0.3&q=80&w=1600y', 
-            'Servicio Consultoria legal', 
-            'Nest provides a level of abstraction above these common Node.js frameworks (Express/Fastify)', 
-            'https://unsplash.com/photos/5Lb1tUd8g2E'
+            'CIVIL', 
+            'Navegamos los desafíos legales con soluciones precisas y un enfoque humano.', 
+            '/civil'
         ],
         [   'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=MnwxfDB8MXxyYW5kb218MHx8bGVnYWx8fHx8fHwxNzA3MzQwMTk2&ixlib=rb-4.0.3&q=80&w=1600', 
-            'Servicio Area de Litigio', 
-            'Most package managers will install associated peer dependencies as well. If you see a ',  
-            'https://unsplash.com/photos/5Lb1tUd8g2E'
+            'PENAL', 
+            'Nuestra defensa legal es comprometida y estratégica, diseñada para proteger sus derechos e intereses en todo momento.',  
+            '/penal'
         ],
-        [   'https://images.unsplash.com/photo-1507679799987-c73779587ccf?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=MnwxfDB8MXxyYW5kb218MHx8bGF3eWVyfHx8fHx8MTcwNzM0MDI5OQ&ixlib=rb-4.0.3&q=80&w=1600', 
-            'Servicio Consultoria Abogados', 
-            'Nest provides a level of abstraction above these common Node.js frameworks (Express/Fastify)', 
-            'https://unsplash.com/photos/5Lb1tUd8g2E'
+        [   'https://images.unsplash.com/photo-1447968954315-3f0c44f7313c?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=MnwxfDB8MXxyYW5kb218MHx8bGVnaXNsYXRpb258fHx8fHwxNzA3MzM5OTk0&ixlib=rb-4.0.3&q=80&w=1600y', 
+            'LABORAL', 
+            'Brindamos una defensa legal integral, comprometida tanto con trabajadores en activo como con ex empleados, asegurando la protección de sus derechos laborales en todo momento.', 
+            '/laboral'
+        ],
+        [   'https://images.unsplash.com/photo-1521791055366-0d553872125f?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=MnwxfDB8MXxyYW5kb218MHx8bGF3eWVyfHx8fHx8MTcwNzMzOTk3OQ&ixlib=rb-4.0.3&q=80&w=1600', 
+            'CORPORATIVO', 
+            'Nuestra asesoría legal experta ofrece soluciones estratégicas para proteger los intereses comerciales de su empresa y garantizar el cumplimiento normativo en todo momento.',  
+            '/coporativo'
         ]
     ];
     
@@ -71,7 +66,7 @@ const Carousel = () => {
                     <figcaption  className="absolute inset-x-0 bottom-1 md:bottom-20 md:right-auto md:left-20 z-20 p-4 font-light text-sm text-center md:text-left mx-auto tracking-widest leading-snug">
                         <h2 className="text-xl font-semibold ">{image[1]}</h2>
                         <p className='mb-3'>{image[2]}</p>
-                        {image[3] && <a href={image[3]} target="_blank" rel="noreferrer" className="bg-texto-tertiary hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full ">Photo by Unsplash</a>} 
+                        {image[3] && <a href={image[3]} target="_blank" rel="noreferrer" className="bg-texto-tertiary hover:bg-primary-450 text-white font-bold py-2 px-4 rounded-full ">Más información</a>} 
                     </figcaption>
                 </figure>
             ))}

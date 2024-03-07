@@ -37,31 +37,31 @@ const StatsBlock = () => {
                             <div className="flex flex-col items-center border-b border-gray-100 p-6 text-center sm:border-0 sm:border-r">
                                 <img className="w-14" src="https://kinforce.net/adwocat/wp-content/uploads/2023/06/law-icons-W55LGC-dark-1.png" alt=""/>
                                 <dt className="order-2 mt-2 text-lg leading-6 font-medium text-gray-500 ">
-                                    Clientes satisfechos
+                                    Clientes activos
                                 </dt>
-                                <dd className="order-1 text-5xl font-extrabold text-gray-700">200+</dd>
+                                <dd className="order-1 text-5xl font-extrabold text-gray-700">100+</dd>
                             </div>
                             
                             <div className="flex flex-col items-center  border-t border-b border-gray-100 p-6 text-center sm:border-0 sm:border-l sm:border-r">
                                 <img className="w-14" src="https://kinforce.net/adwocat/wp-content/uploads/2023/06/law-icons-W55LGC-dark-2.png" alt=""/>
                                 <dt className="order-2 mt-2 text-lg leading-6 font-medium text-gray-500">
-                                    Casos ganados
+                                    Tasa de éxito
                                 </dt>
-                                <dd className="order-1 text-5xl font-extrabold text-gray-700">58%</dd>
+                                <dd className="order-1 text-5xl font-extrabold text-gray-700">97%</dd>
                             </div>
                             <div className="flex flex-col items-center border-t border-gray-100 p-6 text-center sm:border-0 sm:border-l">
                                 <img className="w-14" src="https://kinforce.net/adwocat/wp-content/uploads/2023/06/law-icons-W55LGC-dark-3.png" alt="" />
                                 <dt className="order-2 mt-2 text-lg leading-6 font-medium text-gray-500">
-                                    Abogados expertos
+                                    Empresas asesoradas
                                 </dt>
-                                <dd className="order-1 text-5xl font-extrabold text-gray-700">30+</dd>
+                                <dd className="order-1 text-5xl font-extrabold text-gray-700">20+</dd>
                             </div>
                                 <div className="flex flex-col items-center border-t border-gray-100 p-6 text-center sm:border-0 sm:border-l">
                                     <img className="w-14" src="https://kinforce.net/adwocat/wp-content/uploads/2023/06/law-icons-W55LGC-dark-4.png" alt="" />
                                     <dt className="order-2 mt-2 text-lg leading-6 font-medium text-gray-500">
-                                        Casos descestimados
+                                        Años de experiencia
                                     </dt>
-                                    <dd className="order-1 text-5xl font-extrabold text-gray-700">30+</dd>
+                                    <dd className="order-1 text-5xl font-extrabold text-gray-700">10+</dd>
                                 </div>
                             </dl>
                     </div>
