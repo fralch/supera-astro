@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 const StatsBlock = () => {  
     const [count, setCount] = useState(0);
     const autoimcrement = (num: number) => {
-        const interval = setInterval(() => {
+        setInterval(() => {
             if (count < num) {
                 setCount(count + 1);
             } else {
