@@ -4,7 +4,7 @@ const Carousel = () => {
     
     const [currentIndex, setCurrentIndex] = useState(1);
     const images = [
-        [   'https://images.unsplash.com/photo-1619771678310-9f1e06085d86?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=MnwxfDB8MXxyYW5kb218MHx8bGF3fHx8fHx8MTcwNzM0MDExOQ&ixlib=rb-4.0.3&q=80&w=1600', 
+        [   './supera_todos.jpg', 
             'CIVIL', 
             'Navegamos los desafíos legales con soluciones precisas y un enfoque humano.', 
             '/civil'
