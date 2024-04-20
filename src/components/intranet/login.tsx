@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 
 const Login_ = () => {
   return (
-    <div className="py-5 mx-0">
+    <div className="py-5">
       <div className="max-w-7xl mx-auto px-0 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl text-primary-450 sm:text-3xl font-bold mb-6">
@@ -35,7 +35,7 @@ const Login_ = () => {
                   </g>
                 </g>
               </svg>
-              <span>Continue with Google</span>
+              <span>Continua con Google</span>
             </button>
           </div>
         </div>

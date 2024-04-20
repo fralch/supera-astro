@@ -5,7 +5,7 @@ import Login_ from '../components/intranet/login.tsx';
 ---
 
 <Layout title="SuperaAbogados">
-	<main>
+	<main >
 		
 			<Login_ client:visible />
 		
@@ -25,6 +25,12 @@ import Login_ from '../components/intranet/login.tsx';
 		font-size: 20px;
 		line-height: 1.6;
 	}
+    @media (max-width: 768px) {
+        main {
+            margin-top: 20%;
+            font-size: 16px;
+        }
+    }
 
 
 	
