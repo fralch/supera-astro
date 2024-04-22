@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Login_ from '../components/intranet/login.tsx';
+import Casos_component from '../components/intranet/casos_component.tsx';
 
 ---
 
@@ -13,8 +13,9 @@ import Login_ from '../components/intranet/login.tsx';
 		<link rel="icon" type="image/svg+xml" href="./favicon2.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Intranet</title>
-		
 		<script is:inline src="https://cdn.jsdelivr.net/npm/alpinejs@2.x.x/dist/alpine.min.js" defer></script>
+        <link rel="stylesheet" href="https://demos.creative-tim.com/notus-js/assets/styles/tailwind.css">
+        <link rel="stylesheet" href="https://demos.creative-tim.com/notus-js/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css">
 
 
 		<script>
@@ -60,7 +61,6 @@ import Login_ from '../components/intranet/login.tsx';
 			});
 		</script>
 	</head>
-	
 	<body>
 		<header class="fixed top-0 right-0 border-gray-200 px-4 lg:px-6 py-4 dark:bg-0A4033 w-full fixed-header">
 			<nav class="relative px-4 py-4 flex justify-between items-center bg-secondary-100  ">
@@ -185,8 +185,8 @@ import Login_ from '../components/intranet/login.tsx';
 				</nav>
 			</div>
 		</header>
-		<main>
-			<Login_ client:visible />
+		<main  >
+			<Casos_component client:visible />
 		</main>	
 	</body>
 </html>
@@ -234,7 +234,7 @@ import Login_ from '../components/intranet/login.tsx';
 		padding: 0;
 		display: flex;
 		flex-direction: column;
-		min-height: 100vh;
+		min-height: 100vh; 
 	}
 	header {
 		background-color: #002E1F;
@@ -242,16 +242,18 @@ import Login_ from '../components/intranet/login.tsx';
 	}
 	
 	main {
-		margin-top: 10%;
+		flex-grow: 1;
+		margin-top: 100px;
 		padding: 0;
 		width: 100%;
 		color: white;
 		font-size: 20px;
 		line-height: 1.6;
+		background-color: #F8FAFC;
 	}
     @media (max-width: 768px) {
         main {
-            margin-top: 30%;
+            margin-top: 10%;
             font-size: 16px;
         }
     }
