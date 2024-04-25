@@ -13,29 +13,29 @@ const Casos_component = () => {
                             <div className="space-y-4 mt-3">
                                 <button className="bg-white p-3 w-full flex flex-col rounded-md dark:bg-gray-800 shadow">
                                     <div className="flex xl:flex-row flex-col items-center font-medium text-gray-900 dark:text-white pb-2 mb-2 xl:border-b border-gray-200 border-opacity-75 dark:border-gray-700 w-full">
-                                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&s=046c29138c1335ef8edee7daf521ba50" className="w-7 h-7 mr-2 rounded-full" alt="profile" />
+                                        <img src="https://kinforce.net/adwocat/wp-content/uploads/2023/06/law-icons-W55LGC-5.png" className="w-7 h-7 mr-2 rounded-full" alt="profile" />
                                         <div className=" py-1 px-2 leading-none dark:bg-gray-900 bg-blue-100 text-blue-500 rounded-md">Civil</div>
                                     </div>
                                     
                                 </button>
                                 <button className="bg-white p-3 w-full flex flex-col rounded-md dark:bg-gray-800 shadow-lg relative ring-2 ring-blue-500 focus:outline-none">
                                     <div className="flex xl:flex-row flex-col items-center font-medium text-gray-900 dark:text-white pb-2 mb-2 xl:border-b border-gray-200 border-opacity-75 dark:border-gray-700 w-full">
-                                        <img src="https://assets.codepen.io/344846/internal/avatars/users/default.png?fit=crop&format=auto&height=512&version=1582611188&width=512" className="w-7 h-7 mr-2 rounded-full" alt="profile" />
+                                        <img src="https://kinforce.net/adwocat/wp-content/uploads/2023/06/law-icons-W55LGC-1.png" className="w-7 h-7 mr-2 rounded-full" alt="profile" />
                                         <div className=" py-1 px-2 leading-none dark:bg-gray-900 bg-green-100 text-green-600 rounded-md">Penal</div>
                                     </div>
                                    
                                 </button>
                                 <button className="bg-white p-3 w-full flex flex-col rounded-md dark:bg-gray-800 shadow">
                                     <div className="flex xl:flex-row flex-col items-center font-medium text-gray-900 dark:text-white pb-2 mb-2 xl:border-b border-gray-200 border-opacity-75 dark:border-gray-700 w-full">
-                                        <img src="https://images.unsplash.com/photo-1541647376583-8934aaf3448a?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&ixid=eyJhcHBfaWQiOjE3Nzg0fQ" className="w-7 h-7 mr-2 rounded-full" alt="profile" />
+                                        <img src="https://kinforce.net/adwocat/wp-content/uploads/2023/06/law-icons-W55LGC-4.png" className="w-7 h-7 mr-2 rounded-full" alt="profile" />
                                         <div className="py-1 px-2 leading-none dark:bg-gray-900 bg-yellow-100 text-yellow-600 rounded-md">Laboral</div>
                                     </div>
                                     
                                 </button>
                                 <button className="bg-white p-3 w-full flex flex-col rounded-md dark:bg-gray-800 shadow">
                                     <div className="flex xl:flex-row flex-col items-center font-medium text-gray-900 dark:text-white pb-2 mb-2 xl:border-b border-gray-200 border-opacity-75 dark:border-gray-700 w-full">
-                                        <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&ixid=eyJhcHBfaWQiOjE3Nzg0fQ" className="w-7 h-7 mr-2 rounded-full" alt="profile" />
-                                        <div className="py-1 px-2 leading-none dark:bg-gray-900 bg-blue-100 text-blue-500 rounded-md">Empresas</div>
+                                        <img src="https://kinforce.net/adwocat/wp-content/uploads/2023/06/law-icons-W55LGC-2.png" className="w-7 h-7 mr-2 rounded-full" alt="profile" />
+                                        <div className="py-1 px-2 leading-none dark:bg-gray-900 bg-blue-100 text-red-500 rounded-md">Empresas</div>
                                     </div>
                                     
                                 </button>
