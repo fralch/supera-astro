@@ -172,18 +172,16 @@ const Casos_component = () => {
                         </div>
                         <div className="p-6 space-y-6  text-base">
                             <div className="px-6 w-full">
-                                <label className="block text-base font-medium text-gray-700 dark:text-gray-200">% Culminado</label>	
-                                <div className="bg-gray-300 h-2 w-full rounded-full relative mt-4">
-                                    <span className="bg-white h-4 w-4 absolute top-0 -ml-2 -mt-1 z-10 shadow rounded-full cursor-pointer" ></span>
-                                    <span className="bg-teal-500 h-2 absolute left-0 top-0 rounded-full" ></span>
-                                </div>
-                                <div className="flex justify-between mt-2 text-xs text-white">
-                                    <span className="w-8 text-left">0%</span>
-                                    <span className="w-8 text-center">25%</span>
-                                    <span className="w-8 text-center">50%</span>
-                                    <span className="w-8 text-center">75%</span>
-                                    <span className="w-8 text-right">100%</span>
-                                </div>
+                                <label className="block text-base font-medium text-gray-700 dark:text-gray-200">Culminado: <span className="text-gray-400 dark:text-gray-400"> 45%</span></label>	
+                                
+                                <input type="range" 
+                                    className="w-full h-5 " 
+                                    min="0" max="100" step="1" defaultValue="0" 
+                                    onChange={(e) => {
+                                        console.log(e.target.value);
+                                    }}
+                                    />
+                                 
                             </div>
                             <div className="px-6 w-full">
                                 <label className="block text-base font-medium text-gray-700 dark:text-gray-200 mb-2">Acto Procesal</label>
