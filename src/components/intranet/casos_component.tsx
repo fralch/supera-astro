@@ -128,6 +128,20 @@ const Casos_component = () => {
                                     </div>
                                     
                                 </button>
+
+                                <div className="flex flex-col items-center">
+                                    <input type="text" 
+                                        className="w-full h-10 px-3 py-2 text-base placeholder-gray-300 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-450 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-100" 
+                                        placeholder="Buscar..." 
+                                        onChange={(e) => {
+                                            let data = dataTable.filter((data) => {
+                                                return data.cliente.toLowerCase().includes(e.target.value.toLowerCase());
+                                            });
+                                            setDataTableFilter(data);
+                                        }}
+                                    />
+                                    
+                                </div>
                              
                             </div>
                         </div>
