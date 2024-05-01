@@ -5,6 +5,22 @@ import axios from 'axios';
 const Casos_component = () => {
     const [dateTime, setDateTime] = useState(new Date());
     const [actoProcesal, setActoProcesal] = useState('');
+    const [mesaFilter,  setmesaFilter ] = useState('');
+    const [dataTableFilter , setDataTableFilter] = useState([{
+        "id": 0,
+        "cliente": "",
+        "condicion": "",
+        "celular": "",
+        "expediente": "",
+        "fiscal": "",
+        "materia": "",
+        "proceso": "",
+        "mesa": "",
+        "contrato": "",
+        "acto_procesal": "",
+        "culminado": 0,
+        "fecha": ""
+      },]);
     const [dataTable , setDataTable] = useState([
         {
             "id": 885,
@@ -26,11 +42,18 @@ const Casos_component = () => {
     useEffect(() => {
       axios.get('http://127.0.0.1:3000/casos')
         .then(response => {
-            console.log(response.data);
             setDataTable(response.data);
+            setDataTableFilter(response.data);
             
         })
     }, []);
+
+    useEffect(() => {
+        let data = dataTable.filter((data) => {
+           return data.mesa === mesaFilter;
+       });
+       setDataTableFilter(data);
+    }, [mesaFilter]);
 
     const abrirModal = (actoProcesal) => {
         setActoProcesal(actoProcesal);
@@ -57,6 +80,8 @@ const Casos_component = () => {
         modal.classList.add('hidden');
         modal.setAttribute('aria-hidden', 'true');
     }
+
+    
     return (
         <section className="    py-2 bg-primary-980 mt-20 lg:mt-10 mx-auto">
             <div className="bg-gray-100 dark:bg-secondary-900 dark:text-white text-gray-600 flex overflow-hidden text-sm">
@@ -68,28 +93,35 @@ const Casos_component = () => {
                             <div className="text-xs text-gray-400 tracking-wider">CASOS</div>
                             
                             <div className="space-y-4 mt-3">
-                                <button className="bg-white p-3 w-full flex flex-col rounded-md dark:bg-gray-800 shadow">
+                                <button className={mesaFilter === 'Civil' ? "bg-white p-3 w-full flex flex-col rounded-md dark:bg-gray-800 shadow-lg relative ring-2 ring-blue-500 focus:outline-none" : "bg-white p-3 w-full flex flex-col rounded-md dark:bg-gray-800 shadow-lg relative "} 
+                                onClick={()=>setmesaFilter('Civil')}>
                                     <div className="flex xl:flex-row flex-col items-center font-medium text-gray-900 dark:text-white pb-2 mb-2 xl:border-b border-gray-200 border-opacity-75 dark:border-gray-700 w-full">
                                         <img src="https://kinforce.net/adwocat/wp-content/uploads/2023/06/law-icons-W55LGC-5.png" className="w-7 h-7 mr-2 rounded-full" alt="profile" />
                                         <div className=" py-1 px-2 leading-none dark:bg-gray-900 bg-blue-100 text-blue-500 rounded-md">Civil</div>
                                     </div>
                                     
                                 </button>
-                                <button className="bg-white p-3 w-full flex flex-col rounded-md dark:bg-gray-800 shadow-lg relative ring-2 ring-primary-450 focus:outline-none">
-                                    <div className="flex xl:flex-row flex-col items-center font-medium text-gray-900 dark:text-white pb-2 mb-2 xl:border-b border-gray-200 border-opacity-75 dark:border-gray-700 w-full">
+                                <button 
+                                     className={mesaFilter === 'Penal' ? "bg-white p-3 w-full flex flex-col rounded-md dark:bg-gray-800 shadow-lg relative ring-2 ring-primary-450 focus:outline-none" : "bg-white p-3 w-full flex flex-col rounded-md dark:bg-gray-800 shadow-lg relative "} 
+                                     onClick={()=>setmesaFilter('Penal')}>
+                                <div className="flex xl:flex-row flex-col items-center font-medium text-gray-900 dark:text-white pb-2 mb-2 xl:border-b border-gray-200 border-opacity-75 dark:border-gray-700 w-full">
                                         <img src="https://kinforce.net/adwocat/wp-content/uploads/2023/06/law-icons-W55LGC-1.png" className="w-7 h-7 mr-2 rounded-full" alt="profile" />
                                         <div className=" py-1 px-2 leading-none dark:bg-gray-900 bg-green-100 text-green-600 rounded-md">Penal</div>
                                     </div>
                                    
                                 </button>
-                                <button className="bg-white p-3 w-full flex flex-col rounded-md dark:bg-gray-800 shadow">
+                                <button 
+                                     className={mesaFilter === 'Laboral' ? "bg-white p-3 w-full flex flex-col rounded-md dark:bg-gray-800 shadow-lg relative ring-2 ring-yellow-600 focus:outline-none" : "bg-white p-3 w-full flex flex-col rounded-md dark:bg-gray-800 shadow-lg relative "} 
+                                     onClick={()=>setmesaFilter('Laboral')}>
                                     <div className="flex xl:flex-row flex-col items-center font-medium text-gray-900 dark:text-white pb-2 mb-2 xl:border-b border-gray-200 border-opacity-75 dark:border-gray-700 w-full">
                                         <img src="https://kinforce.net/adwocat/wp-content/uploads/2023/06/law-icons-W55LGC-4.png" className="w-7 h-7 mr-2 rounded-full" alt="profile" />
                                         <div className="py-1 px-2 leading-none dark:bg-gray-900 bg-yellow-100 text-yellow-600 rounded-md">Laboral</div>
                                     </div>
                                     
                                 </button>
-                                <button className="bg-white p-3 w-full flex flex-col rounded-md dark:bg-gray-800 shadow">
+                                <button 
+                                     className={mesaFilter === 'Empresa y Comunidades' ? "bg-white p-3 w-full flex flex-col rounded-md dark:bg-gray-800 shadow-lg relative ring-2 ring-red-500 focus:outline-none" : "bg-white p-3 w-full flex flex-col rounded-md dark:bg-gray-800 shadow-lg relative "} 
+                                     onClick={()=>setmesaFilter('Empresa y Comunidades')}>
                                     <div className="flex xl:flex-row flex-col items-center font-medium text-gray-900 dark:text-white pb-2 mb-2 xl:border-b border-gray-200 border-opacity-75 dark:border-gray-700 w-full">
                                         <img src="https://kinforce.net/adwocat/wp-content/uploads/2023/06/law-icons-W55LGC-2.png" className="w-7 h-7 mr-2 rounded-full" alt="profile" />
                                         <div className="py-1 px-2 leading-none dark:bg-gray-900 bg-blue-100 text-red-500 rounded-md">Empresas</div>
@@ -126,7 +158,7 @@ const Casos_component = () => {
                                     <tbody className="text-gray-600 dark:text-gray-100">
                                         
                                         {
-                                            dataTable.map((data, index) => (
+                                            dataTableFilter.map((data, index) => (
                                                 
                                                     <tr key={index} className={
                                                         data.id % 2 === 0 ? "bg-gray-100 dark:bg-secondary-980" : "bg-white dark:bg-secondary-800"
