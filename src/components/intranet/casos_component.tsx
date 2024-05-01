@@ -4,6 +4,7 @@ import axios from 'axios';
 
 const Casos_component = () => {
     const [dateTime, setDateTime] = useState(new Date());
+    const [actoProcesal, setActoProcesal] = useState('');
     const [dataTable , setDataTable] = useState([
         {
             "id": 885,
@@ -31,23 +32,27 @@ const Casos_component = () => {
         })
     }, []);
 
-    const abrirModal = () => {
+    const abrirModal = (actoProcesal) => {
+        setActoProcesal(actoProcesal);
         const modal = document.getElementById('default-modal');
         modal.classList.remove('hidden');
         modal.setAttribute('aria-hidden', 'false');
     }
     const cerrarModal = () => {
+        setActoProcesal('');
         const modal = document.getElementById('default-modal');
         modal.classList.add('hidden');
         modal.setAttribute('aria-hidden', 'true');
     }
 
-    const abrirModalActoProcesal = () => {
+    const abrirModalActoProcesal = ( actoProcesal) => {
+        setActoProcesal(actoProcesal);
         const modal = document.getElementById('modal-acto-procesal');
         modal.classList.remove('hidden');
         modal.setAttribute('aria-hidden', 'false');
     }
     const cerrarModalActoProcesal = () => {
+        setActoProcesal('');
         const modal = document.getElementById('modal-acto-procesal');
         modal.classList.add('hidden');
         modal.setAttribute('aria-hidden', 'true');
@@ -94,6 +99,7 @@ const Casos_component = () => {
                              
                             </div>
                         </div>
+                        
                         <div className="flex-grow bg-white dark:bg-secondary-800 overflow-y-auto">
                           
                             <div className="sm:p-7 p-4">
@@ -147,7 +153,9 @@ const Casos_component = () => {
                                                             <button className="text-blue-500
                                                             hover:text-blue-700 focus:outline-none
                                                             focus:ring-2 focus:ring-blue-300 font-medium rounded-lg text-sm px-2 py-1 text-center dark:text-blue-400 dark:hover:text-blue-500 dark:focus:ring-blue-800 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:z-10
-                                                            " onClick={abrirModalActoProcesal}>Abrir</button>
+                                                            " 
+                                                            onClick={() => abrirModalActoProcesal(data.acto_procesal)}
+                                                            >Abrir</button>
                                                         </td>
                                                         <td className="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 text-red-500">{data.culminado} %</td>
                                                         <td className="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800">
@@ -156,7 +164,7 @@ const Casos_component = () => {
                                                                     {data.fecha}
                                                                     <div className="text-gray-400 text-xs">11:16 AM</div>
                                                                 </div>
-                                                                <button className="w-8 h-8 inline-flex items-center justify-center text-gray-400 ml-auto" onClick={abrirModal}>
+                                                                <button className="w-8 h-8 inline-flex items-center justify-center text-gray-400 ml-auto" onClick={() => abrirModal(data.acto_procesal)}>
                                                                     <svg viewBox="0 0 24 24" className="w-5" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
                                                                         <circle cx="12" cy="12" r="1"></circle>
                                                                         <circle cx="19" cy="12" r="1"></circle>
@@ -179,7 +187,7 @@ const Casos_component = () => {
                 </div>
             </div>
             
-            <div id="default-modal" data-modal-show="true" aria-hidden="true" className="hidden overflow-x-hidden overflow-y-auto fixed h-modal md:h-full top-0 left-0 right-0 md:inset-0 z-50 flex items-center justify-center">
+            <div id="default-modal" data-modal-show="true" aria-hidden="true" className="hidden overflow-x-hidden overflow-y-auto fixed h-modal md:h-full top-0 left-0 right-0 md:inset-0 z-50 flex items-center justify-center mt-5">
                 <div className="relative w-full max-w-2xl px-4 h-full md:h-auto">
                     <div className="bg-white rounded-lg shadow relative dark:bg-gray-700">
                         <div className="flex items-start justify-between p-5 border-b rounded-t dark:border-gray-600">
@@ -205,15 +213,21 @@ const Casos_component = () => {
                             </div>
                             <div className="px-6 w-full">
                                 <label className="block text-base font-medium text-gray-700 dark:text-gray-200 mb-2">Acto Procesal</label>
-                                <textarea className="w-full h-24 px-3 py-2 text-base placeholder-gray-300 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-450 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-100" placeholder="Escribe aquí..."></textarea>
+                                <textarea className="w-full h-24 px-3 py-2 text-base placeholder-gray-300 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-450 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-100" 
+                                value={
+                                            actoProcesal
+                                      } onChange={(e) => {
+                                            setActoProcesal(e.target.value);
+                                }
+                                }></textarea>
+                           
                             </div> 
                             <p className="text-gray-400 text-xs">Fecha y hora actual: {dateTime.toLocaleString()}</p>
                                 
-                        </div>
-                        <div className="flex space-x-2 items-center p-6 border-t border-gray-200 rounded-b dark:border-gray-600">
-                            <button data-modal-toggle="default-modal" type="button" className="text-white bg-primary-450 hover:bg-primary-600 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-450 dark:hover:bg-primary-600 dark:focus:ring-blue-800">Guardar</button>
+                            <button data-modal-toggle="default-modal" type="button" className="text-white bg-primary-450 hover:bg-primary-600 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-450 dark:hover:bg-primary-600 dark:focus:ring-blue-800 mr-2">Guardar</button>
                             <button data-modal-toggle="default-modal" type="button" className="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:ring-gray-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600" onClick={cerrarModal}>Cancelar</button>
                         </div>
+                       
                     </div>
                 </div>
             </div>
@@ -230,9 +244,9 @@ const Casos_component = () => {
                             </button>
                         </div>
                         <div className="p-6 space-y-6  text-base">
-                            <div className="px-6 w-full">
-                                <label className="block text-base font-medium text-gray-700 dark:text-gray-200">Acto Procesal</label>
-                                <p className="text-gray-600 dark:text-gray-300">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptates.</p>
+                            <div className="px-6 pb-3 w-full">
+                                
+                                <p className="text-gray-600 dark:text-gray-300">{actoProcesal}</p>
                             </div>
                             
                         </div>
