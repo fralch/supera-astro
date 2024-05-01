@@ -1,8 +1,36 @@
 import { useState, useEffect } from 'react';
+import axios from 'axios';
 
 
 const Casos_component = () => {
     const [dateTime, setDateTime] = useState(new Date());
+    const [dataTable , setDataTable] = useState([
+        {
+            "id": 885,
+            "cliente": "CAJA HUANCAYO",
+            "condicion": "-",
+            "celular": "0",
+            "expediente": "-",
+            "fiscal": "-",
+            "materia": "VARIOS ",
+            "proceso": "VARIOS ",
+            "mesa": "Empresa y Comunidades",
+            "contrato": "Contrato Vigente ",
+            "acto_procesal": "En proceso",
+            "culminado": 0,
+            "fecha": "2024-05-01T00:00:00.000Z"
+          },
+          
+    ]);
+    useEffect(() => {
+      axios.get('http://127.0.0.1:3000/casos')
+        .then(response => {
+            console.log(response.data);
+            setDataTable(response.data);
+            
+        })
+    }, []);
+
     const abrirModal = () => {
         const modal = document.getElementById('default-modal');
         modal.classList.remove('hidden');
@@ -10,6 +38,17 @@ const Casos_component = () => {
     }
     const cerrarModal = () => {
         const modal = document.getElementById('default-modal');
+        modal.classList.add('hidden');
+        modal.setAttribute('aria-hidden', 'true');
+    }
+
+    const abrirModalActoProcesal = () => {
+        const modal = document.getElementById('modal-acto-procesal');
+        modal.classList.remove('hidden');
+        modal.setAttribute('aria-hidden', 'false');
+    }
+    const cerrarModalActoProcesal = () => {
+        const modal = document.getElementById('modal-acto-procesal');
         modal.classList.add('hidden');
         modal.setAttribute('aria-hidden', 'true');
     }
@@ -59,15 +98,17 @@ const Casos_component = () => {
                           
                             <div className="sm:p-7 p-4">
                                 
-                                <table className="w-full text-left">
+                                <table className="text-left">
                                     <thead>
-                                        <tr className="text-gray-400">
-                                            <th className="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800">Nombre del Cliente </th>
+                                        <tr className="text-gray-400 bg-primary-700 ">
+                                            <th className="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800">Nombre_del_Cliente </th>
                                             <th className="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800">Condición</th>
-                                            <th className="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800 hidden md:table-cell">Celular</th>
-                                            <th className="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800">Expediente/Carpeta F.</th>
-                                            <th className="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800 sm:text-gray-400 text-white">Especialista</th>
+                                            <th className="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800  md:table-cell">Celular</th>
+                                            <th className="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800">Expediente/Carpeta_F.</th>
+                                            <th className="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800 sm:text-gray-400 text-white">Especialista/Fiscal</th>
                                             <th className="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800 sm:text-gray-400 text-white">Materia</th>
+                                            <th className="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800 sm:text-gray-400 text-white">Proceso</th>
+                                            <th className="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800 sm:text-gray-400 text-white">Mesa</th>
                                             <th className="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800 sm:text-gray-400 text-white">Contrato</th>
                                             <th className="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800 sm:text-gray-400 text-white">Acto Procesal</th>
                                             <th className="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800 sm:text-gray-400 text-white">% Culminado</th>
@@ -77,78 +118,57 @@ const Casos_component = () => {
                                         </tr>
                                     </thead>
                                     <tbody className="text-gray-600 dark:text-gray-100">
-                                        <tr>
-                                            <td className="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800">
-                                                <div className="flex items-center">
-                                                    
-                                                    Card
-                                                </div>
-                                            </td>
-                                            <td className="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800">
-                                                <div className="flex items-center">
-                                                  
-                                                    PayPal
-                                                </div>
-                                            </td>
-                                            <td className="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 md:table-cell hidden">Subscription renewal</td>
-                                            <td className="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 md:table-cell hidden">Subscription renewal</td>
-                                            <td className="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 md:table-cell hidden">Subscription renewal</td>
-                                            <td className="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 md:table-cell hidden">Subscription renewal</td>
-                                            <td className="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 md:table-cell hidden">Subscription renewal</td>
-                                            <td className="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 md:table-cell hidden">Subscription renewal</td>
-                                            <td className="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 text-red-500">- $120.00</td>
-                                            <td className="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800">
-                                                <div className="flex items-center">
-                                                    <div className="sm:flex hidden flex-col">
-                                                        24.12.2020
-                                                        <div className="text-gray-400 text-xs">11:16 AM</div>
-                                                    </div>
-                                                    <button className="w-8 h-8 inline-flex items-center justify-center text-gray-400 ml-auto"  onClick={abrirModal}>
-                                                        <svg viewBox="0 0 24 24" className="w-5" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
-                                                            <circle cx="12" cy="12" r="1"></circle>
-                                                            <circle cx="19" cy="12" r="1"></circle>
-                                                            <circle cx="5" cy="12" r="1"></circle>
-                                                        </svg>
-                                                    </button>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td className="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800">
-                                                <div className="flex items-center">
-                                                   
-                                                    Card
-                                                </div>
-                                            </td>
-                                            <td className="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800">
-                                                <div className="flex items-center">
-                                                   
-                                                    Microsoft
-                                                </div>
-                                            </td>
-                                            <td className="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 md:table-cell hidden">Subscription renewal</td>
-                                            <td className="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 md:table-cell hidden">Subscription renewal</td>
-                                            <td className="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 md:table-cell hidden">Subscription renewal</td>
-                                            <td className="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 md:table-cell hidden">Subscription renewal</td>
-                                            <td className="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 md:table-cell hidden">Subscription renewal</td>
-                                            <td className="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 md:table-cell hidden">Subscription renewal</td>
-                                            <td className="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 text-red-500">- $9.99</td>
-                                            <td className="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800">
-                                                <div className="flex items-center">
-                                                    <div className="sm:flex hidden flex-col">
-                                                        24.12.2020
-                                                        <div className="text-gray-400 text-xs">07:16 AM</div>
-                                                    </div>
-                                                    <button className="w-8 h-8 inline-flex items-center justify-center text-gray-400 ml-auto">
-                                                        <svg viewBox="0 0 24 24" className="w-5" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
-                                                            <circle cx="12" cy="12" r="1"></circle>
-                                                            <circle cx="19" cy="12" r="1"></circle>
-                                                            <circle cx="5" cy="12" r="1"></circle>
-                                                        </svg>
-                                                    </button>
-                                                </div>
-                                            </td>
-                                        </tr>
+                                        
+                                        {
+                                            dataTable.map((data, index) => (
+                                                
+                                                    <tr key={index} className={
+                                                        data.id % 2 === 0 ? "bg-gray-100 dark:bg-secondary-980" : "bg-white dark:bg-secondary-800"
+                                                    }
+                                                    >
+                                                        <td className="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800">
+                                                            <div className="flex items-center">
+                                                                {data.cliente}
+                                                            </div>
+                                                        </td>
+                                                        <td className="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800">
+                                                            <div className="flex items-center">
+                                                                {data.condicion}
+                                                            </div>
+                                                        </td>
+                                                        <td className="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 md:table-cell ">{data.celular}</td>
+                                                        <td className="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 md:table-cell ">{data.expediente}</td>
+                                                        <td className="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 md:table-cell ">{data.fiscal}</td>
+                                                        <td className="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 md:table-cell ">{data.materia}</td>
+                                                        <td className="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 md:table-cell ">{data.proceso}</td>
+                                                        <td className="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 md:table-cell ">{data.mesa}</td>
+                                                        <td className="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 md:table-cell ">{data.contrato}</td>
+                                                        <td className="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 md:table-cell ">
+                                                            <button className="text-blue-500
+                                                            hover:text-blue-700 focus:outline-none
+                                                            focus:ring-2 focus:ring-blue-300 font-medium rounded-lg text-sm px-2 py-1 text-center dark:text-blue-400 dark:hover:text-blue-500 dark:focus:ring-blue-800 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:z-10
+                                                            " onClick={abrirModalActoProcesal}>Abrir</button>
+                                                        </td>
+                                                        <td className="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 text-red-500">{data.culminado} %</td>
+                                                        <td className="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800">
+                                                            <div className="flex items-center">
+                                                                <div className="sm:flex  flex-col">
+                                                                    {data.fecha}
+                                                                    <div className="text-gray-400 text-xs">11:16 AM</div>
+                                                                </div>
+                                                                <button className="w-8 h-8 inline-flex items-center justify-center text-gray-400 ml-auto" onClick={abrirModal}>
+                                                                    <svg viewBox="0 0 24 24" className="w-5" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                                                                        <circle cx="12" cy="12" r="1"></circle>
+                                                                        <circle cx="19" cy="12" r="1"></circle>
+                                                                        <circle cx="5" cy="12" r="1"></circle>
+                                                                    </svg>
+                                                                </button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                ) )
+                                        }
+                                       
                                       
                                     </tbody>
                                 </table>
@@ -166,7 +186,7 @@ const Casos_component = () => {
                             <h3 className="text-gray-900 text-xl lg:text-2xl font-semibold dark:text-white">
                                 Actualización del caso
                             </h3>
-                            <button type="button" className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="default-modal">
+                            <button type="button" className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="default-modal" onClick={cerrarModal}>
                                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>  
                             </button>
                         </div>
@@ -192,7 +212,29 @@ const Casos_component = () => {
                         </div>
                         <div className="flex space-x-2 items-center p-6 border-t border-gray-200 rounded-b dark:border-gray-600">
                             <button data-modal-toggle="default-modal" type="button" className="text-white bg-primary-450 hover:bg-primary-600 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-450 dark:hover:bg-primary-600 dark:focus:ring-blue-800">Guardar</button>
-                            <button data-modal-toggle="default-modal" type="button" className="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:ring-gray-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600">Cancelar</button>
+                            <button data-modal-toggle="default-modal" type="button" className="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:ring-gray-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600" onClick={cerrarModal}>Cancelar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="modal-acto-procesal" data-modal-show="true" aria-hidden="true" className="hidden overflow-x-hidden overflow-y-auto fixed h-modal md:h-full top-0 left-0 right-0 md:inset-0 z-50 flex items-center justify-center">
+                <div className="relative w-full max-w-2xl px-4 h-full md:h-auto">
+                    <div className="bg-white rounded-lg shadow relative dark:bg-gray-700">
+                        <div className="flex items-start justify-between p-5 border-b rounded-t dark:border-gray-600">
+                            <h3 className="text-gray-900 text-xl lg:text-2xl font-semibold dark:text-white">
+                                Acto Procesal
+                            </h3>
+                            <button type="button" className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="modal-acto-procesal" onClick={ cerrarModalActoProcesal}>
+                                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>  
+                            </button>
+                        </div>
+                        <div className="p-6 space-y-6  text-base">
+                            <div className="px-6 w-full">
+                                <label className="block text-base font-medium text-gray-700 dark:text-gray-200">Acto Procesal</label>
+                                <p className="text-gray-600 dark:text-gray-300">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptates.</p>
+                            </div>
+                            
                         </div>
                     </div>
                 </div>

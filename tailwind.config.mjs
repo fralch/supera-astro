@@ -32,6 +32,7 @@ export default {
 				'800': '#23262D',
 				'850': '#182125',
 				'900': '#13151A',
+				'980': '#191b21',
 				// Puedes seguir agregando tonos según tus necesidades
 			  },
 			  texto: {
