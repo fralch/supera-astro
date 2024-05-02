@@ -81,7 +81,11 @@ const Casos_component = () => {
         modal.setAttribute('aria-hidden', 'true');
     }
 
-    
+    const convertirFecha = (fecha) => {
+        let date = new Date(fecha);
+        let options = { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' } as Intl.DateTimeFormatOptions;
+        return date.toLocaleDateString('es-PE', options);
+    }
     return (
         <section className="    py-2 bg-primary-980 mt-20 lg:mt-10 mx-auto">
             <div className="bg-gray-100 dark:bg-secondary-900 dark:text-white text-gray-600 flex overflow-hidden text-sm">
@@ -207,8 +211,7 @@ const Casos_component = () => {
                                                         <td className="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800">
                                                             <div className="flex items-center">
                                                                 <div className="sm:flex  flex-col">
-                                                                    {data.fecha}
-                                                                    <div className="text-gray-400 text-xs">11:16 AM</div>
+                                                                    <div className="text-gray-400 text-xs">{convertirFecha(data.fecha)}</div>
                                                                 </div>
                                                                 <button className="w-8 h-8 inline-flex items-center justify-center text-gray-400 ml-auto" onClick={() => abrirModal(data.acto_procesal)}>
                                                                     <svg viewBox="0 0 24 24" className="w-5" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
