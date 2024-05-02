@@ -5,6 +5,8 @@ import axios from 'axios';
 const Casos_component = () => {
     const [dateTime, setDateTime] = useState(new Date());
     const [actoProcesal, setActoProcesal] = useState('');
+    const [culminado, setCulminado] = useState(0);
+    const [idCasoUpdate, setIdCasoUpdate] = useState(0);
     const [mesaFilter,  setmesaFilter ] = useState('');
     const [dataTableFilter , setDataTableFilter] = useState([{
         "id": 0,
@@ -55,8 +57,10 @@ const Casos_component = () => {
        setDataTableFilter(data);
     }, [mesaFilter]);
 
-    const abrirModal = (actoProcesal) => {
+    const abrirModal = (actoProcesal, idCasoUpdate, culminado) => {
         setActoProcesal(actoProcesal);
+        setIdCasoUpdate(idCasoUpdate);
+        setCulminado(culminado);
         const modal = document.getElementById('default-modal');
         modal.classList.remove('hidden');
         modal.setAttribute('aria-hidden', 'false');
@@ -85,6 +89,28 @@ const Casos_component = () => {
         let date = new Date(fecha);
         let options = { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' } as Intl.DateTimeFormatOptions;
         return date.toLocaleDateString('es-PE', options);
+    }
+
+    const updateCaso = () => {
+        axios.put(`http://127.0.0.1:3000/casos/${idCasoUpdate}`, {
+            acto_procesal: actoProcesal,
+            culminado: culminado
+        })
+        .then((response) => {
+            console.log(response);
+            window.location.reload();
+            
+            
+        })
+        
+    }
+
+    const diferenciaDias = (fecha) => {
+        let fecha_actual = new Date();
+        let fecha_ingresada = new Date(fecha);
+        let diferencia = fecha_actual.getTime() - fecha_ingresada.getTime();
+        let dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+        return dias;
     }
     return (
         <section className="    py-2 bg-primary-980 mt-20 lg:mt-10 mx-auto">
@@ -167,8 +193,9 @@ const Casos_component = () => {
                                             <th className="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800 sm:text-gray-400 text-white">Mesa</th>
                                             <th className="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800 sm:text-gray-400 text-white">Contrato</th>
                                             <th className="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800 sm:text-gray-400 text-white">Acto Procesal</th>
-                                            <th className="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800 sm:text-gray-400 text-white">% Culminado</th>
+                                            <th className="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800 sm:text-gray-400 text-white">Culminado</th>
                                             <th className="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800 sm:text-gray-400 text-white">Ultimo acceso</th>
+
                                             
 
                                         </tr>
@@ -207,13 +234,17 @@ const Casos_component = () => {
                                                             onClick={() => abrirModalActoProcesal(data.acto_procesal)}
                                                             >Abrir</button>
                                                         </td>
-                                                        <td className="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 text-red-500">{data.culminado} %</td>
+                                                        <td className={data.culminado < 50 ? "sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 md:table-cell text-red-500" : "sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 md:table-cell text-green-500"}>{data.culminado} %</td>
+                                                       
                                                         <td className="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800">
                                                             <div className="flex items-center">
                                                                 <div className="sm:flex  flex-col">
-                                                                    <div className="text-gray-400 text-xs">{convertirFecha(data.fecha)}</div>
+                                                                    <div className="text-gray-400 text-xs">{convertirFecha(data.fecha)} 
+                                                                        <span className={diferenciaDias(data.fecha) > 5 ? "text-red-500" : "text-green-500"}> ({diferenciaDias(data.fecha)} días)</span>
+                                                                    </div>
+                                                                    
                                                                 </div>
-                                                                <button className="w-8 h-8 inline-flex items-center justify-center text-gray-400 ml-auto" onClick={() => abrirModal(data.acto_procesal)}>
+                                                                <button className="w-8 h-8 inline-flex items-center justify-center text-gray-400 ml-auto" onClick={() => abrirModal(data.acto_procesal,data.id, data.culminado)}>
                                                                     <svg viewBox="0 0 24 24" className="w-5" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
                                                                         <circle cx="12" cy="12" r="1"></circle>
                                                                         <circle cx="19" cy="12" r="1"></circle>
@@ -249,13 +280,16 @@ const Casos_component = () => {
                         </div>
                         <div className="p-6 space-y-6  text-base">
                             <div className="px-6 w-full">
-                                <label className="block text-base font-medium text-gray-700 dark:text-gray-200">Culminado: <span className="text-gray-400 dark:text-gray-400"> 45%</span></label>	
+                                <label className="block text-base font-medium text-gray-700 dark:text-gray-200">Culminado: <span className="text-gray-400 dark:text-gray-400"> 
+                                {culminado} %
+                                </span></label>	
                                 
                                 <input type="range" 
                                     className="w-full h-5 " 
-                                    min="0" max="100" step="1" defaultValue="0" 
+                                    min="0" max="100" step="1" 
+                                    value={culminado}
                                     onChange={(e) => {
-                                        console.log(e.target.value);
+                                        setCulminado(parseInt(e.target.value));
                                     }}
                                     />
                                  
@@ -273,7 +307,9 @@ const Casos_component = () => {
                             </div> 
                             <p className="text-gray-400 text-xs">Fecha y hora actual: {dateTime.toLocaleString()}</p>
                                 
-                            <button data-modal-toggle="default-modal" type="button" className="text-white bg-primary-450 hover:bg-primary-600 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-450 dark:hover:bg-primary-600 dark:focus:ring-blue-800 mr-2">Guardar</button>
+                            <button data-modal-toggle="default-modal" type="button" className="text-white bg-primary-450 hover:bg-primary-600 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-450 dark:hover:bg-primary-600 dark:focus:ring-blue-800 mr-2"
+                            onClick={updateCaso}
+                            >Guardar</button>
                             <button data-modal-toggle="default-modal" type="button" className="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:ring-gray-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600" onClick={cerrarModal}>Cancelar</button>
                         </div>
                        
