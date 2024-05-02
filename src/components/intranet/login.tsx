@@ -39,6 +39,7 @@ const Login_ = () => {
             <br />
             <button className="bg-primary-450 text-white rounded-lg shadow-sm px-4 py-2 mb-4" 
               onClick={handleLogin}
+              onKeyDown={e => e.key === 'Enter' && handleLogin()}
             >
               Iniciar sesión
             </button>
