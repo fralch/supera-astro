@@ -20,6 +20,24 @@ const Login_ = () => {
       console.log(err.response.data);
     });
   }
+
+  // useEffect(() => {
+  //   if(localStorage.getItem('token')) {
+  //     window.location.href = '/casos';
+  //   }
+  // }, []);
+
+  useEffect(() => {
+    // keyDown
+    const handleKeyDown = (e) => {
+      if(e.key === 'Enter') {
+        handleLogin();
+      }
+    }
+
+    document.addEventListener('keydown', handleKeyDown);
+  }, [usuario,clave]);
+
   return (
     <div className="py-5">
       <div className="max-w-7xl mx-auto px-0 sm:px-6 lg:px-8">
@@ -39,7 +57,7 @@ const Login_ = () => {
             <br />
             <button className="bg-primary-450 text-white rounded-lg shadow-sm px-4 py-2 mb-4" 
               onClick={handleLogin}
-              onKeyDown={e => e.key === 'Enter' && handleLogin()}
+             
             >
               Iniciar sesión
             </button>
