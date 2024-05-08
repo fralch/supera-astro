@@ -219,6 +219,7 @@ const Casos_component = () => {
                                             <th className="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800 sm:text-gray-400 text-white">Proceso</th>
                                             <th className="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800 sm:text-gray-400 text-white">Mesa</th>
                                             <th className="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800 sm:text-gray-400 text-white">Contrato</th>
+                                            <th className="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800 sm:text-gray-400 text-white">Pagos</th>
                                             <th className="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800 sm:text-gray-400 text-white">Acto Procesal</th>
                                             <th className="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800 sm:text-gray-400 text-white">Tiempo</th>
                                             <th className="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800 sm:text-gray-400 text-white">Culminado</th>
@@ -254,6 +255,18 @@ const Casos_component = () => {
                                                     <td className="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 md:table-cell ">{data.proceso}</td>
                                                     <td className="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 md:table-cell ">{data.mesa}</td>
                                                     <td className="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 md:table-cell ">{data.contrato}</td>
+                                                    <td className="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 md:table-cell ">
+                                                        <button className="text-blue-500
+                                                            hover:text-blue-700 focus:outline-none
+                                                            focus:ring-2 focus:ring-blue-300 font-medium rounded-lg text-sm px-2 py-1 text-center dark:text-blue-400 dark:hover:text-blue-500 dark:focus:ring-blue-800 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:z-10
+                                                            "
+                                                            onClick={() => {
+                                                                const modal = document.getElementById('modal-table-pagos');
+                                                                modal.classList.remove('hidden');
+                                                                modal.setAttribute('aria-hidden', 'false');
+                                                            }}
+                                                        >Ver</button>
+                                                    </td>
                                                     <td className="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 md:table-cell ">
                                                         <button className="text-blue-500
                                                             hover:text-blue-700 focus:outline-none
@@ -384,7 +397,6 @@ const Casos_component = () => {
                 </div>
             </div>
 
-            {/* modal cronometro  -- formatTime */}
             <div id="modal-cronometro" data-modal-show="true" aria-hidden="true" className="hidden overflow-x-hidden overflow-y-auto fixed h-modal md:h-full top-0 left-0 right-0 md:inset-0 z-50 flex items-center justify-center">
                 <div className="relative w-full max-w-2xl px-4 h-full md:h-auto">
                     <div className="bg-white rounded-lg shadow relative dark:bg-gray-700">
@@ -435,6 +447,64 @@ const Casos_component = () => {
                     </div>
                 </div>
             </div>
+            <div id="modal-table-pagos" data-modal-show="true" aria-hidden="true" className="hidden overflow-x-hidden overflow-y-auto fixed h-modal md:h-full top-0 left-0 right-0 md:inset-0 z-50 flex items-center justify-center">
+                <div className="relative w-full max-w-2xl px-4 h-full md:h-auto">
+                    <div className="bg-white rounded-lg shadow relative dark:bg-gray-700">
+                        <div className="flex items-start justify-between p-5 border-b rounded-t dark:border-gray-600">
+                            <h3 className="text-gray-900 text-xl lg:text-2xl font-semibold dark:text-white">
+                                Pagos
+                            </h3>
+                            <button type="button" className="text-gray-400 bg-gray-900 hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-red-400 dark:hover:text-white" data-modal-toggle="modal-table-pagos">
+                                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
+                            </button>
+                        </div>
+                        <div className="p-6  text-base ">
+                            <table className="text-left">
+                                <thead>
+                                    <tr className="text-gray-400 bg-primary-700 ">
+                                        <th className="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800">Fecha</th>
+                                        <th className="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800">Monto</th>
+                                        <th className="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800">Descripción</th>
+                                        <th className="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800">Estado</th>
+                                    </tr>
+                                </thead>
+                                <tbody className="text-gray-600 dark:text-gray-100">
+                                    <tr className="bg-gray-100 dark:bg-secondary-980">
+                                        <td className="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800">
+                                            <div className="flex items-center">
+                                                12/05/2023
+                                            </div>
+                                        </td>
+                                        <td className="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800">
+                                            <div className="flex items-center">
+                                                S/. 200.00
+                                            </div>
+                                        </td>
+                                        <td className="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 md:table-cell ">Pago por adelantado</td>
+                                        <td className="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 md:table-cell ">Pendiente</td>
+                                    </tr>
+                                    <tr className="bg-white dark:bg-secondary-800">
+                                        <td className="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800">
+                                            <div className="flex items-center">
+                                                12/05/2023
+                                            </div>
+                                        </td>
+                                        <td className="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800">
+                                            <div className="flex items-center">
+                                                S/. 200.00
+                                            </div>
+                                        </td>
+                                        <td className="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 md:table-cell ">Pago por adelantado</td>
+                                        <td className="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 md:table-cell ">Pendiente</td>
+                                    </tr>
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
 
         </section>
     )
