@@ -10,21 +10,6 @@ const Casos_component = () => {
     const [culminado, setCulminado] = useState(0);
     const [idCasoUpdate, setIdCasoUpdate] = useState(0);
     const [mesaFilter, setmesaFilter] = useState('');
-    const [dataTableFilter, setDataTableFilter] = useState([{
-        "id": 0,
-        "cliente": "",
-        "condicion": "",
-        "celular": "",
-        "expediente": "",
-        "fiscal": "",
-        "materia": "",
-        "proceso": "",
-        "mesa": "",
-        "contrato": "",
-        "acto_procesal": "",
-        "culminado": 0,
-        "fecha": ""
-    },]);
     const [dataTable, setDataTable] = useState([
         {
             "id": 885,
@@ -43,11 +28,19 @@ const Casos_component = () => {
         },
 
     ]);
+    const [dataTableFilter, setDataTableFilter] = useState(dataTable);
+    const [paginatedData, setPaginatedData] = useState([]);
+    const [currentPage, setCurrentPage] = useState(0);
+    
     useEffect(() => {
         axios.get('http://127.0.0.1:3000/casos')
             .then(response => {
                 setDataTable(response.data);
                 setDataTableFilter(response.data);
+                const pageSize = 10;
+                const paginatedData = dividirArray(response.data, pageSize);
+                setPaginatedData(paginatedData);
+                
 
             })
     }, []);
@@ -57,10 +50,15 @@ const Casos_component = () => {
             return data.mesa === mesaFilter;
         });
         setDataTableFilter(data);
+        setCurrentPage(0);
+        const pageSize = 10;
+        const paginatedData = dividirArray(data, pageSize);
+        setPaginatedData(paginatedData);
+
     }, [mesaFilter]);
 
     
-    useEffect(() => {
+    useEffect(() => { // Cronometro
         let interval;
 
         if (isRunning) {
@@ -75,6 +73,19 @@ const Casos_component = () => {
         clearInterval(interval);
         };
     }, [isRunning]);
+
+    const dividirArray = (array, pageSize) => {
+        let result = [];
+        for (let i = 0; i < Math.ceil(array.length / pageSize); i++) {
+          let start = i * pageSize;
+          result.push(array.slice(start, start + pageSize));
+        }
+        
+        return result;
+    }
+  
+    
+
 
     const abrirModal = (actoProcesal, idCasoUpdate, culminado) => {
         setActoProcesal(actoProcesal);
@@ -195,6 +206,11 @@ const Casos_component = () => {
                                                 return data.cliente.toLowerCase().includes(e.target.value.toLowerCase());
                                             });
                                             setDataTableFilter(data);
+                                            setCurrentPage(0);
+                                            const pageSize = 10;
+                                            const paginatedData = dividirArray(data, pageSize);
+                                            setPaginatedData(paginatedData);
+                                            
                                         }}
                                     />
 
@@ -204,9 +220,7 @@ const Casos_component = () => {
                         </div>
 
                         <div className="flex-grow bg-white dark:bg-secondary-800 overflow-y-auto">
-
                             <div className="sm:p-7 p-4">
-
                                 <table className="text-left">
                                     <thead>
                                         <tr className="text-gray-400 bg-primary-700 ">
@@ -224,15 +238,11 @@ const Casos_component = () => {
                                             <th className="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800 sm:text-gray-400 text-white">Tiempo</th>
                                             <th className="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800 sm:text-gray-400 text-white">Culminado</th>
                                             <th className="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800 sm:text-gray-400 text-white">Ultimo acceso</th>
-
-
-
                                         </tr>
                                     </thead>
                                     <tbody className="text-gray-600 dark:text-gray-100">
-
                                         {
-                                            dataTableFilter.map((data, index) => (
+                                             paginatedData[currentPage] && paginatedData[currentPage].map((data, index) => (
 
                                                 <tr key={index} className={
                                                     data.id % 2 === 0 ? "bg-gray-100 dark:bg-secondary-980" : "bg-white dark:bg-secondary-800"
@@ -256,10 +266,7 @@ const Casos_component = () => {
                                                     <td className="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 md:table-cell ">{data.mesa}</td>
                                                     <td className="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 md:table-cell ">{data.contrato}</td>
                                                     <td className="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 md:table-cell ">
-                                                        <button className="text-blue-500
-                                                            hover:text-blue-700 focus:outline-none
-                                                            focus:ring-2 focus:ring-blue-300 font-medium rounded-lg text-sm px-2 py-1 text-center dark:text-blue-400 dark:hover:text-blue-500 dark:focus:ring-blue-800 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:z-10
-                                                            "
+                                                        <button className="text-blue-500 hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300 font-medium rounded-lg text-sm px-2 py-1 text-center dark:text-blue-400 dark:hover:text-blue-500 dark:focus:ring-blue-800 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:z-10"
                                                             onClick={() => {
                                                                 const modal = document.getElementById('modal-table-pagos');
                                                                 modal.classList.remove('hidden');
@@ -268,19 +275,13 @@ const Casos_component = () => {
                                                         >Ver</button>
                                                     </td>
                                                     <td className="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 md:table-cell ">
-                                                        <button className="text-blue-500
-                                                            hover:text-blue-700 focus:outline-none
-                                                            focus:ring-2 focus:ring-blue-300 font-medium rounded-lg text-sm px-2 py-1 text-center dark:text-blue-400 dark:hover:text-blue-500 dark:focus:ring-blue-800 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:z-10
-                                                            "
+                                                        <button className="text-blue-500 hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300 font-medium rounded-lg text-sm px-2 py-1 text-center dark:text-blue-400 dark:hover:text-blue-500 dark:focus:ring-blue-800 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:z-10"
                                                             onClick={() => abrirModalActoProcesal(data.acto_procesal)}
                                                         >Abrir</button>
                                                     </td>
                                                     <td className="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 md:table-cell ">
                                                         <div className="flex items-center">
-                                                            <button className="text-green-500
-                                                                hover:text-green-700 focus:outline-none
-                                                                focus:ring-2 focus:ring-green-300 font-medium rounded-lg text-sm px-2 py-1 text-center dark:text-green-400 dark:hover:text-green-500 dark:focus:ring-green-800 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:z-10
-                                                                "
+                                                            <button className="text-green-500 hover:text-green-700 focus:outline-none focus:ring-2 focus:ring-green-300 font-medium rounded-lg text-sm px-2 py-1 text-center dark:text-green-400 dark:hover:text-green-500 dark:focus:ring-green-800 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:z-10"
                                                                 onClick={() => {
                                                                     setTime(0);
                                                                     setIsRunning(true);
@@ -318,7 +319,16 @@ const Casos_component = () => {
 
                                     </tbody>
                                 </table>
-
+                                <button className='text-|-500 hover:text-yellow-700 focus:outline-none focus:ring-2 focus:ring-yellow-300 font-medium rounded-lg text-sm px-2 py-1 text-center dark:text-yellow-400 dark:hover:text-yellow-500 dark:focus:ring-yellow-800 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:z-10'onClick={() => setCurrentPage(currentPage - 1)} disabled={currentPage === 0}>
+                                    Anterior
+                                </button>
+                                        
+                                <span className=' mx-3'>
+                                    {currentPage + 1} de {paginatedData.length}
+                                </span>
+                                <button className='text-|-500 hover:text-yellow-700 focus:outline-none focus:ring-2 focus:ring-yellow-300 font-medium rounded-lg text-sm px-2 py-1 text-center dark:text-yellow-400 dark:hover:text-yellow-500 dark:focus:ring-yellow-800 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:z-10' onClick={() => setCurrentPage(currentPage + 1)} disabled={currentPage === paginatedData.length - 1}>
+                                    Siguiente
+                                </button>
                             </div>
                         </div>
                     </div>
