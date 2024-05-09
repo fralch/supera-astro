@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef} from 'react';
 import axios from 'axios';
 
 
@@ -31,7 +31,11 @@ const Casos_component = () => {
     const [dataTableFilter, setDataTableFilter] = useState(dataTable);
     const [paginatedData, setPaginatedData] = useState([]);
     const [currentPage, setCurrentPage] = useState(0);
-    
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    // referenciar un div 
+    const blurRef = useRef(null);
+
     useEffect(() => {
         axios.get('http://127.0.0.1:3000/casos')
             .then(response => {
@@ -83,7 +87,7 @@ const Casos_component = () => {
         
         return result;
     }
-  
+   
     
 
 
@@ -94,12 +98,17 @@ const Casos_component = () => {
         const modal = document.getElementById('default-modal');
         modal.classList.remove('hidden');
         modal.setAttribute('aria-hidden', 'false');
+        setIsModalOpen(true);
+        blurRef.current.classList.add('modal-open');
+       
     }
     const cerrarModal = () => {
         setActoProcesal('');
         const modal = document.getElementById('default-modal');
         modal.classList.add('hidden');
         modal.setAttribute('aria-hidden', 'true');
+        setIsModalOpen(false);
+        blurRef.current.classList.remove('modal-open');
     }
 
     const abrirModalActoProcesal = (actoProcesal) => {
@@ -107,12 +116,17 @@ const Casos_component = () => {
         const modal = document.getElementById('modal-acto-procesal');
         modal.classList.remove('hidden');
         modal.setAttribute('aria-hidden', 'false');
+        setIsModalOpen(true);
+        blurRef.current.classList.add('modal-open');
     }
     const cerrarModalActoProcesal = () => {
         setActoProcesal('');
         const modal = document.getElementById('modal-acto-procesal');
         modal.classList.add('hidden');
         modal.setAttribute('aria-hidden', 'true');
+        setIsModalOpen(false);
+        blurRef.current.classList.remove('modal-open');
+        
     }
 
     const convertirFecha = (fecha) => {
@@ -152,11 +166,11 @@ const Casos_component = () => {
     }
     return (
         <section className="    py-2 bg-primary-980 mt-20 lg:mt-10 mx-auto">
-            <div className="bg-gray-100 dark:bg-secondary-900 dark:text-white text-gray-600 flex overflow-hidden text-sm">
+            <div id='222' className=" bg-gray-100 dark:bg-secondary-900 dark:text-white text-gray-600 flex overflow-hidden text-sm" >
 
                 <div className="flex-grow overflow-hidden h-full flex flex-col">
 
-                    <div className="flex-grow flex overflow-x-hidden">
+                    <div className="flex-grow flex overflow-x-hidden" ref={blurRef}>
                         <div className="xl:w-72 w-48 flex-shrink-0 border-r border-gray-200 dark:border-gray-800 h-full overflow-y-auto lg:block hidden p-5">
                             <div className="text-xs text-gray-400 tracking-wider">CASOS</div>
 
@@ -288,6 +302,8 @@ const Casos_component = () => {
                                                                     const modal = document.getElementById('modal-cronometro');
                                                                     modal.classList.remove('hidden');
                                                                     modal.setAttribute('aria-hidden', 'false');
+                                                                    setIsModalOpen(true);
+                                                                    blurRef.current.classList.add('modal-open');
                                                                 }}
                                                             >Iniciar</button>                                                         
                                                           
@@ -421,6 +437,8 @@ const Casos_component = () => {
                                     const modal = document.getElementById('modal-cronometro');
                                     modal.classList.add('hidden');
                                     modal.setAttribute('aria-hidden', 'true');
+                                    setIsModalOpen(false);
+                                    blurRef.current.classList.remove('modal-open');
                                 }
                             }>
                                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
@@ -447,6 +465,8 @@ const Casos_component = () => {
                                                     const modal = document.getElementById('modal-cronometro');
                                                     modal.classList.add('hidden');
                                                     modal.setAttribute('aria-hidden', 'true');
+                                                    setIsModalOpen(false);
+                                                    blurRef.current.classList.remove('modal-open');
                                                 }
                                             } >Cancelar</button>
                                         </div>
@@ -468,52 +488,90 @@ const Casos_component = () => {
                                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
                             </button>
                         </div>
-                        <div className="p-6  text-base ">
-                            <table className="text-left">
-                                <thead>
-                                    <tr className="text-gray-400 bg-primary-700 ">
-                                        <th className="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800">Fecha</th>
-                                        <th className="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800">Monto</th>
-                                        <th className="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800">Descripción</th>
-                                        <th className="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800">Estado</th>
+                        <div className="overflow-x-auto">
+                            <table
+                                className="min-w-full divide-y-2 divide-gray-200 bg-white text-sm dark:divide-gray-700 dark:bg-gray-900"
+                            >
+                                <thead className="ltr:text-left rtl:text-right">
+                                    <tr>
+                                        <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">Name</th>
+                                        <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
+                                            Date of Birth
+                                        </th>
+                                        <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">Role</th>
+                                        <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
+                                            Salary
+                                        </th>
+                                        <th className="px-4 py-2"></th>
                                     </tr>
                                 </thead>
-                                <tbody className="text-gray-600 dark:text-gray-100">
-                                    <tr className="bg-gray-100 dark:bg-secondary-980">
-                                        <td className="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800">
-                                            <div className="flex items-center">
-                                                12/05/2023
-                                            </div>
+
+                                <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
+                                    <tr>
+                                        <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
+                                            John Doe
                                         </td>
-                                        <td className="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800">
-                                            <div className="flex items-center">
-                                                S/. 200.00
-                                            </div>
+                                        <td className="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200">24/05/1995</td>
+                                        <td className="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200">Web Developer</td>
+                                        <td className="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200">$120,000</td>
+                                        <td className="whitespace-nowrap px-4 py-2">
+                                            <a
+                                                href="#"
+                                                className="inline-block rounded bg-indigo-600 px-4 py-2 text-xs font-medium text-white hover:bg-indigo-700"
+                                            >
+                                                View
+                                            </a>
                                         </td>
-                                        <td className="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 md:table-cell ">Pago por adelantado</td>
-                                        <td className="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 md:table-cell ">Pendiente</td>
                                     </tr>
-                                    <tr className="bg-white dark:bg-secondary-800">
-                                        <td className="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800">
-                                            <div className="flex items-center">
-                                                12/05/2023
-                                            </div>
+
+                                    <tr>
+                                        <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
+                                            Jane Doe
                                         </td>
-                                        <td className="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800">
-                                            <div className="flex items-center">
-                                                S/. 200.00
-                                            </div>
+                                        <td className="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200">04/11/1980</td>
+                                        <td className="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200">Web Designer</td>
+                                        <td className="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200">$100,000</td>
+                                        <td className="whitespace-nowrap px-4 py-2">
+                                            <a
+                                                href="#"
+                                                className="inline-block rounded bg-indigo-600 px-4 py-2 text-xs font-medium text-white hover:bg-indigo-700"
+                                            >
+                                                View
+                                            </a>
                                         </td>
-                                        <td className="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 md:table-cell ">Pago por adelantado</td>
-                                        <td className="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 md:table-cell ">Pendiente</td>
                                     </tr>
-                                    
+
+                                    <tr>
+                                        <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
+                                            Gary Barlow
+                                        </td>
+                                        <td className="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200">24/05/1995</td>
+                                        <td className="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200">Singer</td>
+                                        <td className="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200">$20,000</td>
+                                        <td className="whitespace-nowrap px-4 py-2">
+                                            <a
+                                                href="#"
+                                                className="inline-block rounded bg-indigo-600 px-4 py-2 text-xs font-medium text-white hover:bg-indigo-700"
+                                            >
+                                                View
+                                            </a>
+                                        </td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>
+
                     </div>
                 </div>
             </div>
+
+            <style>
+                {`
+                    .modal-open{
+                        filter: blur(5px);
+                    }
+                `}
+            </style>
             
 
         </section>
