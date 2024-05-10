@@ -280,7 +280,7 @@ const Casos_component = () => {
                                                     <td className="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 md:table-cell ">{data.mesa}</td>
                                                     <td className="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 md:table-cell ">{data.contrato}</td>
                                                     <td className="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 md:table-cell ">
-                                                        <button className="text-blue-500 hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300 font-medium rounded-lg text-sm px-2 py-1 text-center dark:text-blue-400 dark:hover:text-blue-500 dark:focus:ring-blue-800 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:z-10"
+                                                        <button className="text-yellow-500 hover:text-yellow-700 focus:outline-none focus:ring-2 focus:ring-yellow-300 font-medium rounded-lg text-sm px-2 py-1 text-center dark:text-yellow-400 dark:hover:text-yellow-500 dark:focus:ring-yellow-800 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:z-10"
                                                             onClick={() => {
                                                                 const modal = document.getElementById('modal-table-pagos');
                                                                 modal.classList.remove('hidden');
@@ -337,14 +337,14 @@ const Casos_component = () => {
 
                                     </tbody>
                                 </table>
-                                <button className='text-|-500 hover:text-yellow-700 focus:outline-none focus:ring-2 focus:ring-yellow-300 font-medium rounded-lg text-sm px-2 py-1 text-center dark:text-yellow-400 dark:hover:text-yellow-500 dark:focus:ring-yellow-800 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:z-10'onClick={() => setCurrentPage(currentPage - 1)} disabled={currentPage === 0}>
+                                <button className=' mt-3 text-|-500 hover:text-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium rounded-lg text-sm px-2 py-1 text-center dark:text-gray-400 dark:hover:text-gray-500 dark:focus:ring-gray-800 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:z-10'onClick={() => setCurrentPage(currentPage - 1)} disabled={currentPage === 0}>
                                     Anterior
                                 </button>
                                         
                                 <span className=' mx-3'>
                                     {currentPage + 1} de {paginatedData.length}
                                 </span>
-                                <button className='text-|-500 hover:text-yellow-700 focus:outline-none focus:ring-2 focus:ring-yellow-300 font-medium rounded-lg text-sm px-2 py-1 text-center dark:text-yellow-400 dark:hover:text-yellow-500 dark:focus:ring-yellow-800 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:z-10' onClick={() => setCurrentPage(currentPage + 1)} disabled={currentPage === paginatedData.length - 1}>
+                                <button className='text-|-500 hover:text-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium rounded-lg text-sm px-2 py-1 text-center dark:text-gray-400 dark:hover:text-gray-500 dark:focus:ring-gray-800 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:z-10' onClick={() => setCurrentPage(currentPage + 1)} disabled={currentPage === paginatedData.length - 1}>
                                     Siguiente
                                 </button>
                             </div>
