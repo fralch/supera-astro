@@ -278,7 +278,20 @@ const Casos_component = () => {
                                                     <td className="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 md:table-cell ">{data.materia}</td>
                                                     <td className="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 md:table-cell ">{data.proceso}</td>
                                                     <td className="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 md:table-cell ">{data.mesa}</td>
-                                                    <td className="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 md:table-cell ">{data.contrato}</td>
+                                                    <td className="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 md:table-cell ">
+                                                        <button className="text-orange-500 hover:text-orange-700 focus:outline-none focus:ring-2 focus:ring-orange-300 font-medium rounded-lg text-sm px-2 py-1 text-center dark:text-orange-400 dark:hover:text-orange-500 dark:focus:ring-orange-800 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:z-10"
+                                                            onClick={() => {
+                                                                const modal = document.getElementById('modal-upload-file');
+                                                                modal.classList.remove('hidden');
+                                                                modal.setAttribute('aria-hidden', 'false');
+                                                                setIsModalOpen(true);
+                                                                blurRef.current.classList.add('modal-open');
+                                                                 
+                                                            }}
+                                                        >{data.contrato}
+                                                        </button>
+                                                        
+                                                    </td>
                                                     <td className="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 md:table-cell ">
                                                         <button className="text-yellow-500 hover:text-yellow-700 focus:outline-none focus:ring-2 focus:ring-yellow-300 font-medium rounded-lg text-sm px-2 py-1 text-center dark:text-yellow-400 dark:hover:text-yellow-500 dark:focus:ring-yellow-800 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:z-10"
                                                             onClick={() => {
@@ -584,6 +597,46 @@ const Casos_component = () => {
                 </div>
             </div>
 
+            <div id="modal-upload-file" data-modal-show="true" aria-hidden="true" className="hidden overflow-x-hidden overflow-y-auto fixed h-modal md:h-full top-0 left-0 right-0 md:inset-0 z-50 flex items-center justify-center">                 
+                        <div className="sm:max-w-lg w-full p-10 bg-primary-980 rounded-xl z-10">
+                            <div className="text-center">
+                                <h2 className="mt-5 text-3xl font-bold text-white">
+                                    File Upload!
+                                </h2>
+                                <p className="mt-2 text-sm text-gray-400">Lorem ipsum is placeholder text.</p>
+                            </div>
+                            <form className="mt-8 space-y-3" action="#" method="POST">
+                                        <div className="grid grid-cols-1 space-y-2">
+                                            <label className="text-sm font-bold text-gray-500 tracking-wide">Title</label>
+                                                <input className="text-base p-2 border border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500" type="" placeholder="mail@gmail.com"/>
+                                        </div>
+                                        <div className="grid grid-cols-1 space-y-2">
+                                                        <label className="text-sm font-bold text-gray-500 tracking-wide">Attach Document</label>
+                                            <div className="flex items-center justify-center w-full">
+                                                <label className="flex flex-col rounded-lg border-4 border-dashed w-full h-60 p-10 group text-center bg-white">
+                                                    <div className="h-full w-full text-center flex flex-col items-center justify-center items-center  ">
+                                                    
+                                                        <div className="flex flex-auto max-h-48 w-2/5 mx-auto -mt-10">
+                                                        <img className="has-mask h-36 object-center mt-6" src="https://img.freepik.com/free-vector/image-upload-concept-landing-page_52683-27130.jpg?size=338&ext=jpg" alt="freepik image"/>
+                                                        </div>
+                                                        <p className="pointer-none text-gray-500 "><span className="text-sm">Drag and drop</span> files here <br /> or <a href="" id="" className="text-blue-600 hover:underline">select a file</a> from your computer</p>
+                                                    </div>
+                                                    <input type="file" className="hidden" />
+                                                </label>
+                                            </div>
+                                        </div>
+                                                <p className="text-sm text-gray-300">
+                                                    <span>File type: doc,pdf,types of images</span>
+                                                </p>
+                                        <div>
+                                            <button type="submit" className="my-5 w-full flex justify-center bg-blue-500 text-gray-100 p-4  rounded-full tracking-wide
+                                                        font-semibold  focus:outline-none focus:shadow-outline hover:bg-blue-600 shadow-lg cursor-pointer transition ease-in duration-300">
+                                            Upload
+                                        </button>
+                                        </div>
+                            </form>
+                        </div>     
+            </div>
             <style>
                 {`
                     .modal-open{
