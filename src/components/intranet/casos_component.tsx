@@ -391,7 +391,7 @@ const Casos_component = () => {
                                     }></textarea>
 
                             </div>
-                            <p className="text-gray-400 text-xs">Fecha y hora actual: {dateTime.toLocaleString()}</p>
+                           
 
                             <button data-modal-toggle="default-modal" type="button" className="text-white bg-primary-450 hover:bg-primary-600 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-450 dark:hover:bg-primary-600 dark:focus:ring-blue-800 mr-2"
                                 onClick={updateCaso}
@@ -451,6 +451,7 @@ const Casos_component = () => {
                                 
                                 <p>Descripción</p>
                                 <textarea className='w-full h-24 px-3 py-2 text-base placeholder-gray-300 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-450 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-100' placeholder='Agregar descripción (Opcional)'></textarea>          
+                                <p className="text-gray-400 text-xs">Fecha y hora actual: {dateTime.toLocaleString()}</p>
                                 <div className='flex justify-between mt-5'>
                                        <div className='space-x-2'>
                                             <button className='bg-gray-500 hover:bg-gray-600 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center text-white dark:bg-gray-500 dark:hover:bg-gray-600 dark:focus:ring-gray-800'  onClick={() => setIsRunning(!isRunning)}>{isRunning ? 'Pausar' : 'Reanudar'}</button>
@@ -500,21 +501,17 @@ const Casos_component = () => {
                                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
                             </button>
                         </div>
-                        <div className="overflow-x-auto">
+                        <div className="overflow-x-auto p-5">
                             <table
-                                className="min-w-full divide-y-2 divide-gray-200 bg-white text-sm dark:divide-gray-700 dark:bg-gray-900"
+                                className="min-w-full divide-y-2 divide-gray-700 bg-primary-980 text-sm dark:divide-gray-700 dark:bg-primary-980"
                             >
                                 <thead className="ltr:text-left rtl:text-right">
                                     <tr>
-                                        <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">Name</th>
-                                        <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
-                                            Date of Birth
-                                        </th>
-                                        <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">Role</th>
-                                        <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
-                                            Salary
-                                        </th>
-                                        <th className="px-4 py-2"></th>
+                                        <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">Nombre</th>
+                                        <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">Fecha</th>
+                                        <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">Estado</th>
+                                        <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">Monto</th>
+                                        <th className="px-4 py-2">Acciones</th>
                                     </tr>
                                 </thead>
 
@@ -524,14 +521,14 @@ const Casos_component = () => {
                                             John Doe
                                         </td>
                                         <td className="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200">24/05/1995</td>
-                                        <td className="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200">Web Developer</td>
+                                        <td className="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200"><p className="text-yellow-500  font-medium rounded-lg text-sm px-2 py-1 text-center dark:text-yellow-400   dark:bg-gray-700 ">Pendiente</p></td>
                                         <td className="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200">$120,000</td>
                                         <td className="whitespace-nowrap px-4 py-2">
                                             <a
                                                 href="#"
-                                                className="inline-block rounded bg-indigo-600 px-4 py-2 text-xs font-medium text-white hover:bg-indigo-700"
+                                                className="inline-block rounded bg-primary-450 px-4 py-2 text-xs font-medium text-white hover:bg-primary-500"
                                             >
-                                                View
+                                                Ver
                                             </a>
                                         </td>
                                     </tr>
@@ -541,14 +538,14 @@ const Casos_component = () => {
                                             Jane Doe
                                         </td>
                                         <td className="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200">04/11/1980</td>
-                                        <td className="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200">Web Designer</td>
+                                        <td className="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200"><p className="text-green-500  font-medium rounded-lg text-sm px-2 py-1 text-center dark:text-green-400   dark:bg-gray-700 ">Pagado</p></td>
                                         <td className="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200">$100,000</td>
                                         <td className="whitespace-nowrap px-4 py-2">
                                             <a
                                                 href="#"
-                                                className="inline-block rounded bg-indigo-600 px-4 py-2 text-xs font-medium text-white hover:bg-indigo-700"
+                                                className="inline-block rounded bg-primary-450 px-4 py-2 text-xs font-medium text-white hover:bg-primary-500"
                                             >
-                                                View
+                                                Ver
                                             </a>
                                         </td>
                                     </tr>
@@ -558,21 +555,31 @@ const Casos_component = () => {
                                             Gary Barlow
                                         </td>
                                         <td className="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200">24/05/1995</td>
-                                        <td className="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200">Singer</td>
+                                        <td className="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200"><p className="text-red-500  font-medium rounded-lg text-sm px-2 py-1 text-center dark:text-red-400   dark:bg-gray-700 ">Anulado</p></td>
                                         <td className="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200">$20,000</td>
                                         <td className="whitespace-nowrap px-4 py-2">
                                             <a
                                                 href="#"
-                                                className="inline-block rounded bg-indigo-600 px-4 py-2 text-xs font-medium text-white hover:bg-indigo-700"
+                                                className="inline-block rounded bg-primary-450 px-4 py-2 text-xs font-medium text-white hover:bg-primary-500"
                                             >
-                                                View
+                                                Ver
                                             </a>
                                         </td>
+                                    </tr>
+                                    {/* total de los pagos */}
+                                    <tr>
+                                        <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
+                                            Total
+                                        </td>
+                                        <td className="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200"></td>
+                                        <td className="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200"></td>
+                                        <td className="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200">$220,000</td>
+                                        <td className="whitespace-nowrap px-4 py-2"></td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
-
+                      
                     </div>
                 </div>
             </div>
