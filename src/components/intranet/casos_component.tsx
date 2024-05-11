@@ -601,14 +601,17 @@ const Casos_component = () => {
                         <div className="sm:max-w-lg w-full p-10 bg-primary-980 rounded-xl z-10">
                             <div className="text-center">
                                 <h2 className="mt-5 text-3xl font-bold text-white">
-                                    File Upload!
+                                    Contrato
                                 </h2>
                                 <p className="mt-2 text-sm text-gray-400">Lorem ipsum is placeholder text.</p>
                             </div>
                             <form className="mt-8 space-y-3" action="#" method="POST">
-                                        <div className="grid grid-cols-1 space-y-2">
-                                            <label className="text-sm font-bold text-gray-500 tracking-wide">Title</label>
-                                                <input className="text-base p-2 border border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500" type="" placeholder="mail@gmail.com"/>
+                                        <div className=" text-center">
+                                            <button className=' bg-teal-800'>
+                                                Descargar
+                                            </button>
+                                    
+                                        
                                         </div>
                                         <div className="grid grid-cols-1 space-y-2">
                                                         <label className="text-sm font-bold text-gray-500 tracking-wide">Attach Document</label>
