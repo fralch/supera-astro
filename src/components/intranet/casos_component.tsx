@@ -607,33 +607,31 @@ const Casos_component = () => {
                             </div>
                             <form className="mt-8 space-y-3" action="#" method="POST">
                                         <div className=" text-center">
-                                            <button className=' bg-teal-800'>
+                                            <button className=' w-2/3 py-4 bg-secondary-300 text-white px-4  rounded-full hover:bg-teal-700 focus:outline-none focus:ring-2 font-medium text-sm dark:bg-secondary-500 dark:hover:bg-secondary-700  dark:text-white'>
                                                 Descargar
                                             </button>
-                                    
+
                                         
                                         </div>
                                         <div className="grid grid-cols-1 space-y-2">
-                                                        <label className="text-sm font-bold text-gray-500 tracking-wide">Attach Document</label>
+                                                        <label className="text-sm font-bold text-gray-500 tracking-wide">Adjuntar Documento</label>
                                             <div className="flex items-center justify-center w-full">
-                                                <label className="flex flex-col rounded-lg border-4 border-dashed w-full h-60 p-10 group text-center bg-white">
-                                                    <div className="h-full w-full text-center flex flex-col items-center justify-center items-center  ">
-                                                    
+                                                <label className="flex flex-col rounded-lg border-4 border-dashed w-full h-60 p-10 group text-center ">
+                                                    <div className="h-full w-full text-center flex flex-col items-center justify-center   ">
                                                         <div className="flex flex-auto max-h-48 w-2/5 mx-auto -mt-10">
-                                                        <img className="has-mask h-36 object-center mt-6" src="https://img.freepik.com/free-vector/image-upload-concept-landing-page_52683-27130.jpg?size=338&ext=jpg" alt="freepik image"/>
+                                                            <img className="has-mask h-36 object-center mt-6" src="./upload.png" alt="freepik image"/>
                                                         </div>
-                                                        <p className="pointer-none text-gray-500 "><span className="text-sm">Drag and drop</span> files here <br /> or <a href="" id="" className="text-blue-600 hover:underline">select a file</a> from your computer</p>
+                                                        <p className="pointer-none text-gray-500 "><span className="text-sm">Arrastra y suelta el</span> Archivo aqui <br /> o <a href="" id="" className="text-amber-600 hover:underline">selecciona un archivo</a> desde tu pc</p>
                                                     </div>
                                                     <input type="file" className="hidden" />
                                                 </label>
                                             </div>
                                         </div>
                                                 <p className="text-sm text-gray-300">
-                                                    <span>File type: doc,pdf,types of images</span>
+                                                    <span>Tipos: doc,pdf</span>
                                                 </p>
                                         <div>
-                                            <button type="submit" className="my-5 w-full flex justify-center bg-blue-500 text-gray-100 p-4  rounded-full tracking-wide
-                                                        font-semibold  focus:outline-none focus:shadow-outline hover:bg-blue-600 shadow-lg cursor-pointer transition ease-in duration-300">
+                                            <button type="submit" className="my-5 w-full flex justify-center bg-primary-450 text-gray-100 p-4  rounded-full tracking-wide font-semibold  focus:outline-none focus:shadow-outline hover:bg-secondary-50 shadow-lg cursor-pointer transition ease-in duration-300">
                                             Upload
                                         </button>
                                         </div>
