@@ -101,6 +101,19 @@ const Login_ = () => {
           </div>
         </div>
       </div>
+      <style>
+        {`
+            .swal2-confirm{
+              background-color: #0A6C48 !important;
+              color: #fff !important;
+              
+            }
+            .swal2-modal{
+              background-color: #23262D !important;
+              color: #fff !important;
+            }
+          `}
+      </style>
     </div>
   );
 };
