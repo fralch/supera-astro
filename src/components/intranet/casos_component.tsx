@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
+import { r } from '../../../dist/_astro/index.NEDEFKed';
 
 const Casos_component = () => {
   const [dateTime, setDateTime] = useState(new Date());
@@ -30,12 +31,14 @@ const Casos_component = () => {
   const [paginatedData, setPaginatedData] = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [permisoUsuario, setPermisoUsuario] = useState(false);
 
   // referenciar un div
   const blurRef = useRef(null);
 
   useEffect(() => {
     axios.get('http://127.0.0.1:3000/casos').then((response) => {
+      console.log(response.data);
       setDataTable(response.data);
       setDataTableFilter(response.data);
       const pageSize = 10;
@@ -158,6 +161,18 @@ const Casos_component = () => {
     let diferencia = fecha_actual.getTime() - fecha_ingresada.getTime();
     let dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
     return dias;
+  };
+
+  const validarPermiso = (arrayUsers) => {
+    const usuarioLogueado = 'frank_cc'; //localStorage.getItem('usuario');
+    let rest = false;
+    arrayUsers.forEach((element) => {
+      if (element === usuarioLogueado) {
+        setPermisoUsuario(true);
+        rest = true;
+      }
+    });
+    return rest;
   };
   return (
     <section className='    py-2 bg-primary-980 mt-20 lg:mt-10 mx-auto'>
@@ -365,6 +380,8 @@ const Casos_component = () => {
                             <button
                               className='text-orange-500 hover:text-orange-700 focus:outline-none focus:ring-2 focus:ring-orange-300 font-medium rounded-lg text-sm px-2 py-1 text-center dark:text-orange-400 dark:hover:text-orange-500 dark:focus:ring-orange-800 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:z-10'
                               onClick={() => {
+                                validarPermiso(data.usuarios_dni);
+
                                 const modal =
                                   document.getElementById('modal-upload-file');
                                 modal.classList.remove('hidden');
@@ -938,7 +955,11 @@ const Casos_component = () => {
                 Descargar
               </button>
             </div>
-            <div className='grid grid-cols-1 space-y-2'>
+            <div
+              className={
+                permisoUsuario ? 'grid grid-cols-1 space-y-2' : 'hidden'
+              }
+            >
               <label className='text-sm font-bold text-gray-500 tracking-wide'>
                 Adjuntar Documento
               </label>
@@ -971,17 +992,17 @@ const Casos_component = () => {
                   />
                 </label>
               </div>
-            </div>
-            <p className='text-sm text-gray-300'>
-              <span>Tipos: doc,pdf</span>
-            </p>
-            <div>
-              <button
-                type='submit'
-                className='my-5 w-full flex justify-center bg-primary-450 text-gray-100 p-4  rounded-full tracking-wide font-semibold  focus:outline-none focus:shadow-outline hover:bg-secondary-50 shadow-lg cursor-pointer transition ease-in duration-300'
-              >
-                Upload
-              </button>
+              <p className='text-sm text-gray-300'>
+                <span>Tipos: doc,pdf</span>
+              </p>
+              <div>
+                <button
+                  type='submit'
+                  className='my-5 w-full flex justify-center bg-primary-450 text-gray-100 p-4  rounded-full tracking-wide font-semibold  focus:outline-none focus:shadow-outline hover:bg-secondary-50 shadow-lg cursor-pointer transition ease-in duration-300'
+                >
+                  Upload
+                </button>
+              </div>
             </div>
           </form>
         </div>
