@@ -28,7 +28,7 @@ const Login_ = () => {
         console.log();
 
         if (res.data) {
-          localStorage.setItem('token', res.data);
+          localStorage.setItem('userData', JSON.stringify(res.data));
           window.location.href = '/casos';
         } else {
           Swal.fire({

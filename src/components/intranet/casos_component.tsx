@@ -32,9 +32,19 @@ const Casos_component = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [permisoUsuario, setPermisoUsuario] = useState(false);
+  const [userData, setUserData] = useState(null);
 
   // referenciar un div
   const blurRef = useRef(null);
+
+  useEffect(() => {
+    if (localStorage.getItem('userData')) {
+      console.log(JSON.parse(localStorage.getItem('userData')));
+      setUserData(JSON.parse(localStorage.getItem('userData')));
+    } else {
+      window.location.href = '/';
+    }
+  }, []);
 
   useEffect(() => {
     axios.get('http://127.0.0.1:3000/casos').then((response) => {
@@ -164,7 +174,7 @@ const Casos_component = () => {
   };
 
   const validarPermiso = (arrayUsers) => {
-    const usuarioLogueado = 'frank_cc'; //localStorage.getItem('usuario');
+    const usuarioLogueado = userData.usuario;
     let rest = false;
     arrayUsers.forEach((element) => {
       if (element === usuarioLogueado) {
