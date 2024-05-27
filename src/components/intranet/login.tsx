@@ -3,69 +3,41 @@ import axios from 'axios';
 import Swal from 'sweetalert2';
 
 const Login_ = () => {
-  const [usuario, setUser] = useState(null);
-  const [clave, setClave] = useState(null);
-  const [loading, setLoading] = useState(false);
-  let timerInterval;
+  const [usuario, setUser] = useState('');
+  const [clave, setClave] = useState('');
 
-  const handleLogin = () => {
-    setLoading(true);
-    Swal.fire({
-      title: 'Espere por favor',
-      html: 'Verificando datos',
-      allowOutsideClick: false,
-      didOpen: () => {
-        Swal.showLoading();
-      },
-    });
+  const handleLogin = async () => {
+    console.log('login', usuario, clave);
+    if (usuario !== '' && clave !== '') {
+      Swal.fire({
+        title: 'Espere por favor',
+        html: 'Verificando datos',
+        allowOutsideClick: false,
+        didOpen: () => {
+          Swal.showLoading();
+        },
+      });
 
-    axios
-      .post('http://127.0.0.1:3000/usuarios/login', {
-        usuario,
-        clave,
-      })
-      .then((res) => {
-        console.log();
-
+      // console.log(usuario, clave);
+      try {
+        const res = await axios.post('http://127.0.0.1:3000/usuarios/login', {
+          usuario,
+          clave,
+        });
+        console.log(res.data);
         if (res.data) {
           localStorage.setItem('userData', JSON.stringify(res.data));
           window.location.href = '/casos';
-        } else {
-          Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: 'Usuario o contraseña incorrectos',
-          });
-          setLoading(false);
         }
-      })
-      .catch((err) => {
-        console.log(err.response.data);
+      } catch (error) {
         Swal.fire({
           icon: 'error',
-          title: 'Ups...',
+          title: 'Error',
           text: 'Usuario o contraseña incorrectos',
         });
-        setLoading(false);
-      });
-  };
-
-  // useEffect(() => {
-  //   if(localStorage.getItem('token')) {
-  //     window.location.href = '/casos';
-  //   }
-  // }, []);
-
-  useEffect(() => {
-    // keyDown
-    const handleKeyDown = (e) => {
-      if (e.key === 'Enter') {
-        handleLogin();
       }
-    };
-
-    document.addEventListener('keydown', handleKeyDown);
-  }, [usuario, clave]);
+    }
+  };
 
   return (
     <div className='py-5'>
@@ -77,7 +49,7 @@ const Login_ = () => {
 
           <div className='w-ful'>
             <input
-              type='email'
+              type='text'
               placeholder='Correo electrónico'
               className=' border border-gray-300 rounded-lg shadow-sm px-4 py-2 mb-4 text-gray-900'
               onChange={(e) => setUser(e.target.value)}
@@ -96,8 +68,6 @@ const Login_ = () => {
             >
               Iniciar sesión
             </button>
-
-            {loading && <div>Cargando...</div>}
           </div>
         </div>
       </div>
