@@ -170,10 +170,7 @@ const Casos_component = () => {
   };
   return (
     <section className='    py-2 bg-primary-980 mt-20 lg:mt-10 mx-auto'>
-      <div
-        id='222'
-        className=' bg-gray-100 dark:bg-secondary-900 dark:text-white text-gray-600 flex overflow-hidden text-sm'
-      >
+      <div className=' bg-gray-100 dark:bg-secondary-900 dark:text-white text-gray-600 flex overflow-hidden text-sm'>
         <div className='flex-grow overflow-hidden h-full flex flex-col'>
           <div
             className='flex-grow flex overflow-x-hidden'
