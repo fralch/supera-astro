@@ -5,6 +5,7 @@ import { r } from '../../../dist/_astro/index.NEDEFKed';
 const Casos_component = () => {
   const [dataTable, setDataTable] = useState([]);
   const [dataTableFilter, setDataTableFilter] = useState(dataTable);
+  const [modalPago, setModalPago] = useState(false);
 
   useEffect(() => {
     axios.get('http://127.0.0.1:3000/pagos').then((response) => {
@@ -94,6 +95,21 @@ const Casos_component = () => {
                     Buscar
                   </button>
                 </div>
+
+                <div className='flex flex-col w-full mb-4 '>
+                  <button
+                    className='bg-yellow-800 text-white p-2 rounded-md'
+                    onClick={() => {
+                      const modal =
+                        document.getElementById('modal-table-pagos');
+                      modal.classList.remove('hidden');
+                      modal.setAttribute('aria-hidden', 'false');
+                      setModalPago(true);
+                    }}
+                  >
+                    Agregar Pago
+                  </button>
+                </div>
               </div>
             </div>
             <div className='w-full bg-white dark:bg-secondary-800 overflow-y-auto'>
@@ -170,6 +186,132 @@ const Casos_component = () => {
                   </tbody>
                 </table>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        id='modal-table-pagos'
+        data-modal-show='true'
+        aria-hidden='true'
+        className='hidden overflow-x-hidden overflow-y-auto fixed h-modal md:h-full top-0 left-0 right-0 md:inset-0 z-50 flex items-center justify-center'
+      >
+        <div className='relative w-full max-w-2xl px-4 h-full md:h-auto'>
+          <div className='bg-white rounded-lg shadow relative dark:bg-gray-700'>
+            <div className='flex items-start justify-between p-5 border-b rounded-t dark:border-gray-600'>
+              <h3 className='text-gray-900 text-xl lg:text-2xl font-semibold dark:text-white'>
+                Ingresar nuevo pago
+              </h3>
+              <button
+                type='button'
+                className='text-gray-400 bg-gray-900 hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-red-400 dark:hover:text-white'
+                data-modal-toggle='modal-table-pagos'
+                onClick={() => {
+                  const modal = document.getElementById('modal-table-pagos');
+                  modal.classList.add('hidden');
+                  modal.setAttribute('aria-hidden', 'true');
+                  setModalPago(false);
+                }}
+              >
+                <svg
+                  className='w-5 h-5'
+                  fill='currentColor'
+                  viewBox='0 0 20 20'
+                  xmlns='http://www.w3.org/2000/svg'
+                >
+                  <path
+                    fillRule='evenodd'
+                    d='M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z'
+                    clipRule='evenodd'
+                  ></path>
+                </svg>
+              </button>
+            </div>
+            <div className='overflow-x-auto p-5'>
+              <table className='min-w-full divide-y-2 divide-gray-700 bg-primary-980 text-sm dark:divide-gray-700 dark:bg-primary-980'>
+                <thead className='ltr:text-left rtl:text-right'>
+                  <tr>
+                    <th className='whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white text-left'>
+                      Cliente
+                    </th>
+                    <th className='whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white text-left'>
+                      Caso
+                    </th>
+                    <th className='whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white text-left'>
+                      Fecha
+                    </th>
+                    <th className='whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white text-center'>
+                      Estado
+                    </th>
+                    <th className='whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white text-right'>
+                      Monto
+                    </th>
+                  </tr>
+                </thead>
+
+                <tbody className='divide-y divide-gray-200 dark:divide-gray-700'>
+                  <tr>
+                    <td className='whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white'>
+                      John Doe
+                    </td>
+                    <td className='whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200'>
+                      00095-2023-0-1504-JP-FC-01
+                    </td>
+                    <td className='whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200'>
+                      24/05/1995
+                    </td>
+                    <td className='whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200'>
+                      <p className='text-yellow-500  font-medium rounded-lg text-sm px-2 py-1 text-center dark:text-yellow-400   dark:bg-gray-700 '>
+                        Pendiente
+                      </p>
+                    </td>
+                    <td className='whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200 text-right'>
+                      S/ 1900.00
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td className='whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white'>
+                      Jane Doe
+                    </td>
+                    <td className='whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200'>
+                      00095-2023-0-1504-JP-FC-01
+                    </td>
+                    <td className='whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200'>
+                      04/11/1980
+                    </td>
+                    <td className='whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200'>
+                      <p className='text-green-500  font-medium rounded-lg text-sm px-2 py-1 text-center dark:text-green-400   dark:bg-gray-700 '>
+                        Pagado
+                      </p>
+                    </td>
+                    <td className='whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200 text-right'>
+                      S/ 100.00
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td className='whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white'>
+                      John Doe
+                    </td>
+                    <td className='whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200'>
+                      00095-2023-0-1504-JP-FC-01
+                    </td>
+                    <td className='whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200'>
+                      24/05/1995
+                    </td>
+                    <td className='whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200'>
+                      <p className='text-red-500  font-medium rounded-lg text-sm px-2 py-1 text-center dark:text-red-400   dark:bg-gray-700 '>
+                        Monto total
+                      </p>
+                    </td>
+                    <td className='whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200 text-right'>
+                      S/ 2000.00
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
