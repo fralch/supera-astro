@@ -10,23 +10,7 @@ const Casos_component = () => {
   const [culminado, setCulminado] = useState(0);
   const [idCasoUpdate, setIdCasoUpdate] = useState(0);
   const [mesaFilter, setmesaFilter] = useState('');
-  const [dataTable, setDataTable] = useState([
-    {
-      id: 885,
-      cliente: 'CAJA HUANCAYO',
-      condicion: '-',
-      celular: '0',
-      expediente: '-',
-      fiscal: '-',
-      materia: 'VARIOS ',
-      proceso: 'VARIOS ',
-      mesa: 'Empresa y Comunidades',
-      contrato: 'Contrato Vigente ',
-      acto_procesal: 'En proceso',
-      culminado: 0,
-      fecha: '2024-05-01T00:00:00.000Z',
-    },
-  ]);
+  const [dataTable, setDataTable] = useState([]);
   const [dataTableFilter, setDataTableFilter] = useState(dataTable);
   const [paginatedData, setPaginatedData] = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
@@ -360,16 +344,16 @@ const Casos_component = () => {
                         >
                           <td className='sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800'>
                             <div className='flex items-center'>
-                              {data.cliente}
+                              {data.cliente.nombre}
                             </div>
                           </td>
                           <td className='sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800'>
                             <div className='flex items-center'>
-                              {data.condicion}
+                              {data.condiciones}
                             </div>
                           </td>
                           <td className='sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 md:table-cell '>
-                            {data.celular}
+                            {data.cliente.celular}
                           </td>
                           <td className='sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 md:table-cell '>
                             {data.expediente}
@@ -390,8 +374,6 @@ const Casos_component = () => {
                             <button
                               className='text-orange-500 hover:text-orange-700 focus:outline-none focus:ring-2 focus:ring-orange-300 font-medium rounded-lg text-sm px-2 py-1 text-center dark:text-orange-400 dark:hover:text-orange-500 dark:focus:ring-orange-800 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:z-10'
                               onClick={() => {
-                                validarPermiso(data.usuarios_dni);
-
                                 const modal =
                                   document.getElementById('modal-upload-file');
                                 modal.classList.remove('hidden');
@@ -477,7 +459,6 @@ const Casos_component = () => {
                               <button
                                 className='w-8 h-8 inline-flex items-center justify-center text-gray-400 ml-auto'
                                 onClick={() => {
-                                  validarPermiso(data.usuarios_dni);
                                   abrirModal(
                                     data.acto_procesal,
                                     data.id,
@@ -972,7 +953,7 @@ const Casos_component = () => {
             </div>
             <div
               className={
-                permisoUsuario ? 'grid grid-cols-1 space-y-2' : 'hidden'
+                !permisoUsuario ? 'grid grid-cols-1 space-y-2' : 'hidden'
               }
             >
               <label className='text-sm font-bold text-gray-500 tracking-wide'>
