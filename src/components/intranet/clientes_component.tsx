@@ -287,7 +287,7 @@ const Casos_component = () => {
                   </div>
                 </div>
               </div>
-              <div className='w-full bg-gray-100 dark:bg-secondary-800 mt-3'>
+              <div className='hidden w-full bg-gray-100 dark:bg-secondary-800 mt-3'>
                 <div className='flex flex-row '>
                   <div className='flex flex-col w-full p-4'>
                     <label className='block text-sm text-gray-700 dark:text-gray-200'>
