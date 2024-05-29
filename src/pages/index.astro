@@ -6,36 +6,34 @@ import StatsBlock from '../components/home/StatsBlock.tsx';
 import Testimonials from '../components/home/Testimonials.astro';
 import Questions from '../components/home/Servicios.astro';
 import Companys from '../components/home/Companys.astro';
-
+import { ViewTransitions } from 'astro:transitions';
 ---
 
-<Layout title="SuperaAbogados">
-	<main>
-		<div class="mb-2 md:mb-8">
-			<Carousel client:visible />
-		</div>	
-		<Areas />
-		<StatsBlock />
-		<Testimonials />
-		<Questions />
-		<Companys />
-		
-	</main>
+<Layout title='SuperaAbogados'>
+  <main>
+    <div class='mb-2 md:mb-8'>
+      <Carousel client:visible />
+    </div>
+    <Areas />
+    <StatsBlock />
+    <Testimonials />
+    <Questions />
+    <Companys />
+    <ViewTransitions />
+  </main>
 </Layout>
 
 <style>
-	html, body {
-		overflow-x: hidden;
-	}
-	main {
-		margin: 0;
-		padding: 0;
-		width: 100%;
-		color: white;
-		font-size: 20px;
-		line-height: 1.6;
-	}
-
-
-	
+  html,
+  body {
+    overflow-x: hidden;
+  }
+  main {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    color: white;
+    font-size: 20px;
+    line-height: 1.6;
+  }
 </style>
