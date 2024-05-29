@@ -524,6 +524,7 @@ const Casos_component = () => {
         data-modal-show='true'
         aria-hidden='true'
         className='hidden overflow-x-hidden overflow-y-auto fixed h-modal md:h-full top-0 left-0 right-0 md:inset-0 z-50 flex items-center justify-center mt-5'
+        style={{ zIndex: 9999 }}
       >
         {permisoUsuario ? (
           <div className='relative w-full max-w-2xl px-4 h-full md:h-auto'>
@@ -615,6 +616,7 @@ const Casos_component = () => {
         data-modal-show='true'
         aria-hidden='true'
         className='hidden overflow-x-hidden overflow-y-auto fixed h-modal md:h-full top-0 left-0 right-0 md:inset-0 z-50 flex items-center justify-center'
+        style={{ zIndex: 9999 }}
       >
         <div className='relative w-full max-w-2xl px-4 h-full md:h-auto'>
           <div className='bg-white rounded-lg shadow relative dark:bg-gray-700'>
@@ -658,6 +660,7 @@ const Casos_component = () => {
         data-modal-show='true'
         aria-hidden='true'
         className='hidden overflow-x-hidden overflow-y-auto fixed h-modal md:h-full top-0 left-0 right-0 md:inset-0 z-50 flex items-center justify-center'
+        style={{ zIndex: 9999 }}
       >
         <div className='relative w-full max-w-2xl px-4 h-full md:h-auto'>
           <div className='bg-white rounded-lg shadow relative dark:bg-gray-700'>
@@ -903,6 +906,7 @@ const Casos_component = () => {
         data-modal-show='true'
         aria-hidden='true'
         className='hidden overflow-x-hidden overflow-y-auto fixed h-modal md:h-full top-0 left-0 right-0 md:inset-0 z-50 flex items-center justify-center'
+        style={{ zIndex: 9999 }}
       >
         <div className='sm:max-w-lg w-full p-10 bg-primary-980 rounded-xl z-10'>
           <div className='flex items-start justify-between'>

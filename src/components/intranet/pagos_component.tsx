@@ -196,8 +196,9 @@ const Casos_component = () => {
         data-modal-show='true'
         aria-hidden='true'
         className='hidden overflow-x-hidden overflow-y-auto fixed h-modal md:h-full top-0 left-0 right-0 md:inset-0 z-50 flex items-center justify-center'
+        style={{ zIndex: 9999 }}
       >
-        <div className='relative w-full max-w-2xl px-4 h-full md:h-auto'>
+        <div className='relative w-full max-w-3xl px-2 h-full md:h-auto'>
           <div className='bg-white rounded-lg shadow relative dark:bg-gray-700'>
             <div className='flex items-start justify-between p-5 border-b rounded-t dark:border-gray-600'>
               <h3 className='text-gray-900 text-xl lg:text-2xl font-semibold dark:text-white'>
@@ -229,7 +230,31 @@ const Casos_component = () => {
               </button>
             </div>
             <div className='overflow-x-auto p-5'>
-              <table className='min-w-full divide-y-2 divide-gray-700 bg-primary-980 text-sm dark:divide-gray-700 dark:bg-primary-980'>
+              <div
+                className='
+                flex flex-col
+                w-full
+                bg-gray-100
+                dark:bg-secondary-800
+                rounded-md
+                p-4
+              '
+              >
+                <label className='block text-sm text-gray-700 dark:text-gray-200'>
+                  Cliente
+                </label>
+                <select className='border border-gray-200 dark:border-gray-800 rounded-md p-2 text-sm w-full'>
+                  <option value=''>Seleccionar cliente</option>
+                </select>
+
+                <label className='block text-sm text-gray-700 dark:text-gray-200'>
+                  Caso
+                </label>
+                <select className='border border-gray-200 dark:border-gray-800 rounded-md p-2 text-sm w-full'>
+                  <option value=''>Seleccionar caso</option>
+                </select>
+              </div>
+              <table className='min-w-full mt-3 divide-y-2 divide-gray-700 bg-primary-980 text-sm dark:divide-gray-700 dark:bg-primary-980 rounded-md'>
                 <thead className='ltr:text-left rtl:text-right'>
                   <tr>
                     <th className='whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white text-left'>
@@ -312,6 +337,51 @@ const Casos_component = () => {
                   </tr>
                 </tbody>
               </table>
+              <div className='w-full bg-gray-100 dark:bg-secondary-800 mt-3'>
+                <div className='flex flex-row '>
+                  <div className='flex flex-col w-full p-4'>
+                    <label className='block text-sm text-gray-700 dark:text-gray-200'>
+                      Descripcion
+                    </label>
+                    <input
+                      type='text'
+                      className='border border-gray-200 dark:border-gray-800 rounded-md p-2 text-sm'
+                      placeholder='Ingrese descripcion'
+                    />
+                  </div>
+                  <div className='flex flex-col w-full p-4'>
+                    <label className='block text-sm text-gray-700 dark:text-gray-200'>
+                      Monto
+                    </label>
+                    <input
+                      type='number'
+                      className='border border-gray-200 dark:border-gray-800 rounded-md p-2 text-sm'
+                      placeholder='Ingrese monto'
+                    />
+                  </div>
+
+                  <div className='flex flex-col w-full p-4'>
+                    <label className='block text-sm text-gray-700 dark:text-gray-200'>
+                      Metodo de pago
+                    </label>
+                    <select className='border border-gray-200 dark:border-gray-800 rounded-md p-2 text-sm'>
+                      <option value=''>Seleccionar</option>
+                      <option value='Efectivo'>Efectivo</option>
+                      <option value='Yape/Plim'>Yape/Plim</option>
+                      <option value='Transferencia'>Transferencia</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div className='flex flex-col p4 mt-4'>
+                <button className='  bg-primary-700 text-white p-2 rounded-md'>
+                  Guardar
+                </button>
+
+                <button className=' bg-secondary-800 text-white p-2 rounded-md mt-3'>
+                  Cancelar
+                </button>
+              </div>
             </div>
           </div>
         </div>
