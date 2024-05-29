@@ -6,6 +6,14 @@ const Login_ = () => {
   const [usuario, setUser] = useState('');
   const [clave, setClave] = useState('');
 
+  useEffect(() => {
+    //comprobar si el usuario ya esta logueado
+    const userData = localStorage.getItem('userData');
+    if (userData) {
+      window.location.href = '/casos';
+    }
+  }, []);
+
   const handleLogin = async () => {
     console.log('login', usuario, clave);
     if (usuario !== '' && clave !== '') {
