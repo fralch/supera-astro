@@ -356,7 +356,7 @@ const Casos_component = () => {
                     <input
                       type='number'
                       className='border border-gray-200 dark:border-gray-800 rounded-md p-2 text-sm'
-                      placeholder='Ingrese monto'
+                      placeholder='Ingrese monto S/'
                     />
                   </div>
 
@@ -365,9 +365,14 @@ const Casos_component = () => {
                       Metodo de pago
                     </label>
                     <select className='border border-gray-200 dark:border-gray-800 rounded-md p-2 text-sm'>
-                      <option value=''>Seleccionar</option>
+                      <option
+                        value=''
+                        disabled
+                      >
+                        Seleccionar
+                      </option>
                       <option value='Efectivo'>Efectivo</option>
-                      <option value='Yape/Plim'>Yape/Plim</option>
+                      <option value='Yape/Plin'>Yape/Plin</option>
                       <option value='Transferencia'>Transferencia</option>
                     </select>
                   </div>

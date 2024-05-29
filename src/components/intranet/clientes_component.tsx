@@ -88,8 +88,9 @@ const Casos_component = () => {
                   <button
                     className='bg-primary-700 text-white p-2 rounded-md'
                     onClick={() => {
-                      const modal =
-                        document.getElementById('modal-table-pagos');
+                      const modal = document.getElementById(
+                        'modal-agregar-cliente'
+                      );
                       modal.classList.remove('hidden');
                       modal.setAttribute('aria-hidden', 'false');
                     }}
@@ -176,6 +177,154 @@ const Casos_component = () => {
                     ))}
                   </tbody>
                 </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        id='modal-agregar-cliente'
+        data-modal-show='true'
+        aria-hidden='true'
+        className='hidden overflow-x-hidden overflow-y-auto fixed h-modal md:h-full top-0 left-0 right-0 md:inset-0 z-50 flex items-center justify-center'
+        style={{ zIndex: 9999 }}
+      >
+        <div className='relative w-full max-w-3xl px-2 h-full md:h-auto'>
+          <div className='bg-white rounded-lg shadow relative dark:bg-gray-700'>
+            <div className='flex items-start justify-between p-5 border-b rounded-t dark:border-gray-600'>
+              <h3 className='text-gray-900 text-xl lg:text-2xl font-semibold dark:text-white'>
+                Ingresar nuevo cliente
+              </h3>
+              <button
+                type='button'
+                className='text-gray-400 bg-gray-900 hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-red-400 dark:hover:text-white'
+                data-modal-toggle='modal-agregar-cliente'
+                aria-label='Close'
+                onClick={() => {
+                  const modal = document.getElementById(
+                    'modal-agregar-cliente'
+                  );
+                  modal.classList.add('hidden');
+                  modal.setAttribute('aria-hidden', 'true');
+                }}
+              >
+                <svg
+                  className='w-5 h-5'
+                  fill='currentColor'
+                  viewBox='0 0 20 20'
+                  xmlns='http://www.w3.org/2000/svg'
+                >
+                  <path
+                    fillRule='evenodd'
+                    d='M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z'
+                    clipRule='evenodd'
+                  ></path>
+                </svg>
+              </button>
+            </div>
+            <div className='overflow-x-auto p-5'>
+              <div
+                className='
+                flex flex-col
+                w-full
+                bg-gray-100
+                dark:bg-secondary-800
+                rounded-md
+                p-4
+              '
+              >
+                <label className='block text-sm text-gray-700 dark:text-gray-200'>
+                  DNI
+                </label>
+                <input
+                  type='text'
+                  className='border border-gray-200 dark:border-gray-800 rounded-md p-2 text-sm'
+                  placeholder='Ingrese DNI'
+                />
+                <label className='block text-sm text-gray-700 dark:text-gray-200'>
+                  Cliente
+                </label>
+                <input
+                  type='text'
+                  className='border border-gray-200 dark:border-gray-800 rounded-md p-2 text-sm'
+                  placeholder='Ingrese nombre del cliente'
+                />
+              </div>
+
+              <div className='w-full bg-gray-100 dark:bg-secondary-800 mt-3'>
+                <div className='flex flex-row '>
+                  <div className='flex flex-col w-full p-4'>
+                    <label className='block text-sm text-gray-700 dark:text-gray-200'>
+                      Celular
+                    </label>
+                    <input
+                      type='text'
+                      className='border border-gray-200 dark:border-gray-800 rounded-md p-2 text-sm'
+                      placeholder='Ingrese celular'
+                    />
+                  </div>
+                  <div className='flex flex-col w-full p-4'>
+                    <label className='block text-sm text-gray-700 dark:text-gray-200'>
+                      Correo
+                    </label>
+                    <input
+                      type='email'
+                      className='border border-gray-200 dark:border-gray-800 rounded-md p-2 text-sm'
+                      placeholder='Ingrese correo'
+                    />
+                  </div>
+
+                  <div className='flex flex-col w-full p-4'>
+                    <label className='block text-sm text-gray-700 dark:text-gray-200'>
+                      Direccion
+                    </label>
+                    <input
+                      type='text'
+                      className='border border-gray-200 dark:border-gray-800 rounded-md p-2 text-sm'
+                      placeholder='Ingrese dirección'
+                    />
+                  </div>
+                </div>
+              </div>
+              <div className='w-full bg-gray-100 dark:bg-secondary-800 mt-3'>
+                <div className='flex flex-row '>
+                  <div className='flex flex-col w-full p-4'>
+                    <label className='block text-sm text-gray-700 dark:text-gray-200'>
+                      Condición
+                    </label>
+                    <select className='border border-gray-200 dark:border-gray-800 rounded-md p-2 text-sm'>
+                      <option value=''>Seleccionar</option>
+                      <option value='1'>1</option>
+                      <option value='2'>2</option>
+                      <option value='3'>3</option>
+                    </select>
+                  </div>
+                  <div className='flex flex-col w-full p-4'>
+                    <label className='block text-sm text-gray-700 dark:text-gray-200'>
+                      Estado
+                    </label>
+                    <select className='border border-gray-200 dark:border-gray-800 rounded-md p-2 text-sm'>
+                      <option
+                        value=''
+                        disabled
+                      >
+                        Seleccionar
+                      </option>
+                      <option value='1'>Activo</option>
+                      <option value='2'>Inactivo</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div className='flex flex-col p4 mt-4'>
+                <button className='  bg-primary-700 text-white p-2 rounded-md'>
+                  Guardar
+                </button>
+
+                <button className=' bg-secondary-800 text-white p-2 rounded-md mt-3'>
+                  Cancelar
+                </button>
               </div>
             </div>
           </div>
