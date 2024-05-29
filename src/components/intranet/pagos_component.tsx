@@ -91,14 +91,14 @@ const Casos_component = () => {
                   />
                 </div>
                 <div className='flex flex-col w-full mb-4 '>
-                  <button className='bg-primary-700 text-white p-2 rounded-md'>
+                  <button className='bg-slate-800 text-white p-2 rounded-md '>
                     Buscar
                   </button>
                 </div>
 
                 <div className='flex flex-col w-full mb-4 '>
                   <button
-                    className='bg-yellow-800 text-white p-2 rounded-md'
+                    className='bg-primary-700 text-white p-2 rounded-md'
                     onClick={() => {
                       const modal =
                         document.getElementById('modal-table-pagos');
