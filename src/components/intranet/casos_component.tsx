@@ -30,14 +30,16 @@ const Casos_component = () => {
   }, []);
 
   useEffect(() => {
-    axios.get('http://127.0.0.1:3000/casos').then((response) => {
-      console.log(response.data);
-      setDataTable(response.data);
-      setDataTableFilter(response.data);
-      const pageSize = 10;
-      const paginatedData = dividirArray(response.data, pageSize);
-      setPaginatedData(paginatedData);
-    });
+    axios
+      .get('http://162.248.55.24:3000/superabackend/casos')
+      .then((response) => {
+        console.log(response.data);
+        setDataTable(response.data);
+        setDataTableFilter(response.data);
+        const pageSize = 10;
+        const paginatedData = dividirArray(response.data, pageSize);
+        setPaginatedData(paginatedData);
+      });
   }, []);
 
   useEffect(() => {
@@ -128,7 +130,7 @@ const Casos_component = () => {
 
   const updateCaso = () => {
     axios
-      .put(`http://127.0.0.1:3000/casos/${idCasoUpdate}`, {
+      .put(`http://162.248.55.24:3000/superabackend/casos/${idCasoUpdate}`, {
         acto_procesal: actoProcesal,
         culminado: culminado,
       })
