@@ -4,7 +4,8 @@ import axios from 'axios';
 const Casos_component = () => {
   const [dataTable, setDataTable] = useState([]);
   const [dataTableFilter, setDataTableFilter] = useState(dataTable);
-  const [casos, setCasos] = useState([]);
+  const [casosView, setCasosView] = useState([]);
+  const [pagosView, setPagosView] = useState([]);
 
   useEffect(() => {
     axios.get('http://localhost:3000/clientes').then((response) => {
@@ -16,11 +17,24 @@ const Casos_component = () => {
 
   const handleCasos = (casos) => {
     // abrir modal
+    if (casos.length === 0) {
+      return;
+    }
     const modal = document.getElementById('modal-ver-casos');
     modal.classList.remove('hidden');
     modal.setAttribute('aria-hidden', 'false');
     // obtener casos
-    setCasos(casos);
+    setCasosView(casos);
+  };
+  const handlePagos = (pagos) => {
+    // abrir modal
+    if (pagos.length > 0) {
+      const modal = document.getElementById('pago_detalles');
+      modal.classList.remove('hidden');
+      modal.setAttribute('aria-hidden', 'false');
+      // obtener casos
+      setPagosView(pagos);
+    }
   };
 
   return (
@@ -396,7 +410,7 @@ const Casos_component = () => {
                             Estado
                           </th>
                           <th className='whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white'>
-                            Monto total
+                            Pagado
                           </th>
                           <th className='whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white'>
                             Pendiente
@@ -406,83 +420,76 @@ const Casos_component = () => {
                       </thead>
 
                       <tbody className='divide-y divide-gray-200 dark:divide-gray-700'>
-                        <tr>
-                          <td className='whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white'>
-                            00096-2023-0-1519-JP-FC-01
-                          </td>
+                        {casosView.map((caso, index) => (
+                          <tr
+                            key={index}
+                            className={
+                              index % 2 === 0
+                                ? 'bg-gray-100 dark:bg-secondary-980'
+                                : 'bg-white dark:bg-secondary-800'
+                            }
+                          >
+                            <td className='whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white'>
+                              {caso.expediente}
+                            </td>
 
-                          <td className='whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200'>
-                            <p className='text-yellow-500  font-medium rounded-lg text-sm px-2 py-1 text-center dark:text-yellow-400   dark:bg-gray-700 '>
-                              Pendiente
-                            </p>
-                          </td>
-                          <td className='whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200'>
-                            S/1200.00
-                          </td>
-                          <td className='whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200'>
-                            S/ 300.00
-                          </td>
-                          <td className='whitespace-nowrap px-4 py-2'>
-                            <a
-                              href='#'
-                              className='inline-block rounded bg-primary-450 px-4 py-2 text-xs font-medium text-white hover:bg-primary-500'
-                            >
-                              Ver
-                            </a>
-                          </td>
-                        </tr>
-
-                        <tr>
-                          <td className='whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white'>
-                            01553-2020-0-1501-JP-FC-02
-                          </td>
-
-                          <td className='whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200'>
-                            <p className='text-green-500  font-medium rounded-lg text-sm px-2 py-1 text-center dark:text-green-400   dark:bg-gray-700 '>
-                              Pagado
-                            </p>
-                          </td>
-                          <td className='whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200'>
-                            S/1000.00
-                          </td>
-                          <td className='whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200'>
-                            S/ 0.00
-                          </td>
-                          <td className='whitespace-nowrap px-4 py-2'>
-                            <a
-                              href='#'
-                              className='inline-block rounded bg-primary-450 px-4 py-2 text-xs font-medium text-white hover:bg-primary-500'
-                            >
-                              Ver
-                            </a>
-                          </td>
-                        </tr>
-
-                        <tr>
-                          <td className='whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white'>
-                            02210-2023-0-1513-JP-FC-02
-                          </td>
-
-                          <td className='whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200'>
-                            <p className='text-red-500  font-medium rounded-lg text-sm px-2 py-1 text-center dark:text-red-400   dark:bg-gray-700 '>
-                              Anulado
-                            </p>
-                          </td>
-                          <td className='whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200'>
-                            S/2000.00
-                          </td>
-                          <td className='whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200'>
-                            S/ 0.00
-                          </td>
-                          <td className='whitespace-nowrap px-4 py-2'>
-                            <a
-                              href='#'
-                              className='inline-block rounded bg-primary-450 px-4 py-2 text-xs font-medium text-white hover:bg-primary-500'
-                            >
-                              Ver
-                            </a>
-                          </td>
-                        </tr>
+                            <td className='whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200'>
+                              <p
+                                className={`${
+                                  caso.pagos.length > 0
+                                    ? caso.pagos.reduce((prev, current) => {
+                                        return prev.saldo_restante <
+                                          current.saldo_restante
+                                          ? prev
+                                          : current;
+                                      }).saldo_restante > 0
+                                      ? 'bg-red-400'
+                                      : 'bg-green-400'
+                                    : 'bg-gray-400'
+                                }  font-medium rounded-lg text-sm px-2 py-1 text-center dark:text-green-400   dark:bg-gray-700 `}
+                              >
+                                {caso.pagos.length > 0
+                                  ? caso.pagos.reduce((prev, current) => {
+                                      return prev.saldo_restante <
+                                        current.saldo_restante
+                                        ? prev
+                                        : current;
+                                    }).saldo_restante > 0
+                                    ? 'Pendiente'
+                                    : 'Culminado'
+                                  : 'Sin pagos'}
+                              </p>
+                            </td>
+                            <td className='whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200'>
+                              S/
+                              {caso.pagos.length > 0
+                                ? caso.pagos.reduce(
+                                    (acc, pago) => acc + pago.monto,
+                                    0
+                                  )
+                                : 0}
+                            </td>
+                            <td className='whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200'>
+                              S/
+                              {caso.pagos.length > 0
+                                ? caso.pagos.reduce((prev, current) => {
+                                    return prev.saldo_restante <
+                                      current.saldo_restante
+                                      ? prev
+                                      : current;
+                                  }).saldo_restante
+                                : 0}
+                            </td>
+                            <td className='whitespace-nowrap px-4 py-2'>
+                              <button
+                                className='inline-block rounded bg-primary-450 px-4 py-2 text-xs font-medium text-white hover:bg-primary-500'
+                                onClick={() => handlePagos(caso.pagos)}
+                              >
+                                Ver
+                              </button>
+                            </td>
+                          </tr>
+                        ))}
                       </tbody>
                     </table>
                   </div>
@@ -490,10 +497,37 @@ const Casos_component = () => {
               </div>
             </div>
             <div
-              className='overflow-x-auto p-5'
+              className='hidden overflow-x-auto p-5'
               id='pago_detalles'
             >
               <div className='flex flex-col w-full bg-primary-990 rounded-md p-4'>
+                {/* boton para cerrar vista detalle pagos */}
+                <div className='flex items-start justify-between'>
+                  <button
+                    type='button'
+                    className='text-gray-400 bg-gray-900 hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-900 dark:hover:text-white'
+                    data-modal-toggle='pago_detalles'
+                    aria-label='Close'
+                    onClick={() => {
+                      const modal = document.getElementById('pago_detalles');
+                      modal.classList.add('hidden');
+                      modal.setAttribute('aria-hidden', 'true');
+                    }}
+                  >
+                    <svg
+                      className='w-3 h-3'
+                      fill='currentColor'
+                      viewBox='0 0 20 20'
+                      xmlns='http://www.w3.org/2000/svg'
+                    >
+                      <path
+                        fill-rule='evenodd'
+                        d='M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z'
+                        clip-rule='evenodd'
+                      ></path>
+                    </svg>
+                  </button>
+                </div>
                 <div className='flex flex-row '>
                   <div className='flex flex-col w-full p-4'>
                     <table className='min-w-full divide-y-2 divide-gray-700 bg-primary-990 text-sm dark:divide-gray-700 '>
@@ -516,41 +550,30 @@ const Casos_component = () => {
                       </thead>
 
                       <tbody className='divide-y divide-gray-200 dark:divide-gray-700'>
-                        <tr>
-                          <td className='whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white text-center'>
-                            {new Date(
-                              '2024-05-27T22:03:58.000Z'
-                            ).toLocaleDateString()}
-                          </td>
+                        {pagosView.map((pago, index) => (
+                          <tr
+                            key={index}
+                            className={
+                              index % 2 === 0
+                                ? 'bg-gray-100 dark:bg-secondary-980'
+                                : 'bg-white dark:bg-secondary-800'
+                            }
+                          >
+                            <td className='whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white text-center'>
+                              {new Date(pago.fecha_pago).toLocaleDateString()}
+                            </td>
 
-                          <td className='whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200 text-center'>
-                            Pago prueba
-                          </td>
-                          <td className='whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200 text-center'>
-                            S/300.00
-                          </td>
-                          <td className='whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200 text-center'>
-                            S/ 1200.00
-                          </td>
-                        </tr>
-
-                        <tr>
-                          <td className='whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white text-center'>
-                            {new Date(
-                              '2024-05-27T22:03:58.000Z'
-                            ).toLocaleDateString()}
-                          </td>
-
-                          <td className='whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200 text-center'>
-                            otro pago
-                          </td>
-                          <td className='whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200 text-center'>
-                            S/100.00
-                          </td>
-                          <td className='whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200 text-center'>
-                            S/ 1100.00
-                          </td>
-                        </tr>
+                            <td className='whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200 text-center'>
+                              {pago.descripcion}
+                            </td>
+                            <td className='whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200 text-center'>
+                              S/{pago.monto}
+                            </td>
+                            <td className='whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200 text-center'>
+                              S/{pago.saldo_restante}
+                            </td>
+                          </tr>
+                        ))}
                       </tbody>
                     </table>
                   </div>
