@@ -48,8 +48,8 @@ const Casos_component = () => {
           <div className='w-full flex overflow-x-hidden'>
             <div className='xl:w-72 w-48 flex-shrink-0 border-r border-gray-200 dark:border-gray-800 h-full overflow-y-auto lg:block hidden p-5'>
               <div className='flex items-center justify-between mb-6'>
-                <div className='text-xs text-gray-400 tracking-wider'>
-                  FILTROS
+                <div className='text-lg text-gray-400 tracking-wider'>
+                  CLIENTES
                 </div>
               </div>
               <div className='flex flex-col w-full '>
@@ -64,7 +64,9 @@ const Casos_component = () => {
                     onChange={(e) => {
                       const value = e.target.value;
                       const filter = dataTable.filter((data) => {
-                        return data.caso.expediente.includes(value);
+                        return data.nombre
+                          .toLowerCase()
+                          .includes(value.toLowerCase());
                       });
                       setDataTableFilter(filter);
                     }}
@@ -78,6 +80,13 @@ const Casos_component = () => {
                     type='text'
                     className='border border-gray-200 dark:border-gray-800 rounded-md p-2 text-sm'
                     placeholder='Ingrese condición'
+                    onChange={(e) => {
+                      const value = e.target.value;
+                      const filter = dataTable.filter((data) => {
+                        return data.condicion.includes(value);
+                      });
+                      setDataTableFilter(filter);
+                    }}
                   />
                 </div>
                 <div className='flex flex-col w-full mb-4 bg-gray-800 py-4 px-2 rounded-md'>
@@ -89,7 +98,7 @@ const Casos_component = () => {
                     onChange={(e) => {
                       const value = e.target.value;
                       const filter = dataTable.filter((data) => {
-                        return data.estado.includes(value);
+                        return data.estado === parseInt(value);
                       });
                       setDataTableFilter(filter);
                     }}
@@ -100,15 +109,9 @@ const Casos_component = () => {
                     >
                       Seleccionar
                     </option>
-                    <option value='activo'>Activo</option>
-                    <option value='inactivo'>Inactivo</option>
+                    <option value='1'>Activo</option>
+                    <option value='0'>Inactivo</option>
                   </select>
-                </div>
-
-                <div className='flex flex-col w-full mb-4 '>
-                  <button className='bg-slate-800 text-white p-2 rounded-md '>
-                    Buscar
-                  </button>
                 </div>
 
                 <div className='flex flex-col w-full mb-4 '>
@@ -159,7 +162,7 @@ const Casos_component = () => {
                     </tr>
                   </thead>
                   <tbody className='text-gray-600 dark:text-gray-100'>
-                    {dataTable.map((data, index) => (
+                    {dataTableFilter.map((data, index) => (
                       <tr
                         key={index}
                         className={
