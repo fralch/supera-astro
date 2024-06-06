@@ -5,15 +5,51 @@ const Casos_component = () => {
   const [dataTable, setDataTable] = useState([]);
   const [dataTableFilter, setDataTableFilter] = useState(dataTable);
   const [modalPago, setModalPago] = useState(false);
+  const [clientesView, setClientesView] = useState([]);
+  const [casosView, setCasosView] = useState([]);
+  const [pagosView, setPagosView] = useState([]);
+  const [pagosData, setPagosData] = useState([]);
 
   useEffect(() => {
     axios.get('http://localhost:3000/pagos').then((response) => {
-      console.log(response.data);
+      // console.log(response.data);
       setDataTable(response.data);
       setDataTableFilter(response.data);
     });
   }, []);
 
+  useEffect(() => {
+    if (pagosView.length === 0) return;
+    console.log(pagosView);
+
+    const monto_pagado = pagosView.reduce((acc, pago) => {
+      return acc + parseFloat(pago.monto);
+    }, 0);
+    const saldo_restante =
+      pagosView[pagosView.length - 1].monto_total - monto_pagado;
+    const estado = saldo_restante === 0 ? 'pagado' : 'pendiente';
+    const data = [
+      {
+        caso: pagosView[pagosView.length - 1].caso,
+
+        fecha: pagosView[pagosView.length - 1].fecha_pago,
+        monto_pagado: monto_pagado,
+        saldo_restante: saldo_restante,
+        estado: estado,
+      },
+    ];
+    setPagosData(data);
+  }, [pagosView]);
+
+  const nuevoPago = async () => {
+    const clientes = await axios.get('http://localhost:3000/clientes');
+    console.log(clientes.data);
+    setClientesView(clientes.data);
+    const modal = document.getElementById('modal-table-pagos');
+    modal.classList.remove('hidden');
+    modal.setAttribute('aria-hidden', 'false');
+    setModalPago(true);
+  };
   return (
     <section className='w-full py-2 bg-primary-980 mt-20 lg:mt-10 mx-auto'>
       <div className='  bg-gray-100 dark:bg-secondary-900 dark:text-white text-gray-600 flex overflow-hidden text-sm'>
@@ -106,11 +142,7 @@ const Casos_component = () => {
                   <button
                     className='bg-primary-700 text-white p-2 rounded-md'
                     onClick={() => {
-                      const modal =
-                        document.getElementById('modal-table-pagos');
-                      modal.classList.remove('hidden');
-                      modal.setAttribute('aria-hidden', 'false');
-                      setModalPago(true);
+                      nuevoPago();
                     }}
                   >
                     Agregar Pago
@@ -249,23 +281,71 @@ const Casos_component = () => {
                 <label className='block text-sm text-gray-700 dark:text-gray-200'>
                   Cliente
                 </label>
-                <select className='border border-gray-200 dark:border-gray-800 rounded-md p-2 text-sm w-full'>
+                <select
+                  className='border border-gray-200 dark:border-gray-800 rounded-md p-2 text-sm w-full'
+                  onChange={(e) => {
+                    const value = e.target.value;
+                    if (value === '') {
+                      setCasosView([]);
+                      return;
+                    }
+                    const cliente = clientesView.find((cliente) => {
+                      return parseInt(cliente.id) === parseInt(value);
+                    });
+                    setCasosView(cliente.casos);
+                  }}
+                >
                   <option value=''>Seleccionar cliente</option>
+                  {clientesView.map((cliente, index) => (
+                    <option
+                      key={index}
+                      value={cliente.id}
+                    >
+                      {cliente.nombre}
+                    </option>
+                  ))}
                 </select>
 
                 <label className='block text-sm text-gray-700 dark:text-gray-200'>
                   Caso
                 </label>
-                <select className='border border-gray-200 dark:border-gray-800 rounded-md p-2 text-sm w-full'>
+                <select
+                  className='border border-gray-200 dark:border-gray-800 rounded-md p-2 text-sm w-full'
+                  onChange={(e) => {
+                    const value = e.target.value;
+                    if (value === '') {
+                      setPagosView([]);
+                      return;
+                    }
+                    const caso = casosView.find((caso) => {
+                      return parseInt(caso.id) === parseInt(value);
+                    });
+
+                    // agregar nombre del expediente al array de pagos
+                    const pagos = caso.pagos.map((pago) => {
+                      return {
+                        ...pago,
+                        caso: caso.expediente,
+                      };
+                    });
+
+                    setPagosView(pagos);
+                  }}
+                >
                   <option value=''>Seleccionar caso</option>
+                  {casosView.map((caso, index) => (
+                    <option
+                      key={index}
+                      value={caso.id}
+                    >
+                      {caso.expediente}
+                    </option>
+                  ))}
                 </select>
               </div>
               <table className='min-w-full mt-3 divide-y-2 divide-gray-700 bg-primary-980 text-sm dark:divide-gray-700 dark:bg-primary-980 rounded-md'>
                 <thead className='ltr:text-left rtl:text-right'>
                   <tr>
-                    <th className='whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white text-left'>
-                      Cliente
-                    </th>
                     <th className='whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white text-left'>
                       Caso
                     </th>
@@ -276,71 +356,34 @@ const Casos_component = () => {
                       Estado
                     </th>
                     <th className='whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white text-right'>
-                      Monto
+                      Pagado
+                    </th>
+                    <th className='whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white text-right'>
+                      Pendiente
                     </th>
                   </tr>
                 </thead>
 
                 <tbody className='divide-y divide-gray-200 dark:divide-gray-700'>
-                  <tr>
-                    <td className='whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white'>
-                      John Doe
-                    </td>
-                    <td className='whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200'>
-                      00095-2023-0-1504-JP-FC-01
-                    </td>
-                    <td className='whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200'>
-                      24/05/1995
-                    </td>
-                    <td className='whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200'>
-                      <p className='text-yellow-500  font-medium rounded-lg text-sm px-2 py-1 text-center dark:text-yellow-400   dark:bg-gray-700 '>
-                        Pendiente
-                      </p>
-                    </td>
-                    <td className='whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200 text-right'>
-                      S/ 1900.00
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td className='whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white'>
-                      Jane Doe
-                    </td>
-                    <td className='whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200'>
-                      00095-2023-0-1504-JP-FC-01
-                    </td>
-                    <td className='whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200'>
-                      04/11/1980
-                    </td>
-                    <td className='whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200'>
-                      <p className='text-green-500  font-medium rounded-lg text-sm px-2 py-1 text-center dark:text-green-400   dark:bg-gray-700 '>
-                        Pagado
-                      </p>
-                    </td>
-                    <td className='whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200 text-right'>
-                      S/ 100.00
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td className='whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white'>
-                      John Doe
-                    </td>
-                    <td className='whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200'>
-                      00095-2023-0-1504-JP-FC-01
-                    </td>
-                    <td className='whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200'>
-                      24/05/1995
-                    </td>
-                    <td className='whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200'>
-                      <p className='text-red-500  font-medium rounded-lg text-sm px-2 py-1 text-center dark:text-red-400   dark:bg-gray-700 '>
-                        Monto total
-                      </p>
-                    </td>
-                    <td className='whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200 text-right'>
-                      S/ 2000.00
-                    </td>
-                  </tr>
+                  {pagosData.map((data, index) => (
+                    <tr key={index}>
+                      <td className='px-4 py-2 whitespace-nowrap text-gray-900 dark:text-white text-left'>
+                        {data.caso}
+                      </td>
+                      <td className='px-4 py-2 whitespace-nowrap text-gray-900 dark:text-white text-left'>
+                        {new Date(data.fecha).toLocaleDateString()}
+                      </td>
+                      <td className='px-4 py-2 whitespace-nowrap text-gray-900 dark:text-white text-center'>
+                        {data.estado}
+                      </td>
+                      <td className='px-4 py-2 whitespace-nowrap text-gray-900 dark:text-white text-right'>
+                        S/ {data.monto_pagado}
+                      </td>
+                      <td className='px-4 py-2 whitespace-nowrap text-gray-900 dark:text-white text-right'>
+                        S/ {data.saldo_restante}
+                      </td>
+                    </tr>
+                  ))}
                 </tbody>
               </table>
               <div className='w-full bg-gray-100 dark:bg-secondary-800 mt-3'>
