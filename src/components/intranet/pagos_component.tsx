@@ -7,13 +7,11 @@ const Casos_component = () => {
   const [modalPago, setModalPago] = useState(false);
 
   useEffect(() => {
-    axios
-      .get('http://162.248.55.24:3000/superabackend/pagos')
-      .then((response) => {
-        console.log(response.data);
-        setDataTable(response.data);
-        setDataTableFilter(response.data);
-      });
+    axios.get('http://localhost:3000/pagos').then((response) => {
+      console.log(response.data);
+      setDataTable(response.data);
+      setDataTableFilter(response.data);
+    });
   }, []);
 
   return (
