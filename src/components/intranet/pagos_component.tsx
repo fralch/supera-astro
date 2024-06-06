@@ -21,8 +21,8 @@ const Casos_component = () => {
           <div className='w-full flex overflow-x-hidden'>
             <div className='xl:w-72 w-48 flex-shrink-0 border-r border-gray-200 dark:border-gray-800 h-full overflow-y-auto lg:block hidden p-5'>
               <div className='flex items-center justify-between mb-6'>
-                <div className='text-xs text-gray-400 tracking-wider'>
-                  FILTROS
+                <div className='text-lg text-gray-400 tracking-wider'>
+                  PAGOS
                 </div>
               </div>
               <div className='flex flex-col w-full '>
@@ -50,6 +50,14 @@ const Casos_component = () => {
                   <input
                     type='date'
                     className='border border-gray-200 dark:border-gray-800 rounded-md p-2 text-sm'
+                    placeholder='Fecha'
+                    onChange={(e) => {
+                      const value = e.target.value;
+                      const filter = dataTable.filter((data) => {
+                        return data.fecha_pago.includes(value);
+                      });
+                      setDataTableFilter(filter);
+                    }}
                   />
                 </div>
                 <div className='flex flex-col w-full mb-4 bg-gray-800 py-4 px-2 rounded-md'>
@@ -67,8 +75,8 @@ const Casos_component = () => {
                     }}
                   >
                     <option value=''>Seleccionar</option>
-                    <option value='Pagado'>Pagado</option>
-                    <option value='Pendiente'>Pendiente</option>
+                    <option value='pagado'>Pagado</option>
+                    <option value='pendiente'>Pendiente</option>
                   </select>
                 </div>
 
@@ -82,17 +90,16 @@ const Casos_component = () => {
                     placeholder='Monto total'
                     onChange={(e) => {
                       const value = e.target.value;
+                      if (value === '') {
+                        setDataTableFilter(dataTable);
+                        return;
+                      }
                       const filter = dataTable.filter((data) => {
-                        return data.monto_total === value;
+                        return parseFloat(data.monto) === parseFloat(value);
                       });
                       setDataTableFilter(filter);
                     }}
                   />
-                </div>
-                <div className='flex flex-col w-full mb-4 '>
-                  <button className='bg-slate-800 text-white p-2 rounded-md '>
-                    Buscar
-                  </button>
                 </div>
 
                 <div className='flex flex-col w-full mb-4 '>
@@ -143,7 +150,7 @@ const Casos_component = () => {
                     </tr>
                   </thead>
                   <tbody className='text-gray-600 dark:text-gray-100'>
-                    {dataTable.map((data, index) => (
+                    {dataTableFilter.map((data, index) => (
                       <tr
                         key={index}
                         className={
@@ -163,7 +170,7 @@ const Casos_component = () => {
                           </div>
                         </td>
                         <td className='sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 md:table-cell '>
-                          {data.fecha_pago}
+                          {new Date(data.fecha_pago).toLocaleDateString()}
                         </td>
                         <td className='sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 md:table-cell '>
                           {data.descripcion}
