@@ -20,6 +20,10 @@ const Casos_component = () => {
     if (casos.length === 0) {
       return;
     }
+    const modalPagosDetalles = document.getElementById('pago_detalles');
+    modalPagosDetalles.classList.add('hidden');
+    modalPagosDetalles.setAttribute('aria-hidden', 'true');
+
     const modal = document.getElementById('modal-ver-casos');
     modal.classList.remove('hidden');
     modal.setAttribute('aria-hidden', 'false');
@@ -485,7 +489,7 @@ const Casos_component = () => {
                                 className='inline-block rounded bg-primary-450 px-4 py-2 text-xs font-medium text-white hover:bg-primary-500'
                                 onClick={() => handlePagos(caso.pagos)}
                               >
-                                Ver
+                                {caso.pagos.length > 0 ? 'Ver' : 'Sin pagos'}
                               </button>
                             </td>
                           </tr>
