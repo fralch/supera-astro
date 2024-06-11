@@ -8,11 +8,13 @@ const Casos_component = () => {
   const [pagosView, setPagosView] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:3000/clientes').then((response) => {
-      console.log(response.data);
-      setDataTable(response.data);
-      setDataTableFilter(response.data);
-    });
+    axios
+      .get('http://162.248.55.24:3000/superabackend/clientes')
+      .then((response) => {
+        console.log(response.data);
+        setDataTable(response.data);
+        setDataTableFilter(response.data);
+      });
   }, []);
 
   const handleCasos = (casos) => {
