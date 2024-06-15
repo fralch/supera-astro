@@ -280,6 +280,20 @@ const Casos_component = () => {
                     }}
                   />
                 </div>
+
+                {/*  Agregar caso */}
+                <button
+                  className='bg-primary-700 text-white p-2 rounded-md w-full mt-3 hover:bg-primary-800 focus:outline-none focus:ring-2 focus:ring-primary-450'
+                  onClick={() => {
+                    const modal = document.getElementById('modal-add-caso');
+                    modal.classList.remove('hidden');
+                    modal.setAttribute('aria-hidden', 'false');
+                    setIsModalOpen(true);
+                    blurRef.current.classList.add('modal-open');
+                  }}
+                >
+                  Agregar caso
+                </button>
               </div>
             </div>
 
