@@ -7,6 +7,14 @@ const Casos_component = () => {
   const [casosView, setCasosView] = useState([]);
   const [pagosView, setPagosView] = useState([]);
 
+  const [nuevoCliente, setNuevoCliente] = useState({
+    dni: '',
+    nombre: '',
+    celular: '',
+    correo: '',
+    direccion: '',
+  });
+
   useEffect(() => {
     axios
       .get('http://162.248.55.24:3000/superabackend/clientes')
@@ -41,6 +49,11 @@ const Casos_component = () => {
       // obtener casos
       setPagosView(pagos);
     }
+  };
+
+  const handleEditar = (cliente) => {
+    console.log(cliente);
+    setNuevoCliente(cliente);
   };
 
   return (
@@ -120,6 +133,13 @@ const Casos_component = () => {
                   <button
                     className='bg-primary-700 text-white p-2 rounded-md'
                     onClick={() => {
+                      setNuevoCliente({
+                        dni: '',
+                        nombre: '',
+                        celular: '',
+                        correo: '',
+                        direccion: '',
+                      });
                       const modal = document.getElementById(
                         'modal-agregar-cliente'
                       );
@@ -161,6 +181,7 @@ const Casos_component = () => {
                       <th className='font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800 sm:text-gray-400 text-white'>
                         Estado
                       </th>
+                      <th>Editar</th>
                     </tr>
                   </thead>
                   <tbody className='text-gray-600 dark:text-gray-100'>
@@ -207,6 +228,21 @@ const Casos_component = () => {
                           ) : (
                             <div className='text-red-500'>Inactivo</div>
                           )}
+                        </td>
+                        <td className='sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 md:table-cell '>
+                          <button
+                            className='text-yellow-500 hover:text-yellow-700 focus:outline-none focus:ring-2 focus:ring-yellow-300 font-medium rounded-lg text-sm px-2 py-1 text-center dark:text-yellow-400 dark:hover:text-yellow-500 dark:focus:ring-yellow-800 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:z-10'
+                            onClick={() => {
+                              handleEditar(data);
+                              const modal = document.getElementById(
+                                'modal-agregar-cliente'
+                              );
+                              modal.classList.remove('hidden');
+                              modal.setAttribute('aria-hidden', 'false');
+                            }}
+                          >
+                            <div className='flex items-center'>Editar</div>
+                          </button>
                         </td>
                       </tr>
                     ))}
@@ -276,6 +312,10 @@ const Casos_component = () => {
                   type='text'
                   className='border border-gray-200 dark:border-gray-800 rounded-md p-2 text-sm'
                   placeholder='Ingrese DNI'
+                  value={nuevoCliente.dni}
+                  onChange={(e) =>
+                    setNuevoCliente({ ...nuevoCliente, dni: e.target.value })
+                  }
                 />
                 <label className='block text-sm text-gray-700 dark:text-gray-200'>
                   Cliente
@@ -284,6 +324,10 @@ const Casos_component = () => {
                   type='text'
                   className='border border-gray-200 dark:border-gray-800 rounded-md p-2 text-sm'
                   placeholder='Ingrese nombre del cliente'
+                  value={nuevoCliente.nombre}
+                  onChange={(e) =>
+                    setNuevoCliente({ ...nuevoCliente, nombre: e.target.value })
+                  }
                 />
               </div>
 
@@ -297,6 +341,13 @@ const Casos_component = () => {
                       type='text'
                       className='border border-gray-200 dark:border-gray-800 rounded-md p-2 text-sm'
                       placeholder='Ingrese celular'
+                      value={nuevoCliente.celular}
+                      onChange={(e) =>
+                        setNuevoCliente({
+                          ...nuevoCliente,
+                          celular: e.target.value,
+                        })
+                      }
                     />
                   </div>
                   <div className='flex flex-col w-full p-4'>
@@ -307,6 +358,13 @@ const Casos_component = () => {
                       type='email'
                       className='border border-gray-200 dark:border-gray-800 rounded-md p-2 text-sm'
                       placeholder='Ingrese correo'
+                      value={nuevoCliente.correo}
+                      onChange={(e) =>
+                        setNuevoCliente({
+                          ...nuevoCliente,
+                          correo: e.target.value,
+                        })
+                      }
                     />
                   </div>
 
@@ -318,6 +376,13 @@ const Casos_component = () => {
                       type='text'
                       className='border border-gray-200 dark:border-gray-800 rounded-md p-2 text-sm'
                       placeholder='Ingrese dirección'
+                      value={nuevoCliente.direccion}
+                      onChange={(e) =>
+                        setNuevoCliente({
+                          ...nuevoCliente,
+                          direccion: e.target.value,
+                        })
+                      }
                     />
                   </div>
                 </div>

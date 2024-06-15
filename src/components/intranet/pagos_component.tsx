@@ -10,6 +10,14 @@ const Casos_component = () => {
   const [pagosView, setPagosView] = useState([]);
   const [pagosData, setPagosData] = useState([]);
 
+  const [nuevoPagoData, setNuevoPagoData] = useState({
+    cliente: '',
+    caso: '',
+    descripcion: '',
+    monto: '',
+    metodo_pago: '',
+  });
+
   useEffect(() => {
     axios
       .get('http://162.248.55.24:3000/superabackend/pagos')
@@ -289,6 +297,14 @@ const Casos_component = () => {
                   className='border border-gray-200 dark:border-gray-800 rounded-md p-2 text-sm w-full'
                   onChange={(e) => {
                     const value = e.target.value;
+
+                    setNuevoPagoData({
+                      ...nuevoPagoData,
+                      cliente: value,
+                      caso: '',
+                    });
+                    setPagosData([]);
+
                     if (value === '') {
                       setCasosView([]);
                       return;
@@ -298,6 +314,7 @@ const Casos_component = () => {
                     });
                     setCasosView(cliente.casos);
                   }}
+                  value={nuevoPagoData.cliente}
                 >
                   <option value=''>Seleccionar cliente</option>
                   {clientesView.map((cliente, index) => (
@@ -321,6 +338,11 @@ const Casos_component = () => {
                       setPagosView([]);
                       return;
                     }
+
+                    setNuevoPagoData({
+                      ...nuevoPagoData,
+                      caso: value,
+                    });
                     const caso = casosView.find((caso) => {
                       return parseInt(caso.id) === parseInt(value);
                     });
@@ -335,6 +357,7 @@ const Casos_component = () => {
 
                     setPagosView(pagos);
                   }}
+                  value={nuevoPagoData.caso}
                 >
                   <option value=''>Seleccionar caso</option>
                   {casosView.map((caso, index) => (
@@ -400,6 +423,13 @@ const Casos_component = () => {
                       type='text'
                       className='border border-gray-200 dark:border-gray-800 rounded-md p-2 text-sm'
                       placeholder='Ingrese descripcion'
+                      onChange={(e) => {
+                        const value = e.target.value;
+                        setNuevoPagoData({
+                          ...nuevoPagoData,
+                          descripcion: value,
+                        });
+                      }}
                     />
                   </div>
                   <div className='flex flex-col w-full p-4'>
@@ -410,6 +440,13 @@ const Casos_component = () => {
                       type='number'
                       className='border border-gray-200 dark:border-gray-800 rounded-md p-2 text-sm'
                       placeholder='Ingrese monto S/'
+                      onChange={(e) => {
+                        const value = e.target.value;
+                        setNuevoPagoData({
+                          ...nuevoPagoData,
+                          monto: value,
+                        });
+                      }}
                     />
                   </div>
 
@@ -417,7 +454,16 @@ const Casos_component = () => {
                     <label className='block text-sm text-gray-700 dark:text-gray-200'>
                       Metodo de pago
                     </label>
-                    <select className='border border-gray-200 dark:border-gray-800 rounded-md p-2 text-sm'>
+                    <select
+                      className='border border-gray-200 dark:border-gray-800 rounded-md p-2 text-sm'
+                      onChange={(e) => {
+                        const value = e.target.value;
+                        setNuevoPagoData({
+                          ...nuevoPagoData,
+                          metodo_pago: value,
+                        });
+                      }}
+                    >
                       <option
                         value=''
                         disabled
