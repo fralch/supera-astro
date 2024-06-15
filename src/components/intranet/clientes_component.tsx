@@ -181,7 +181,9 @@ const Casos_component = () => {
                       <th className='font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800 sm:text-gray-400 text-white'>
                         Estado
                       </th>
-                      <th>Editar</th>
+                      <th className='font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800 sm:text-gray-400 text-white'>
+                        Editar
+                      </th>
                     </tr>
                   </thead>
                   <tbody className='text-gray-600 dark:text-gray-100'>
