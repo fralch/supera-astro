@@ -1,23 +1,1144 @@
-<!DOCTYPE html><html lang="en" data-astro-cid-fophji6l> <head><meta charset="UTF-8"><meta name="description" content="Astro description"><meta name="viewport" content="width=device-width"><link rel="icon" type="image/svg+xml" href="./favicon2.svg"><meta name="generator" content="Astro v4.5.9"><title>Intranet</title><script src="https://cdn.jsdelivr.net/npm/alpinejs@2.x.x/dist/alpine.min.js" defer></script><link rel="stylesheet" href="https://demos.creative-tim.com/notus-js/assets/styles/tailwind.css"><link rel="stylesheet" href="https://demos.creative-tim.com/notus-js/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="/_astro/blog.Cedc4uKg.css">
-<style>:root{--accent: 136, 58, 234;--accent-light: 224, 204, 250;--accent-dark: 49, 10, 101;--accent-gradient: linear-gradient( 45deg, rgb(var(--accent)), rgb(var(--accent-light)) 30%, white 60% )}html{font-family:system-ui,sans-serif;background:#13151a;background-size:224px}code{font-family:Menlo,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New,monospace}body{margin:0;padding:0;display:flex;flex-direction:column;min-height:100vh}header{background-color:#002e1f;z-index:1000}main{flex-grow:1;margin-top:100px;padding:0;width:100%;color:#fff;font-size:20px;line-height:1.6;background:#23262d}@media (max-width: 768px){main{margin-top:10%;font-size:16px}}body{display:flex;flex-direction:column;min-height:100vh}footer[data-astro-cid-fophji6l]{margin-top:auto}
-</style><script type="module">document.addEventListener("DOMContentLoaded",function(){const o=document.querySelectorAll(".navbar-burger"),n=document.querySelectorAll(".navbar-menu");if(o.length&&n.length)for(var e=0;e<o.length;e++)o[e].addEventListener("click",function(){for(var c=0;c<n.length;c++)n[c].classList.toggle("hidden")});const r=document.querySelectorAll(".navbar-close"),l=document.querySelectorAll(".navbar-backdrop");if(r.length)for(var e=0;e<r.length;e++)r[e].addEventListener("click",function(){for(var t=0;t<n.length;t++)n[t].classList.toggle("hidden")});if(l.length)for(var e=0;e<l.length;e++)l[e].addEventListener("click",function(){for(var t=0;t<n.length;t++)n[t].classList.toggle("hidden")})});document.getElementById("salir_btn").addEventListener("click",function(){localStorage.removeItem("userData"),window.location.href="/"});
-</script></head> <body data-astro-cid-fophji6l> <header class="fixed top-0 right-0 border-gray-200 px-4 lg:px-6 py-4 dark:bg-0A4033 w-full fixed-header" data-astro-cid-fophji6l> <nav class="relative px-4 py-4 flex justify-between items-center bg-secondary-100" data-astro-cid-fophji6l> <a href="/" class="flex items-center ml-0 xl:ml-0 2xl:ml-40" data-astro-cid-fophji6l> <img src="../supera-cromo.svg" class="h-12 xl:h-20" alt="Supera Logo" data-astro-cid-fophji6l> </a> <div class="lg:hidden" data-astro-cid-fophji6l> <button class="navbar-burger flex items-center text-texto-secondary p-5" data-astro-cid-fophji6l> <svg class="block h-4 w-4 fill-current" viewBox="0 0 20 20" data-astro-cid-fophji6l> <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" data-astro-cid-fophji6l></path> </svg> </button> </div> <ul class="hidden absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:items-center lg:w-auto lg:space-x-6" data-astro-cid-fophji6l> <li data-astro-cid-fophji6l> <a class="text-gray-400 hover:text-white" href="/" data-astro-cid-fophji6l>Inicio</a> </li> <li class="text-gray-300" data-astro-cid-fophji6l> <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" class="w-4 h-4 current-fill" viewBox="0 0 24 24" data-astro-cid-fophji6l> <path d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" data-astro-cid-fophji6l></path> </svg> </li> <li data-astro-cid-fophji6l> <a class="text-gray-400 hover:text-white" href="/casos" data-astro-cid-fophji6l>Casos</a> </li> <li class="text-gray-300" data-astro-cid-fophji6l> <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" class="w-4 h-4 current-fill" viewBox="0 0 24 24" data-astro-cid-fophji6l> <path d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" data-astro-cid-fophji6l></path> </svg> </li> <li data-astro-cid-fophji6l> <a class="text-gray-400 hover:text-white" href="/pagos" data-astro-cid-fophji6l>Pagos</a> </li> <li class="text-gray-300" data-astro-cid-fophji6l> <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" class="w-4 h-4 current-fill" viewBox="0 0 24 24" data-astro-cid-fophji6l> <path d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" data-astro-cid-fophji6l></path> </svg> </li> <li data-astro-cid-fophji6l> <a class="text-gray-400 hover:text-white" href="/clientes" data-astro-cid-fophji6l>Clientes</a> </li> <li class="text-gray-300" data-astro-cid-fophji6l> <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" class="w-4 h-4 current-fill" viewBox="0 0 24 24" data-astro-cid-fophji6l> <path d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" data-astro-cid-fophji6l></path> </svg> </li> <li data-astro-cid-fophji6l> <a class="text-gray-400 hover:text-white" href="/rendimiento" data-astro-cid-fophji6l>Rendimiento</a> </li> </ul> <button class="hidden lg:inline-block py-3 2xl:px-6 xl:px-2 lg:px-5 bg-primary-500 hover:bg-primary-400 text-sm text-white font-bold rounded-xl transition duration-200" id="salir_btn" data-astro-cid-fophji6l>
-Salir
-</button> </nav> <div class="navbar-menu relative z-50 hidden" data-astro-cid-fophji6l> <div class="navbar-backdrop fixed inset-0 bg-gray-800 opacity-25" data-astro-cid-fophji6l></div> <nav class="fixed top-0 left-0 bottom-0 flex flex-col w-5/6 max-w-sm py-6 px-6 bg-secondary-100 overflow-y-auto" data-astro-cid-fophji6l> <div class="flex items-center mb-8" data-astro-cid-fophji6l> <a class="mr-auto text-3xl font-bold leading-none" href="/" data-astro-cid-fophji6l> <img src="./supera-cromo.svg" class="h-12 lg:h-20" alt="Supera Logo" data-astro-cid-fophji6l> </a> <a class="navbar-close p-3" data-astro-cid-fophji6l> <svg class="h-6 w-6 text-gray-400 cursor-pointer hover:text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" data-astro-cid-fophji6l> <path d="M6 18L18 6M6 6l12 12" data-astro-cid-fophji6l></path> </svg> </a> </div> <div data-astro-cid-fophji6l> <ul data-astro-cid-fophji6l> <li class="mb-1" data-astro-cid-fophji6l> <a class="flex items-center justify-between w-full py-2 pr-4 pl-3 text-gray-700 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-blue-50 dark:hover:text-gray-400 lg:dark:hover:bg-transparent dark:border-gray-700" href="/" data-astro-cid-fophji6l>Inicio</a> </li> <li class="mb-1" data-astro-cid-fophji6l> <a class="flex items-center justify-between w-full py-2 pr-4 pl-3 text-gray-700 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-blue-50 dark:hover:text-gray-400 lg:dark:hover:bg-transparent dark:border-gray-700" href="/nosotros" data-astro-cid-fophji6l>Nosotros</a> </li> <!-- <li class="mb-1">
+<!DOCTYPE html>
+<html
+  lang="en"
+  data-astro-cid-fophji6l
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="Astro description"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width"
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="./favicon2.svg"
+    />
+    <meta
+      name="generator"
+      content="Astro v4.5.9"
+    />
+    <title>Intranet</title>
+    <script
+      src="https://cdn.jsdelivr.net/npm/alpinejs@2.x.x/dist/alpine.min.js"
+      defer
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://demos.creative-tim.com/notus-js/assets/styles/tailwind.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://demos.creative-tim.com/notus-js/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="/_astro/blog.Cedc4uKg.css"
+    />
+    <style>
+      :root {
+        --accent: 136, 58, 234;
+        --accent-light: 224, 204, 250;
+        --accent-dark: 49, 10, 101;
+        --accent-gradient: linear-gradient(
+          45deg,
+          rgb(var(--accent)),
+          rgb(var(--accent-light)) 30%,
+          white 60%
+        );
+      }
+      html {
+        font-family: system-ui, sans-serif;
+        background: #13151a;
+        background-size: 224px;
+      }
+      code {
+        font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
+          DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+      header {
+        background-color: #002e1f;
+        z-index: 1000;
+      }
+      main {
+        flex-grow: 1;
+        margin-top: 100px;
+        padding: 0;
+        width: 100%;
+        color: #fff;
+        font-size: 20px;
+        line-height: 1.6;
+        background: #23262d;
+      }
+      @media (max-width: 768px) {
+        main {
+          margin-top: 10%;
+          font-size: 16px;
+        }
+      }
+      body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+      footer[data-astro-cid-fophji6l] {
+        margin-top: auto;
+      }
+    </style>
+    <script type="module">
+      document.addEventListener('DOMContentLoaded', function () {
+        const o = document.querySelectorAll('.navbar-burger'),
+          n = document.querySelectorAll('.navbar-menu');
+        if (o.length && n.length)
+          for (var e = 0; e < o.length; e++)
+            o[e].addEventListener('click', function () {
+              for (var c = 0; c < n.length; c++)
+                n[c].classList.toggle('hidden');
+            });
+        const r = document.querySelectorAll('.navbar-close'),
+          l = document.querySelectorAll('.navbar-backdrop');
+        if (r.length)
+          for (var e = 0; e < r.length; e++)
+            r[e].addEventListener('click', function () {
+              for (var t = 0; t < n.length; t++)
+                n[t].classList.toggle('hidden');
+            });
+        if (l.length)
+          for (var e = 0; e < l.length; e++)
+            l[e].addEventListener('click', function () {
+              for (var t = 0; t < n.length; t++)
+                n[t].classList.toggle('hidden');
+            });
+      });
+      document
+        .getElementById('salir_btn')
+        .addEventListener('click', function () {
+          localStorage.removeItem('userData'), (window.location.href = '/');
+        });
+    </script>
+  </head>
+  <body data-astro-cid-fophji6l>
+    <header
+      class="fixed top-0 right-0 border-gray-200 px-4 lg:px-6 py-4 dark:bg-0A4033 w-full fixed-header"
+      data-astro-cid-fophji6l
+    >
+      <nav
+        class="relative px-4 py-4 flex justify-between items-center bg-secondary-100"
+        data-astro-cid-fophji6l
+      >
+        <a
+          href="/"
+          class="flex items-center ml-0 xl:ml-0 2xl:ml-40"
+          data-astro-cid-fophji6l
+        >
+          <img
+            src="../supera-cromo.svg"
+            class="h-12 xl:h-20"
+            alt="Supera Logo"
+            data-astro-cid-fophji6l
+          />
+        </a>
+        <div
+          class="lg:hidden"
+          data-astro-cid-fophji6l
+        >
+          <button
+            class="navbar-burger flex items-center text-texto-secondary p-5"
+            data-astro-cid-fophji6l
+          >
+            <svg
+              class="block h-4 w-4 fill-current"
+              viewBox="0 0 20 20"
+              data-astro-cid-fophji6l
+            >
+              <path
+                d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"
+                data-astro-cid-fophji6l
+              ></path>
+            </svg>
+          </button>
+        </div>
+        <ul
+          class="hidden absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:items-center lg:w-auto lg:space-x-6"
+          data-astro-cid-fophji6l
+        >
+          <li data-astro-cid-fophji6l>
+            <a
+              class="text-gray-400 hover:text-white"
+              href="/"
+              data-astro-cid-fophji6l
+              >Inicio</a
+            >
+          </li>
+          <li
+            class="text-gray-300"
+            data-astro-cid-fophji6l
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              stroke="currentColor"
+              class="w-4 h-4 current-fill"
+              viewBox="0 0 24 24"
+              data-astro-cid-fophji6l
+            >
+              <path
+                d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
+                data-astro-cid-fophji6l
+              ></path>
+            </svg>
+          </li>
+          <li data-astro-cid-fophji6l>
+            <a
+              class="text-gray-400 hover:text-white"
+              href="/casos"
+              data-astro-cid-fophji6l
+              >Casos</a
+            >
+          </li>
+          <li
+            class="text-gray-300"
+            data-astro-cid-fophji6l
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              stroke="currentColor"
+              class="w-4 h-4 current-fill"
+              viewBox="0 0 24 24"
+              data-astro-cid-fophji6l
+            >
+              <path
+                d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
+                data-astro-cid-fophji6l
+              ></path>
+            </svg>
+          </li>
+          <li data-astro-cid-fophji6l>
+            <a
+              class="text-gray-400 hover:text-white"
+              href="/pagos"
+              data-astro-cid-fophji6l
+              >Pagos</a
+            >
+          </li>
+          <li
+            class="text-gray-300"
+            data-astro-cid-fophji6l
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              stroke="currentColor"
+              class="w-4 h-4 current-fill"
+              viewBox="0 0 24 24"
+              data-astro-cid-fophji6l
+            >
+              <path
+                d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
+                data-astro-cid-fophji6l
+              ></path>
+            </svg>
+          </li>
+          <li data-astro-cid-fophji6l>
+            <a
+              class="text-gray-400 hover:text-white"
+              href="/clientes"
+              data-astro-cid-fophji6l
+              >Clientes</a
+            >
+          </li>
+          <li
+            class="text-gray-300"
+            data-astro-cid-fophji6l
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              stroke="currentColor"
+              class="w-4 h-4 current-fill"
+              viewBox="0 0 24 24"
+              data-astro-cid-fophji6l
+            >
+              <path
+                d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
+                data-astro-cid-fophji6l
+              ></path>
+            </svg>
+          </li>
+          <li data-astro-cid-fophji6l>
+            <a
+              class="text-gray-400 hover:text-white"
+              href="/colaboradores"
+              data-astro-cid-fophji6l
+              >Rendimiento</a
+            >
+          </li>
+        </ul>
+        <button
+          class="hidden lg:inline-block py-3 2xl:px-6 xl:px-2 lg:px-5 bg-primary-500 hover:bg-primary-400 text-sm text-white font-bold rounded-xl transition duration-200"
+          id="salir_btn"
+          data-astro-cid-fophji6l
+        >
+          Salir
+        </button>
+      </nav>
+      <div
+        class="navbar-menu relative z-50 hidden"
+        data-astro-cid-fophji6l
+      >
+        <div
+          class="navbar-backdrop fixed inset-0 bg-gray-800 opacity-25"
+          data-astro-cid-fophji6l
+        ></div>
+        <nav
+          class="fixed top-0 left-0 bottom-0 flex flex-col w-5/6 max-w-sm py-6 px-6 bg-secondary-100 overflow-y-auto"
+          data-astro-cid-fophji6l
+        >
+          <div
+            class="flex items-center mb-8"
+            data-astro-cid-fophji6l
+          >
+            <a
+              class="mr-auto text-3xl font-bold leading-none"
+              href="/"
+              data-astro-cid-fophji6l
+            >
+              <img
+                src="./supera-cromo.svg"
+                class="h-12 lg:h-20"
+                alt="Supera Logo"
+                data-astro-cid-fophji6l
+              />
+            </a>
+            <a
+              class="navbar-close p-3"
+              data-astro-cid-fophji6l
+            >
+              <svg
+                class="h-6 w-6 text-gray-400 cursor-pointer hover:text-gray-500"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                data-astro-cid-fophji6l
+              >
+                <path
+                  d="M6 18L18 6M6 6l12 12"
+                  data-astro-cid-fophji6l
+                ></path>
+              </svg>
+            </a>
+          </div>
+          <div data-astro-cid-fophji6l>
+            <ul data-astro-cid-fophji6l>
+              <li
+                class="mb-1"
+                data-astro-cid-fophji6l
+              >
+                <a
+                  class="flex items-center justify-between w-full py-2 pr-4 pl-3 text-gray-700 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-blue-50 dark:hover:text-gray-400 lg:dark:hover:bg-transparent dark:border-gray-700"
+                  href="/"
+                  data-astro-cid-fophji6l
+                  >Inicio</a
+                >
+              </li>
+              <li
+                class="mb-1"
+                data-astro-cid-fophji6l
+              >
+                <a
+                  class="flex items-center justify-between w-full py-2 pr-4 pl-3 text-gray-700 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-blue-50 dark:hover:text-gray-400 lg:dark:hover:bg-transparent dark:border-gray-700"
+                  href="/nosotros"
+                  data-astro-cid-fophji6l
+                  >Nosotros</a
+                >
+              </li>
+              <!-- <li class="mb-1">
 								<a class="flex items-center justify-between w-full py-2 pr-4 pl-3 text-gray-700  hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-blue-50 dark:hover:text-gray-400 lg:dark:hover:bg-transparent dark:border-gray-700" href="/blog">Publicaciones</a>
-							</li> --> <li x-data="{ open: false }" @click.away="open = false" class="relative" data-astro-cid-fophji6l> <button @click="open = !open" class="flex items-center justify-between w-full py-2 pr-4 pl-3 text-gray-700 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-blue-50 dark:hover:text-gray-400 lg:dark:hover:bg-transparent dark:border-gray-700" data-astro-cid-fophji6l> <span data-astro-cid-fophji6l>Servicios</span> <svg :class="{ 'transform rotate-180': open }" class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-astro-cid-fophji6l><path d="M5.293 7.293a1 1 0 011.414 0L10 11.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" data-astro-cid-fophji6l></path></svg> </button> <div x-show="open" class="absolute z-10 w-500 max-w-xl py-2 mt-2 space-y-2 bg-white rounded-lg shadow-lg dark:bg-gray-800" x-transition:enter="transition transform duration-300 ease-out" x-transition:enter-start="opacity-0 -translate-y-2" x-transition:enter-end="opacity-100 translate-y-0" x-transition:leave="transition transform duration-300 ease-in" x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 -translate-y-3" data-astro-cid-fophji6l> <a href="/penal" class="block py-2 pl-3 text-gray-700 hover:bg-gray-50 dark:text-gray-400 dark:hover:bg-gray-700 pr-20" data-astro-cid-fophji6l>Penal</a> <a href="/civil" class="block py-2 pl-3 text-gray-700 hover:bg-gray-50 dark:text-gray-400 dark:hover:bg-gray-700" data-astro-cid-fophji6l>Civil</a> <a href="/laboral" class="block py-2 pl-3 text-gray-700 hover:bg-gray-50 dark:text-gray-400 dark:hover:bg-gray-700" data-astro-cid-fophji6l>Laboral</a> <a href="/corporativo" class="block py-2 pl-3 text-gray-700 hover:bg-gray-50 dark:text-gray-400 dark:hover:bg-gray-700" data-astro-cid-fophji6l>Corporativo</a> </div> </li> <li class="mb-1" data-astro-cid-fophji6l> <a class="flex items-center justify-between w-full py-2 pr-4 pl-3 text-gray-700 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-blue-50 dark:hover:text-gray-400 lg:dark:hover:bg-transparent dark:border-gray-700" href="/contacto" data-astro-cid-fophji6l>Contacto</a> </li> </ul> </div> <div class="mt-auto" data-astro-cid-fophji6l> <div class="pt-6" data-astro-cid-fophji6l> <a class="px-4 py-3 mb-3 leading-loose text-xs text-center font-semibold bg-gray-50 hover:bg-gray-100 rounded-xl flex justify-center" href="https://wa.me/51971115006?text=Quisiera%20recibir%20apoyo%20legal%20de%20Supera%20Abogados" data-astro-cid-fophji6l> <svg class="icon icon-tabler icon-tabler-brand-whatsapp" width="24" height="24" viewBox="0 0 24 24" stroke="currentColor" fill="none" data-astro-cid-fophji6l><path stroke="none" d="M0 0h24v24H0z" fill="none" data-astro-cid-fophji6l></path><path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" data-astro-cid-fophji6l></path><path d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1" data-astro-cid-fophji6l></path></svg> <span class="ml-2" data-astro-cid-fophji6l>Contactanos</span> </a> <a class="block px-4 py-3 mb-2 leading-loose text-xs text-center text-white font-semibold bg-primary-500 hover:bg-primary-400 rounded-xl" href="#" data-astro-cid-fophji6l>Comunidades</a> </div> <p class="my-4 text-xs text-center text-gray-400" data-astro-cid-fophji6l> <span data-astro-cid-fophji6l>FrankCairampoma © 2024</span> </p> </div> </nav> </div> </header> <main data-astro-cid-fophji6l> <style>astro-island,astro-slot,astro-static-slot{display:contents}</style><script>(()=>{var l=(s,i,o)=>{let r=async()=>{await(await s())()},t=typeof i.value=="object"?i.value:void 0,c={rootMargin:t==null?void 0:t.rootMargin},n=new IntersectionObserver(e=>{for(let a of e)if(a.isIntersecting){n.disconnect(),r();break}},c);for(let e of o.children)n.observe(e)};(self.Astro||(self.Astro={})).visible=l;window.dispatchEvent(new Event("astro:visible"));})();;(()=>{var v=Object.defineProperty;var A=(c,s,a)=>s in c?v(c,s,{enumerable:!0,configurable:!0,writable:!0,value:a}):c[s]=a;var d=(c,s,a)=>(A(c,typeof s!="symbol"?s+"":s,a),a);var u;{let c={0:t=>m(t),1:t=>a(t),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(a(t)),5:t=>new Set(a(t)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(t),9:t=>new Uint16Array(t),10:t=>new Uint32Array(t)},s=t=>{let[e,n]=t;return e in c?c[e](n):void 0},a=t=>t.map(s),m=t=>typeof t!="object"||t===null?t:Object.fromEntries(Object.entries(t).map(([e,n])=>[e,s(n)]));customElements.get("astro-island")||customElements.define("astro-island",(u=class extends HTMLElement{constructor(){super(...arguments);d(this,"Component");d(this,"hydrator");d(this,"hydrate",async()=>{var f;if(!this.hydrator||!this.isConnected)return;let e=(f=this.parentElement)==null?void 0:f.closest("astro-island[ssr]");if(e){e.addEventListener("astro:hydrate",this.hydrate,{once:!0});return}let n=this.querySelectorAll("astro-slot"),r={},l=this.querySelectorAll("template[data-astro-template]");for(let o of l){let i=o.closest(this.tagName);i!=null&&i.isSameNode(this)&&(r[o.getAttribute("data-astro-template")||"default"]=o.innerHTML,o.remove())}for(let o of n){let i=o.closest(this.tagName);i!=null&&i.isSameNode(this)&&(r[o.getAttribute("name")||"default"]=o.innerHTML)}let h;try{h=this.hasAttribute("props")?m(JSON.parse(this.getAttribute("props"))):{}}catch(o){let i=this.getAttribute("component-url")||"<unknown>",b=this.getAttribute("component-export");throw b&&(i+=` (export ${b})`),console.error(`[hydrate] Error parsing props for component ${i}`,this.getAttribute("props"),o),o}let p;await this.hydrator(this)(this.Component,h,r,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),this.dispatchEvent(new CustomEvent("astro:hydrate"))});d(this,"unmount",()=>{this.isConnected||this.dispatchEvent(new CustomEvent("astro:unmount"))})}disconnectedCallback(){document.removeEventListener("astro:after-swap",this.unmount),document.addEventListener("astro:after-swap",this.unmount,{once:!0})}connectedCallback(){if(!this.hasAttribute("await-children")||document.readyState==="interactive"||document.readyState==="complete")this.childrenConnectedCallback();else{let e=()=>{document.removeEventListener("DOMContentLoaded",e),n.disconnect(),this.childrenConnectedCallback()},n=new MutationObserver(()=>{var r;((r=this.lastChild)==null?void 0:r.nodeType)===Node.COMMENT_NODE&&this.lastChild.nodeValue==="astro:end"&&(this.lastChild.remove(),e())});n.observe(this,{childList:!0}),document.addEventListener("DOMContentLoaded",e)}}async childrenConnectedCallback(){let e=this.getAttribute("before-hydration-url");e&&await import(e),this.start()}async start(){let e=JSON.parse(this.getAttribute("opts")),n=this.getAttribute("client");if(Astro[n]===void 0){window.addEventListener(`astro:${n}`,()=>this.start(),{once:!0});return}try{await Astro[n](async()=>{let r=this.getAttribute("renderer-url"),[l,{default:h}]=await Promise.all([import(this.getAttribute("component-url")),r?import(r):()=>()=>{}]),p=this.getAttribute("component-export")||"default";if(!p.includes("."))this.Component=l[p];else{this.Component=l;for(let y of p.split("."))this.Component=this.Component[y]}return this.hydrator=h,this.hydrate},e,this)}catch(r){console.error(`[astro-island] Error hydrating ${this.getAttribute("component-url")}`,r)}}attributeChangedCallback(){this.hydrate()}},d(u,"observedAttributes",["props"]),u))}})();</script><astro-island uid="2jYEcx" prefix="r0" component-url="/_astro/pagos_component.D-1Nbzhw.js" component-export="default" renderer-url="/_astro/client.18JKDFkt.js" props="{&quot;data-astro-cid-fophji6l&quot;:[0,true]}" ssr="" client="visible" opts="{&quot;name&quot;:&quot;Pagos_component&quot;,&quot;value&quot;:true}" await-children=""><section class="w-full py-2 bg-primary-980 mt-20 lg:mt-10 mx-auto"><div class="  bg-gray-100 dark:bg-secondary-900 dark:text-white text-gray-600 flex overflow-hidden text-sm"><div class="w-full overflow-hidden h-full flex flex-col"><div class="w-full flex overflow-x-hidden"><div class="xl:w-72 w-48 flex-shrink-0 border-r border-gray-200 dark:border-gray-800 h-full overflow-y-auto lg:block hidden p-5"><div class="flex items-center justify-between mb-6"><div class="text-xs text-gray-400 tracking-wider">FILTROS</div></div><div class="flex flex-col w-full "><div class="mb-4 p-3 w-full flex flex-col rounded-md bg-gray-800 py-4"><div class=" w-16 py-1 px-2 leading-none bg-gray-900  text-blue-500 rounded-md text-center mb-1">Buscar</div><input type="text" class="border border-gray-800 rounded-md p-2 text-sm bg-gray-100" placeholder="Ingrese caso"/></div><div class="flex flex-col w-full mb-4 bg-gray-800 py-4 px-2 rounded-md"><div class="w-16 pw-16 text-center mb-1 py-1 px-2  leading-none dark:bg-gray-900 bg-green-100 text-green-600 rounded-md">Fecha</div><input type="date" class="border border-gray-200 dark:border-gray-800 rounded-md p-2 text-sm"/></div><div class="flex flex-col w-full mb-4 bg-gray-800 py-4 px-2 rounded-md"><div class="w-16 pw-16 text-center mb-1 py-1 px-2 leading-none dark:bg-gray-900 bg-yellow-100 text-yellow-600 rounded-md">Estado</div><select class="border border-gray-200 dark:border-gray-800 rounded-md p-2 text-sm"><option value="">Seleccionar</option><option value="Pagado">Pagado</option><option value="Pendiente">Pendiente</option></select></div><div class="flex flex-col w-full mb-4 bg-gray-800 py-4 px-2 rounded-md"><div class=" w-24 pw-16 text-center mb-1 py-1 px-2 leading-none dark:bg-gray-900 bg-blue-100 text-red-500 rounded-md">Monto total</div><input type="number" class="border border-gray-200 dark:border-gray-800 rounded-md p-2 text-sm" placeholder="Monto total"/></div><div class="flex flex-col w-full mb-4 "><button class="bg-slate-800 text-white p-2 rounded-md ">Buscar</button></div><div class="flex flex-col w-full mb-4 "><button class="bg-primary-700 text-white p-2 rounded-md">Agregar Pago</button></div></div></div><div class="w-full bg-white dark:bg-secondary-800 overflow-y-auto"><div class="sm:p-7 p-4 "><table class="text-left w-full"><thead><tr class="text-gray-400 bg-primary-700 "><th class="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800">Caso</th><th class="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800">Monto</th><th class="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800  md:table-cell">Fecha</th><th class="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800">Descripcion</th><th class="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800 sm:text-gray-400 text-white">Metodo de pago</th><th class="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800 sm:text-gray-400 text-white">Monto total</th><th class="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800 sm:text-gray-400 text-white">Saldo pendiente</th><th class="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800 sm:text-gray-400 text-white">Estado</th></tr></thead><tbody class="text-gray-600 dark:text-gray-100"></tbody></table></div></div></div></div></div><div id="modal-table-pagos" data-modal-show="true" aria-hidden="true" class="hidden overflow-x-hidden overflow-y-auto fixed h-modal md:h-full top-0 left-0 right-0 md:inset-0 z-50 flex items-center justify-center" style="z-index:9999"><div class="relative w-full max-w-3xl px-2 h-full md:h-auto"><div class="bg-white rounded-lg shadow relative dark:bg-gray-700"><div class="flex items-start justify-between p-5 border-b rounded-t dark:border-gray-600"><h3 class="text-gray-900 text-xl lg:text-2xl font-semibold dark:text-white">Ingresar nuevo pago</h3><button type="button" class="text-gray-400 bg-gray-900 hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-red-400 dark:hover:text-white" data-modal-toggle="modal-table-pagos"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg></button></div><div class="overflow-x-auto p-5"><div class="
-                flex flex-col
-                w-full
-                bg-gray-100
-                dark:bg-secondary-800
-                rounded-md
-                p-4
-              "><label class="block text-sm text-gray-700 dark:text-gray-200">Cliente</label><select class="border border-gray-200 dark:border-gray-800 rounded-md p-2 text-sm w-full"><option value="">Seleccionar cliente</option></select><label class="block text-sm text-gray-700 dark:text-gray-200">Caso</label><select class="border border-gray-200 dark:border-gray-800 rounded-md p-2 text-sm w-full"><option value="">Seleccionar caso</option></select></div><table class="min-w-full mt-3 divide-y-2 divide-gray-700 bg-primary-980 text-sm dark:divide-gray-700 dark:bg-primary-980 rounded-md"><thead class="ltr:text-left rtl:text-right"><tr><th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white text-left">Cliente</th><th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white text-left">Caso</th><th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white text-left">Fecha</th><th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white text-center">Estado</th><th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white text-right">Monto</th></tr></thead><tbody class="divide-y divide-gray-200 dark:divide-gray-700"><tr><td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">John Doe</td><td class="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200">00095-2023-0-1504-JP-FC-01</td><td class="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200">24/05/1995</td><td class="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200"><p class="text-yellow-500  font-medium rounded-lg text-sm px-2 py-1 text-center dark:text-yellow-400   dark:bg-gray-700 ">Pendiente</p></td><td class="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200 text-right">S/ 1900.00</td></tr><tr><td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">Jane Doe</td><td class="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200">00095-2023-0-1504-JP-FC-01</td><td class="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200">04/11/1980</td><td class="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200"><p class="text-green-500  font-medium rounded-lg text-sm px-2 py-1 text-center dark:text-green-400   dark:bg-gray-700 ">Pagado</p></td><td class="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200 text-right">S/ 100.00</td></tr><tr><td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">John Doe</td><td class="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200">00095-2023-0-1504-JP-FC-01</td><td class="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200">24/05/1995</td><td class="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200"><p class="text-red-500  font-medium rounded-lg text-sm px-2 py-1 text-center dark:text-red-400   dark:bg-gray-700 ">Monto total</p></td><td class="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200 text-right">S/ 2000.00</td></tr></tbody></table><div class="w-full bg-gray-100 dark:bg-secondary-800 mt-3"><div class="flex flex-row "><div class="flex flex-col w-full p-4"><label class="block text-sm text-gray-700 dark:text-gray-200">Descripcion</label><input type="text" class="border border-gray-200 dark:border-gray-800 rounded-md p-2 text-sm" placeholder="Ingrese descripcion"/></div><div class="flex flex-col w-full p-4"><label class="block text-sm text-gray-700 dark:text-gray-200">Monto</label><input type="number" class="border border-gray-200 dark:border-gray-800 rounded-md p-2 text-sm" placeholder="Ingrese monto S/"/></div><div class="flex flex-col w-full p-4"><label class="block text-sm text-gray-700 dark:text-gray-200">Metodo de pago</label><select class="border border-gray-200 dark:border-gray-800 rounded-md p-2 text-sm"><option value="" disabled="">Seleccionar</option><option value="Efectivo">Efectivo</option><option value="Yape/Plin">Yape/Plin</option><option value="Transferencia">Transferencia</option></select></div></div></div><div class="flex flex-col p4 mt-4"><button class="  bg-primary-700 text-white p-2 rounded-md">Guardar</button><button class=" bg-secondary-800 text-white p-2 rounded-md mt-3">Cancelar</button></div></div></div></div></div><style>
-          input {
-            background-color: #13151A !important;
+							</li> -->
+              <li
+                x-data="{ open: false }"
+                @click.away="open = false"
+                class="relative"
+                data-astro-cid-fophji6l
+              >
+                <button
+                  @click="open = !open"
+                  class="flex items-center justify-between w-full py-2 pr-4 pl-3 text-gray-700 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-blue-50 dark:hover:text-gray-400 lg:dark:hover:bg-transparent dark:border-gray-700"
+                  data-astro-cid-fophji6l
+                >
+                  <span data-astro-cid-fophji6l>Servicios</span>
+                  <svg
+                    :class="{ 'transform rotate-180': open }"
+                    class="w-4 h-4"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg"
+                    data-astro-cid-fophji6l
+                  >
+                    <path
+                      d="M5.293 7.293a1 1 0 011.414 0L10 11.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                      data-astro-cid-fophji6l
+                    ></path>
+                  </svg>
+                </button>
+                <div
+                  x-show="open"
+                  class="absolute z-10 w-500 max-w-xl py-2 mt-2 space-y-2 bg-white rounded-lg shadow-lg dark:bg-gray-800"
+                  x-transition:enter="transition transform duration-300 ease-out"
+                  x-transition:enter-start="opacity-0 -translate-y-2"
+                  x-transition:enter-end="opacity-100 translate-y-0"
+                  x-transition:leave="transition transform duration-300 ease-in"
+                  x-transition:leave-start="opacity-100 translate-y-0"
+                  x-transition:leave-end="opacity-0 -translate-y-3"
+                  data-astro-cid-fophji6l
+                >
+                  <a
+                    href="/penal"
+                    class="block py-2 pl-3 text-gray-700 hover:bg-gray-50 dark:text-gray-400 dark:hover:bg-gray-700 pr-20"
+                    data-astro-cid-fophji6l
+                    >Penal</a
+                  >
+                  <a
+                    href="/civil"
+                    class="block py-2 pl-3 text-gray-700 hover:bg-gray-50 dark:text-gray-400 dark:hover:bg-gray-700"
+                    data-astro-cid-fophji6l
+                    >Civil</a
+                  >
+                  <a
+                    href="/laboral"
+                    class="block py-2 pl-3 text-gray-700 hover:bg-gray-50 dark:text-gray-400 dark:hover:bg-gray-700"
+                    data-astro-cid-fophji6l
+                    >Laboral</a
+                  >
+                  <a
+                    href="/corporativo"
+                    class="block py-2 pl-3 text-gray-700 hover:bg-gray-50 dark:text-gray-400 dark:hover:bg-gray-700"
+                    data-astro-cid-fophji6l
+                    >Corporativo</a
+                  >
+                </div>
+              </li>
+              <li
+                class="mb-1"
+                data-astro-cid-fophji6l
+              >
+                <a
+                  class="flex items-center justify-between w-full py-2 pr-4 pl-3 text-gray-700 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-blue-50 dark:hover:text-gray-400 lg:dark:hover:bg-transparent dark:border-gray-700"
+                  href="/contacto"
+                  data-astro-cid-fophji6l
+                  >Contacto</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div
+            class="mt-auto"
+            data-astro-cid-fophji6l
+          >
+            <div
+              class="pt-6"
+              data-astro-cid-fophji6l
+            >
+              <a
+                class="px-4 py-3 mb-3 leading-loose text-xs text-center font-semibold bg-gray-50 hover:bg-gray-100 rounded-xl flex justify-center"
+                href="https://wa.me/51971115006?text=Quisiera%20recibir%20apoyo%20legal%20de%20Supera%20Abogados"
+                data-astro-cid-fophji6l
+              >
+                <svg
+                  class="icon icon-tabler icon-tabler-brand-whatsapp"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  fill="none"
+                  data-astro-cid-fophji6l
+                >
+                  <path
+                    stroke="none"
+                    d="M0 0h24v24H0z"
+                    fill="none"
+                    data-astro-cid-fophji6l
+                  ></path>
+                  <path
+                    d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9"
+                    data-astro-cid-fophji6l
+                  ></path>
+                  <path
+                    d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1"
+                    data-astro-cid-fophji6l
+                  ></path>
+                </svg>
+                <span
+                  class="ml-2"
+                  data-astro-cid-fophji6l
+                  >Contactanos</span
+                >
+              </a>
+              <a
+                class="block px-4 py-3 mb-2 leading-loose text-xs text-center text-white font-semibold bg-primary-500 hover:bg-primary-400 rounded-xl"
+                href="#"
+                data-astro-cid-fophji6l
+                >Comunidades</a
+              >
+            </div>
+            <p
+              class="my-4 text-xs text-center text-gray-400"
+              data-astro-cid-fophji6l
+            >
+              <span data-astro-cid-fophji6l>FrankCairampoma © 2024</span>
+            </p>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <main data-astro-cid-fophji6l>
+      <style>
+        astro-island,
+        astro-slot,
+        astro-static-slot {
+          display: contents;
+        }
+      </style>
+      <script>
+        (() => {
+          var l = (s, i, o) => {
+            let r = async () => {
+                await (
+                  await s()
+                )();
+              },
+              t = typeof i.value == 'object' ? i.value : void 0,
+              c = { rootMargin: t == null ? void 0 : t.rootMargin },
+              n = new IntersectionObserver((e) => {
+                for (let a of e)
+                  if (a.isIntersecting) {
+                    n.disconnect(), r();
+                    break;
+                  }
+              }, c);
+            for (let e of o.children) n.observe(e);
+          };
+          (self.Astro || (self.Astro = {})).visible = l;
+          window.dispatchEvent(new Event('astro:visible'));
+        })();
+        (() => {
+          var v = Object.defineProperty;
+          var A = (c, s, a) =>
+            s in c
+              ? v(c, s, {
+                  enumerable: !0,
+                  configurable: !0,
+                  writable: !0,
+                  value: a,
+                })
+              : (c[s] = a);
+          var d = (c, s, a) => (A(c, typeof s != 'symbol' ? s + '' : s, a), a);
+          var u;
+          {
+            let c = {
+                0: (t) => m(t),
+                1: (t) => a(t),
+                2: (t) => new RegExp(t),
+                3: (t) => new Date(t),
+                4: (t) => new Map(a(t)),
+                5: (t) => new Set(a(t)),
+                6: (t) => BigInt(t),
+                7: (t) => new URL(t),
+                8: (t) => new Uint8Array(t),
+                9: (t) => new Uint16Array(t),
+                10: (t) => new Uint32Array(t),
+              },
+              s = (t) => {
+                let [e, n] = t;
+                return e in c ? c[e](n) : void 0;
+              },
+              a = (t) => t.map(s),
+              m = (t) =>
+                typeof t != 'object' || t === null
+                  ? t
+                  : Object.fromEntries(
+                      Object.entries(t).map(([e, n]) => [e, s(n)])
+                    );
+            customElements.get('astro-island') ||
+              customElements.define(
+                'astro-island',
+                ((u = class extends HTMLElement {
+                  constructor() {
+                    super(...arguments);
+                    d(this, 'Component');
+                    d(this, 'hydrator');
+                    d(this, 'hydrate', async () => {
+                      var f;
+                      if (!this.hydrator || !this.isConnected) return;
+                      let e =
+                        (f = this.parentElement) == null
+                          ? void 0
+                          : f.closest('astro-island[ssr]');
+                      if (e) {
+                        e.addEventListener('astro:hydrate', this.hydrate, {
+                          once: !0,
+                        });
+                        return;
+                      }
+                      let n = this.querySelectorAll('astro-slot'),
+                        r = {},
+                        l = this.querySelectorAll(
+                          'template[data-astro-template]'
+                        );
+                      for (let o of l) {
+                        let i = o.closest(this.tagName);
+                        i != null &&
+                          i.isSameNode(this) &&
+                          ((r[
+                            o.getAttribute('data-astro-template') || 'default'
+                          ] = o.innerHTML),
+                          o.remove());
+                      }
+                      for (let o of n) {
+                        let i = o.closest(this.tagName);
+                        i != null &&
+                          i.isSameNode(this) &&
+                          (r[o.getAttribute('name') || 'default'] =
+                            o.innerHTML);
+                      }
+                      let h;
+                      try {
+                        h = this.hasAttribute('props')
+                          ? m(JSON.parse(this.getAttribute('props')))
+                          : {};
+                      } catch (o) {
+                        let i =
+                            this.getAttribute('component-url') || '<unknown>',
+                          b = this.getAttribute('component-export');
+                        throw (
+                          (b && (i += ` (export ${b})`),
+                          console.error(
+                            `[hydrate] Error parsing props for component ${i}`,
+                            this.getAttribute('props'),
+                            o
+                          ),
+                          o)
+                        );
+                      }
+                      let p;
+                      await this.hydrator(this)(this.Component, h, r, {
+                        client: this.getAttribute('client'),
+                      }),
+                        this.removeAttribute('ssr'),
+                        this.dispatchEvent(new CustomEvent('astro:hydrate'));
+                    });
+                    d(this, 'unmount', () => {
+                      this.isConnected ||
+                        this.dispatchEvent(new CustomEvent('astro:unmount'));
+                    });
+                  }
+                  disconnectedCallback() {
+                    document.removeEventListener(
+                      'astro:after-swap',
+                      this.unmount
+                    ),
+                      document.addEventListener(
+                        'astro:after-swap',
+                        this.unmount,
+                        { once: !0 }
+                      );
+                  }
+                  connectedCallback() {
+                    if (
+                      !this.hasAttribute('await-children') ||
+                      document.readyState === 'interactive' ||
+                      document.readyState === 'complete'
+                    )
+                      this.childrenConnectedCallback();
+                    else {
+                      let e = () => {
+                          document.removeEventListener('DOMContentLoaded', e),
+                            n.disconnect(),
+                            this.childrenConnectedCallback();
+                        },
+                        n = new MutationObserver(() => {
+                          var r;
+                          ((r = this.lastChild) == null
+                            ? void 0
+                            : r.nodeType) === Node.COMMENT_NODE &&
+                            this.lastChild.nodeValue === 'astro:end' &&
+                            (this.lastChild.remove(), e());
+                        });
+                      n.observe(this, { childList: !0 }),
+                        document.addEventListener('DOMContentLoaded', e);
+                    }
+                  }
+                  async childrenConnectedCallback() {
+                    let e = this.getAttribute('before-hydration-url');
+                    e && (await import(e)), this.start();
+                  }
+                  async start() {
+                    let e = JSON.parse(this.getAttribute('opts')),
+                      n = this.getAttribute('client');
+                    if (Astro[n] === void 0) {
+                      window.addEventListener(
+                        `astro:${n}`,
+                        () => this.start(),
+                        { once: !0 }
+                      );
+                      return;
+                    }
+                    try {
+                      await Astro[n](
+                        async () => {
+                          let r = this.getAttribute('renderer-url'),
+                            [l, { default: h }] = await Promise.all([
+                              import(this.getAttribute('component-url')),
+                              r ? import(r) : () => () => {},
+                            ]),
+                            p =
+                              this.getAttribute('component-export') ||
+                              'default';
+                          if (!p.includes('.')) this.Component = l[p];
+                          else {
+                            this.Component = l;
+                            for (let y of p.split('.'))
+                              this.Component = this.Component[y];
+                          }
+                          return (this.hydrator = h), this.hydrate;
+                        },
+                        e,
+                        this
+                      );
+                    } catch (r) {
+                      console.error(
+                        `[astro-island] Error hydrating ${this.getAttribute(
+                          'component-url'
+                        )}`,
+                        r
+                      );
+                    }
+                  }
+                  attributeChangedCallback() {
+                    this.hydrate();
+                  }
+                }),
+                d(u, 'observedAttributes', ['props']),
+                u)
+              );
           }
-          select{
-            background-color: #13151A !important;
-          }
-         
-          </style></section><!--astro:end--></astro-island> </main>  </body></html>
+        })();
+      </script>
+      <astro-island
+        uid="2jYEcx"
+        prefix="r0"
+        component-url="/_astro/pagos_component.D-1Nbzhw.js"
+        component-export="default"
+        renderer-url="/_astro/client.18JKDFkt.js"
+        props='{"data-astro-cid-fophji6l":[0,true]}'
+        ssr=""
+        client="visible"
+        opts='{"name":"Pagos_component","value":true}'
+        await-children=""
+        ><section class="w-full py-2 bg-primary-980 mt-20 lg:mt-10 mx-auto">
+          <div
+            class="bg-gray-100 dark:bg-secondary-900 dark:text-white text-gray-600 flex overflow-hidden text-sm"
+          >
+            <div class="w-full overflow-hidden h-full flex flex-col">
+              <div class="w-full flex overflow-x-hidden">
+                <div
+                  class="xl:w-72 w-48 flex-shrink-0 border-r border-gray-200 dark:border-gray-800 h-full overflow-y-auto lg:block hidden p-5"
+                >
+                  <div class="flex items-center justify-between mb-6">
+                    <div class="text-xs text-gray-400 tracking-wider">
+                      FILTROS
+                    </div>
+                  </div>
+                  <div class="flex flex-col w-full">
+                    <div
+                      class="mb-4 p-3 w-full flex flex-col rounded-md bg-gray-800 py-4"
+                    >
+                      <div
+                        class="w-16 py-1 px-2 leading-none bg-gray-900 text-blue-500 rounded-md text-center mb-1"
+                      >
+                        Buscar
+                      </div>
+                      <input
+                        type="text"
+                        class="border border-gray-800 rounded-md p-2 text-sm bg-gray-100"
+                        placeholder="Ingrese caso"
+                      />
+                    </div>
+                    <div
+                      class="flex flex-col w-full mb-4 bg-gray-800 py-4 px-2 rounded-md"
+                    >
+                      <div
+                        class="w-16 pw-16 text-center mb-1 py-1 px-2 leading-none dark:bg-gray-900 bg-green-100 text-green-600 rounded-md"
+                      >
+                        Fecha
+                      </div>
+                      <input
+                        type="date"
+                        class="border border-gray-200 dark:border-gray-800 rounded-md p-2 text-sm"
+                      />
+                    </div>
+                    <div
+                      class="flex flex-col w-full mb-4 bg-gray-800 py-4 px-2 rounded-md"
+                    >
+                      <div
+                        class="w-16 pw-16 text-center mb-1 py-1 px-2 leading-none dark:bg-gray-900 bg-yellow-100 text-yellow-600 rounded-md"
+                      >
+                        Estado
+                      </div>
+                      <select
+                        class="border border-gray-200 dark:border-gray-800 rounded-md p-2 text-sm"
+                      >
+                        <option value="">Seleccionar</option>
+                        <option value="Pagado">Pagado</option>
+                        <option value="Pendiente">Pendiente</option>
+                      </select>
+                    </div>
+                    <div
+                      class="flex flex-col w-full mb-4 bg-gray-800 py-4 px-2 rounded-md"
+                    >
+                      <div
+                        class="w-24 pw-16 text-center mb-1 py-1 px-2 leading-none dark:bg-gray-900 bg-blue-100 text-red-500 rounded-md"
+                      >
+                        Monto total
+                      </div>
+                      <input
+                        type="number"
+                        class="border border-gray-200 dark:border-gray-800 rounded-md p-2 text-sm"
+                        placeholder="Monto total"
+                      />
+                    </div>
+                    <div class="flex flex-col w-full mb-4">
+                      <button class="bg-slate-800 text-white p-2 rounded-md">
+                        Buscar
+                      </button>
+                    </div>
+                    <div class="flex flex-col w-full mb-4">
+                      <button class="bg-primary-700 text-white p-2 rounded-md">
+                        Agregar Pago
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="w-full bg-white dark:bg-secondary-800 overflow-y-auto"
+                >
+                  <div class="sm:p-7 p-4">
+                    <table class="text-left w-full">
+                      <thead>
+                        <tr class="text-gray-400 bg-primary-700">
+                          <th
+                            class="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800"
+                          >
+                            Caso
+                          </th>
+                          <th
+                            class="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800"
+                          >
+                            Monto
+                          </th>
+                          <th
+                            class="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800 md:table-cell"
+                          >
+                            Fecha
+                          </th>
+                          <th
+                            class="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800"
+                          >
+                            Descripcion
+                          </th>
+                          <th
+                            class="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800 sm:text-gray-400 text-white"
+                          >
+                            Metodo de pago
+                          </th>
+                          <th
+                            class="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800 sm:text-gray-400 text-white"
+                          >
+                            Monto total
+                          </th>
+                          <th
+                            class="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800 sm:text-gray-400 text-white"
+                          >
+                            Saldo pendiente
+                          </th>
+                          <th
+                            class="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800 sm:text-gray-400 text-white"
+                          >
+                            Estado
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody class="text-gray-600 dark:text-gray-100"></tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            id="modal-table-pagos"
+            data-modal-show="true"
+            aria-hidden="true"
+            class="hidden overflow-x-hidden overflow-y-auto fixed h-modal md:h-full top-0 left-0 right-0 md:inset-0 z-50 flex items-center justify-center"
+            style="z-index: 9999"
+          >
+            <div class="relative w-full max-w-3xl px-2 h-full md:h-auto">
+              <div class="bg-white rounded-lg shadow relative dark:bg-gray-700">
+                <div
+                  class="flex items-start justify-between p-5 border-b rounded-t dark:border-gray-600"
+                >
+                  <h3
+                    class="text-gray-900 text-xl lg:text-2xl font-semibold dark:text-white"
+                  >
+                    Ingresar nuevo pago
+                  </h3>
+                  <button
+                    type="button"
+                    class="text-gray-400 bg-gray-900 hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-red-400 dark:hover:text-white"
+                    data-modal-toggle="modal-table-pagos"
+                  >
+                    <svg
+                      class="w-5 h-5"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                        clip-rule="evenodd"
+                      ></path>
+                    </svg>
+                  </button>
+                </div>
+                <div class="overflow-x-auto p-5">
+                  <div
+                    class="flex flex-col w-full bg-gray-100 dark:bg-secondary-800 rounded-md p-4"
+                  >
+                    <label
+                      class="block text-sm text-gray-700 dark:text-gray-200"
+                      >Cliente</label
+                    ><select
+                      class="border border-gray-200 dark:border-gray-800 rounded-md p-2 text-sm w-full"
+                    >
+                      <option value="">Seleccionar cliente</option></select
+                    ><label
+                      class="block text-sm text-gray-700 dark:text-gray-200"
+                      >Caso</label
+                    ><select
+                      class="border border-gray-200 dark:border-gray-800 rounded-md p-2 text-sm w-full"
+                    >
+                      <option value="">Seleccionar caso</option>
+                    </select>
+                  </div>
+                  <table
+                    class="min-w-full mt-3 divide-y-2 divide-gray-700 bg-primary-980 text-sm dark:divide-gray-700 dark:bg-primary-980 rounded-md"
+                  >
+                    <thead class="ltr:text-left rtl:text-right">
+                      <tr>
+                        <th
+                          class="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white text-left"
+                        >
+                          Cliente
+                        </th>
+                        <th
+                          class="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white text-left"
+                        >
+                          Caso
+                        </th>
+                        <th
+                          class="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white text-left"
+                        >
+                          Fecha
+                        </th>
+                        <th
+                          class="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white text-center"
+                        >
+                          Estado
+                        </th>
+                        <th
+                          class="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white text-right"
+                        >
+                          Monto
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody
+                      class="divide-y divide-gray-200 dark:divide-gray-700"
+                    >
+                      <tr>
+                        <td
+                          class="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white"
+                        >
+                          John Doe
+                        </td>
+                        <td
+                          class="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200"
+                        >
+                          00095-2023-0-1504-JP-FC-01
+                        </td>
+                        <td
+                          class="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200"
+                        >
+                          24/05/1995
+                        </td>
+                        <td
+                          class="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200"
+                        >
+                          <p
+                            class="text-yellow-500 font-medium rounded-lg text-sm px-2 py-1 text-center dark:text-yellow-400 dark:bg-gray-700"
+                          >
+                            Pendiente
+                          </p>
+                        </td>
+                        <td
+                          class="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200 text-right"
+                        >
+                          S/ 1900.00
+                        </td>
+                      </tr>
+                      <tr>
+                        <td
+                          class="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white"
+                        >
+                          Jane Doe
+                        </td>
+                        <td
+                          class="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200"
+                        >
+                          00095-2023-0-1504-JP-FC-01
+                        </td>
+                        <td
+                          class="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200"
+                        >
+                          04/11/1980
+                        </td>
+                        <td
+                          class="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200"
+                        >
+                          <p
+                            class="text-green-500 font-medium rounded-lg text-sm px-2 py-1 text-center dark:text-green-400 dark:bg-gray-700"
+                          >
+                            Pagado
+                          </p>
+                        </td>
+                        <td
+                          class="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200 text-right"
+                        >
+                          S/ 100.00
+                        </td>
+                      </tr>
+                      <tr>
+                        <td
+                          class="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white"
+                        >
+                          John Doe
+                        </td>
+                        <td
+                          class="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200"
+                        >
+                          00095-2023-0-1504-JP-FC-01
+                        </td>
+                        <td
+                          class="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200"
+                        >
+                          24/05/1995
+                        </td>
+                        <td
+                          class="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200"
+                        >
+                          <p
+                            class="text-red-500 font-medium rounded-lg text-sm px-2 py-1 text-center dark:text-red-400 dark:bg-gray-700"
+                          >
+                            Monto total
+                          </p>
+                        </td>
+                        <td
+                          class="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200 text-right"
+                        >
+                          S/ 2000.00
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div class="w-full bg-gray-100 dark:bg-secondary-800 mt-3">
+                    <div class="flex flex-row">
+                      <div class="flex flex-col w-full p-4">
+                        <label
+                          class="block text-sm text-gray-700 dark:text-gray-200"
+                          >Descripcion</label
+                        ><input
+                          type="text"
+                          class="border border-gray-200 dark:border-gray-800 rounded-md p-2 text-sm"
+                          placeholder="Ingrese descripcion"
+                        />
+                      </div>
+                      <div class="flex flex-col w-full p-4">
+                        <label
+                          class="block text-sm text-gray-700 dark:text-gray-200"
+                          >Monto</label
+                        ><input
+                          type="number"
+                          class="border border-gray-200 dark:border-gray-800 rounded-md p-2 text-sm"
+                          placeholder="Ingrese monto S/"
+                        />
+                      </div>
+                      <div class="flex flex-col w-full p-4">
+                        <label
+                          class="block text-sm text-gray-700 dark:text-gray-200"
+                          >Metodo de pago</label
+                        ><select
+                          class="border border-gray-200 dark:border-gray-800 rounded-md p-2 text-sm"
+                        >
+                          <option
+                            value=""
+                            disabled=""
+                          >
+                            Seleccionar
+                          </option>
+                          <option value="Efectivo">Efectivo</option>
+                          <option value="Yape/Plin">Yape/Plin</option>
+                          <option value="Transferencia">Transferencia</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="flex flex-col p4 mt-4">
+                    <button class="bg-primary-700 text-white p-2 rounded-md">
+                      Guardar</button
+                    ><button
+                      class="bg-secondary-800 text-white p-2 rounded-md mt-3"
+                    >
+                      Cancelar
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <style>
+            input {
+              background-color: #13151a !important;
+            }
+            select {
+              background-color: #13151a !important;
+            }
+          </style>
+        </section>
+        <!--astro:end--></astro-island
+      >
+    </main>
+  </body>
+</html>
