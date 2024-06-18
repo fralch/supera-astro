@@ -24,35 +24,19 @@ const Casos_component = () => {
     });
   }, []);
 
-  const handleCasos = (casos) => {
-    // abrir modal
-    if (casos.length === 0) {
-      return;
-    }
-    const modalPagosDetalles = document.getElementById('pago_detalles');
-    modalPagosDetalles.classList.add('hidden');
-    modalPagosDetalles.setAttribute('aria-hidden', 'true');
-
-    const modal = document.getElementById('modal-ver-casos');
-    modal.classList.remove('hidden');
-    modal.setAttribute('aria-hidden', 'false');
-    // obtener casos
-    setCasosView(casos);
-  };
-  const handlePagos = (pagos) => {
-    // abrir modal
-    if (pagos.length > 0) {
-      const modal = document.getElementById('pago_detalles');
-      modal.classList.remove('hidden');
-      modal.setAttribute('aria-hidden', 'false');
-      // obtener casos
-      setPagosView(pagos);
-    }
-  };
-
   const handleEditar = (data) => {
     console.log(data);
     setNuevoColaborador(data);
+  };
+
+  const hangleCrearColaborador = () => {
+    axios.post('http://localhost:3000/usuarios', nuevoColaborador).then(() => {
+      axios.get('http://localhost:3000/usuarios').then((response) => {
+        console.log(response.data);
+        setDataTable(response.data);
+        setDataTableFilter(response.data);
+      });
+    });
   };
 
   return (
@@ -218,7 +202,7 @@ const Casos_component = () => {
                           {data.direccion}
                         </td>
                         <td className='sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 md:table-cell '>
-                          {data.cargo}
+                          {data.cargo.toUpperCase()}
                         </td>
 
                         <td className='sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 md:table-cell '>
