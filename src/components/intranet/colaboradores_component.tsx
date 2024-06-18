@@ -25,18 +25,29 @@ const Casos_component = () => {
   }, []);
 
   const handleEditar = (data) => {
-    console.log(data);
+    // console.log(data);
     setNuevoColaborador(data);
   };
 
-  const hangleCrearColaborador = () => {
-    axios.post('http://localhost:3000/usuarios', nuevoColaborador).then(() => {
-      axios.get('http://localhost:3000/usuarios').then((response) => {
-        console.log(response.data);
-        setDataTable(response.data);
-        setDataTableFilter(response.data);
-      });
-    });
+  const hangleCrearColaborador = async () => {
+    try {
+      const datos_enviar = {
+        ...nuevoColaborador,
+        dni: parseInt(nuevoColaborador.dni),
+        estado: 1,
+        clave: '123456',
+      };
+      console.log(datos_enviar);
+      const response = await axios.post(
+        'http://127.0.0.1:3000/usuarios/create',
+        datos_enviar
+      );
+      const usuario_again = await axios.get('http://localhost:3000/usuarios');
+      setDataTable(usuario_again.data);
+      setDataTableFilter(usuario_again.data);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
@@ -367,7 +378,17 @@ const Casos_component = () => {
                 </div>
               </div>
               <div className='flex flex-col p4 mt-4'>
-                <button className='  bg-primary-700 text-white p-2 rounded-md'>
+                <button
+                  className='  bg-primary-700 text-white p-2 rounded-md'
+                  onClick={() => {
+                    hangleCrearColaborador();
+                    const modal = document.getElementById(
+                      'modal-agregar-colaborador'
+                    );
+                    modal.classList.add('hidden');
+                    modal.setAttribute('aria-hidden', 'true');
+                  }}
+                >
                   Guardar
                 </button>
 
