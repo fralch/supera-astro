@@ -19,13 +19,11 @@ const Casos_component = () => {
   });
 
   useEffect(() => {
-    axios
-      .get('http://162.248.55.24:3000/superabackend/pagos')
-      .then((response) => {
-        // console.log(response.data);
-        setDataTable(response.data);
-        setDataTableFilter(response.data);
-      });
+    axios.get('http://localhost:3000/pagos').then((response) => {
+      // console.log(response.data);
+      setDataTable(response.data);
+      setDataTableFilter(response.data);
+    });
   }, []);
 
   useEffect(() => {
@@ -52,9 +50,7 @@ const Casos_component = () => {
   }, [pagosView]);
 
   const nuevoPago = async () => {
-    const clientes = await axios.get(
-      'http://162.248.55.24:3000/superabackend/clientes'
-    );
+    const clientes = await axios.get('http://localhost:3000/clientes');
     console.log(clientes.data);
     setClientesView(clientes.data);
     const modal = document.getElementById('modal-table-pagos');
