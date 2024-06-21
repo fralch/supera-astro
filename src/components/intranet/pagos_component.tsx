@@ -9,6 +9,7 @@ const Casos_component = () => {
   const [casosView, setCasosView] = useState([]);
   const [pagosView, setPagosView] = useState([]);
   const [pagosData, setPagosData] = useState([]);
+  const [userData, setUserData] = useState(null);
 
   const [nuevoPagoData, setNuevoPagoData] = useState({
     cliente: '',
@@ -17,6 +18,15 @@ const Casos_component = () => {
     monto: '',
     metodo_pago: '',
   });
+
+  useEffect(() => {
+    if (localStorage.getItem('userData')) {
+      console.log(JSON.parse(localStorage.getItem('userData')));
+      setUserData(JSON.parse(localStorage.getItem('userData')));
+    } else {
+      window.location.href = '/';
+    }
+  }, []);
 
   useEffect(() => {
     axios.get('http://localhost:3000/pagos').then((response) => {
@@ -50,6 +60,12 @@ const Casos_component = () => {
   }, [pagosView]);
 
   const nuevoPago = async () => {
+    const validar = validarPermiso('administrador');
+    if (!validar) {
+      alert('No tienes permiso para realizar esta accion');
+      return;
+    }
+
     const clientes = await axios.get('http://localhost:3000/clientes');
     console.log(clientes.data);
     setClientesView(clientes.data);
@@ -57,6 +73,15 @@ const Casos_component = () => {
     modal.classList.remove('hidden');
     modal.setAttribute('aria-hidden', 'false');
     setModalPago(true);
+  };
+
+  const validarPermiso = (caso) => {
+    let userCaso = userData.cargo;
+    let permiso = false;
+    if (userCaso.toLowerCase() === caso.toLowerCase()) {
+      permiso = true;
+    }
+    return permiso;
   };
   return (
     <section className='w-full py-2 bg-primary-980 mt-20 lg:mt-10 mx-auto'>
