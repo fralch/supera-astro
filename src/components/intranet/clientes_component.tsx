@@ -8,11 +8,12 @@ const Casos_component = () => {
   const [pagosView, setPagosView] = useState([]);
 
   const [nuevoCliente, setNuevoCliente] = useState({
-    dni: '',
+    dni: 0,
     nombre: '',
     celular: '',
     correo: '',
     direccion: '',
+    estado: 1,
   });
 
   useEffect(() => {
@@ -52,6 +53,21 @@ const Casos_component = () => {
   const handleEditar = (cliente) => {
     console.log(cliente);
     setNuevoCliente(cliente);
+  };
+
+  const handleNuevoCliente = () => {
+    console.log(nuevoCliente);
+
+    axios
+      .post('http://192.168.1.50:3000/clientes/create', nuevoCliente)
+      .then((response) => {
+        console.log(response.data);
+        setDataTable([...dataTable, response.data]);
+        setDataTableFilter([...dataTable, response.data]);
+        const modal = document.getElementById('modal-agregar-cliente');
+        modal.classList.add('hidden');
+        modal.setAttribute('aria-hidden', 'true');
+      });
   };
 
   return (
@@ -132,11 +148,12 @@ const Casos_component = () => {
                     className='bg-primary-700 text-white p-2 rounded-md'
                     onClick={() => {
                       setNuevoCliente({
-                        dni: '',
+                        dni: 0,
                         nombre: '',
                         celular: '',
                         correo: '',
                         direccion: '',
+                        estado: 1,
                       });
                       const modal = document.getElementById(
                         'modal-agregar-cliente'
@@ -173,9 +190,7 @@ const Casos_component = () => {
                       <th className='font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800 sm:text-gray-400 text-white'>
                         Dirección
                       </th>
-                      <th className='font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800 sm:text-gray-400 text-white'>
-                        Condición
-                      </th>
+
                       <th className='font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800 sm:text-gray-400 text-white'>
                         Estado
                       </th>
@@ -219,9 +234,7 @@ const Casos_component = () => {
                         <td className='sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 md:table-cell '>
                           {data.direccion}
                         </td>
-                        <td className='sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 md:table-cell '>
-                          {data.condicion}
-                        </td>
+
                         <td className='sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 md:table-cell '>
                           {data.estado ? (
                             <div className='text-green-500'>Activo</div>
@@ -314,7 +327,10 @@ const Casos_component = () => {
                   placeholder='Ingrese DNI'
                   value={nuevoCliente.dni}
                   onChange={(e) =>
-                    setNuevoCliente({ ...nuevoCliente, dni: e.target.value })
+                    setNuevoCliente({
+                      ...nuevoCliente,
+                      dni: parseInt(e.target.value),
+                    })
                   }
                 />
                 <label className='block text-sm text-gray-700 dark:text-gray-200'>
@@ -418,7 +434,10 @@ const Casos_component = () => {
                 </div>
               </div>
               <div className='flex flex-col p4 mt-4'>
-                <button className='  bg-primary-700 text-white p-2 rounded-md'>
+                <button
+                  className='  bg-primary-700 text-white p-2 rounded-md'
+                  onClick={handleNuevoCliente}
+                >
                   Guardar
                 </button>
 
