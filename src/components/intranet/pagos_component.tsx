@@ -61,10 +61,10 @@ const Casos_component = () => {
 
   const nuevoPago = async () => {
     const validar = validarPermiso('administrador');
-    if (!validar) {
-      alert('No tienes permiso para realizar esta accion');
-      return;
-    }
+    // if (!validar) {
+    //   alert('No tienes permiso para realizar esta accion');
+    //   return;
+    // }
 
     const clientes = await axios.get('http://localhost:3000/clientes');
     console.log(clientes.data);
