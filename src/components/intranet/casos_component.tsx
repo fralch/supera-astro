@@ -132,8 +132,9 @@ const Casos_component = () => {
   };
 
   const updateCaso = () => {
+    // console.log(idCasoUpdate, actoProcesal, culminado)
     axios
-      .put(`http://http://localhost:3000/casos/${idCasoUpdate}`, {
+      .post(`http://localhost:3000/casos/update/${idCasoUpdate}`, {
         acto_procesal: actoProcesal,
         culminado: culminado,
       })
