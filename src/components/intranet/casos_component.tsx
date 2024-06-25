@@ -1295,9 +1295,9 @@ const Casos_component = () => {
                       value={objNuevoCaso.mesa}
                     >
                       <option value=''>Selecciona una mesa</option>
-                      <option value='civil'>Civil</option>
-                      <option value='penal'>Penal</option>
-                      <option value='laboral'>Laboral</option>
+                      <option value='Civil'>Civil</option>
+                      <option value='Penal'>Penal</option>
+                      <option value='Laboral'>Laboral</option>
                       <option value='Empresas'>Empresas</option>
                     </select>
                   </div>
