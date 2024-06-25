@@ -297,7 +297,7 @@ const Casos_component = () => {
                     placeholder='Buscar...'
                     onChange={(e) => {
                       let data = dataTable.filter((data) => {
-                        return data.cliente
+                        return data.cliente.nombre
                           .toLowerCase()
                           .includes(e.target.value.toLowerCase());
                       });
