@@ -19,7 +19,19 @@ const Casos_component = () => {
   const [userMesaPermiso, setUserMesaPermiso] = useState();
 
   const [clientes, setClientes] = useState([]);
-  const [clienteSelected, setClienteSelected] = useState('');
+
+  const [objNuevoCaso, setObjNuevoCaso] = useState({
+    cliente_dni: 0,
+    condiciones: '',
+    expediente: '',
+    fiscal: '',
+    materia: '',
+    proceso: '-',
+    mesa: '',
+    contrato: 'Si',
+    culminado: 0,
+    fecha: new Date(),
+  });
 
   // referenciar un div
   const blurRef = useRef(null);
@@ -142,7 +154,7 @@ const Casos_component = () => {
   };
 
   const updateCaso = () => {
-    // console.log(idCasoUpdate, actoProcesal, culminado)
+    // console.log(idCasoUpdate, actoProcesal, culminado);
     axios
       .post(`http://localhost:3000/casos/update/${idCasoUpdate}`, {
         acto_procesal: actoProcesal,
@@ -180,6 +192,15 @@ const Casos_component = () => {
     }
     return permiso;
   };
+
+  const handleCrearCaso = () => {
+    // console.log(objNuevoCaso);
+    axios.post('http://localhost:3000/casos', objNuevoCaso).then((response) => {
+      console.log(response);
+      window.location.reload();
+    });
+  };
+
   return (
     <section className='    py-2 bg-primary-980 mt-20 lg:mt-10 mx-auto'>
       <div className=' bg-gray-100 dark:bg-secondary-900 dark:text-white text-gray-600 flex overflow-hidden text-sm'>
@@ -293,6 +314,19 @@ const Casos_component = () => {
                 <button
                   className='bg-primary-700 text-white p-2 rounded-md w-full mt-3 hover:bg-primary-800 focus:outline-none focus:ring-2 focus:ring-primary-450'
                   onClick={() => {
+                    setObjNuevoCaso({
+                      ...objNuevoCaso,
+                      cliente_dni: 0,
+                      condiciones: '',
+                      expediente: '',
+                      fiscal: '',
+                      materia: '',
+                      proceso: '-',
+                      mesa: '',
+                      contrato: 'Si',
+                      culminado: 0,
+                      fecha: new Date(),
+                    });
                     const modal = document.getElementById('modal-agregar-caso');
                     modal.classList.remove('hidden');
                     modal.setAttribute('aria-hidden', 'false');
@@ -1146,14 +1180,18 @@ const Casos_component = () => {
                 <select
                   className='w-full h-10 px-3 py-2 text-base placeholder-gray-300 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-450 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-100'
                   onChange={(e) => {
-                    setClienteSelected(e.target.value);
+                    setObjNuevoCaso({
+                      ...objNuevoCaso,
+                      cliente_dni: parseInt(e.target.value),
+                    });
                   }}
+                  value={objNuevoCaso.cliente_dni}
                 >
                   <option value=''>Selecciona un cliente</option>
                   {clientes.map((cliente, index) => (
                     <option
                       key={index}
-                      value={cliente.id}
+                      value={cliente.dni}
                     >
                       {cliente.nombre}
                     </option>
@@ -1169,6 +1207,13 @@ const Casos_component = () => {
                       type='text'
                       className='w-full h-10 px-3 py-2 text-base placeholder-gray-300 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-450 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-100'
                       placeholder='Expediente'
+                      onChange={(e) => {
+                        setObjNuevoCaso({
+                          ...objNuevoCaso,
+                          expediente: e.target.value,
+                        });
+                      }}
+                      value={objNuevoCaso.expediente}
                     />
                   </div>
 
@@ -1176,15 +1221,24 @@ const Casos_component = () => {
                     <label className='block text-base font-medium text-gray-700 dark:text-gray-200'>
                       Condicion:
                     </label>
-                    <select className='w-full h-10 px-3 py-2 text-base placeholder-gray-300 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-450 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-100'>
+                    <select
+                      className='w-full h-10 px-3 py-2 text-base placeholder-gray-300 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-450 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-100'
+                      onChange={(e) => {
+                        setObjNuevoCaso({
+                          ...objNuevoCaso,
+                          condiciones: e.target.value,
+                        });
+                      }}
+                      value={objNuevoCaso.condiciones}
+                    >
                       <option
                         value=''
                         disabled
                       >
                         Selecciona una condicion
                       </option>
-                      <option value='demandado'>Demandado</option>
-                      <option value='demandante'>Demandante</option>
+                      <option value='Demandado'>Demandado</option>
+                      <option value='Demandante'>Demandante</option>
                     </select>
                   </div>
                 </div>
@@ -1198,6 +1252,13 @@ const Casos_component = () => {
                       type='text'
                       className='w-full h-10 px-3 py-2 text-base placeholder-gray-300 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-450 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-100'
                       placeholder='Fiscal'
+                      onChange={(e) => {
+                        setObjNuevoCaso({
+                          ...objNuevoCaso,
+                          fiscal: e.target.value,
+                        });
+                      }}
+                      value={objNuevoCaso.fiscal}
                     />
                   </div>
                   <div>
@@ -1208,6 +1269,13 @@ const Casos_component = () => {
                       type='text'
                       className='w-full h-10 px-3 py-2 text-base placeholder-gray-300 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-450 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-100'
                       placeholder='Materia'
+                      onChange={(e) => {
+                        setObjNuevoCaso({
+                          ...objNuevoCaso,
+                          materia: e.target.value,
+                        });
+                      }}
+                      value={objNuevoCaso.materia}
                     />
                   </div>
                 </div>
@@ -1216,15 +1284,37 @@ const Casos_component = () => {
                     <label className='block text-base font-medium text-gray-700 dark:text-gray-200'>
                       Mesa
                     </label>
-                    <select className='w-full h-10 px-3 py-2 text-base placeholder-gray-300 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-450 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-100'>
+                    <select
+                      className='w-full h-10 px-3 py-2 text-base placeholder-gray-300 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-450 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-100'
+                      onChange={(e) => {
+                        setObjNuevoCaso({
+                          ...objNuevoCaso,
+                          mesa: e.target.value,
+                        });
+                      }}
+                      value={objNuevoCaso.mesa}
+                    >
                       <option value=''>Selecciona una mesa</option>
+                      <option value='civil'>Civil</option>
+                      <option value='penal'>Penal</option>
+                      <option value='laboral'>Laboral</option>
+                      <option value='Empresas'>Empresas</option>
                     </select>
                   </div>
                   <div>
                     <label className='block text-base font-medium text-gray-700 dark:text-gray-200'>
                       Contrato
                     </label>
-                    <select className='w-full h-10 px-3 py-2 text-base placeholder-gray-300 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-450 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-100'>
+                    <select
+                      className='w-full h-10 px-3 py-2 text-base placeholder-gray-300 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-450 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-100'
+                      onChange={(e) => {
+                        setObjNuevoCaso({
+                          ...objNuevoCaso,
+                          contrato: e.target.value,
+                        });
+                      }}
+                      value={objNuevoCaso.contrato}
+                    >
                       <option
                         value=''
                         disabled
@@ -1241,7 +1331,7 @@ const Casos_component = () => {
                   data-modal-toggle='modal-agregar-caso'
                   type='button'
                   className='text-white bg-primary-450 hover:bg-primary-600 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-450 dark:hover:bg-primary-600 dark:focus:ring-blue-800 mr-2'
-                  onClick={updateCaso}
+                  onClick={handleCrearCaso}
                 >
                   Guardar
                 </button>
