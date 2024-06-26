@@ -83,6 +83,49 @@ const Casos_component = () => {
     }
     return permiso;
   };
+
+  const guardarNuevoPago = async () => {
+    /* 
+    {
+      "caso_id": 1, 
+      "monto": 125.6, 
+      "fecha_pago": "2024-06-17T22:03:58.000Z",
+      "descripcion": "Descrip", 
+      "metodo_pago": "yape", 
+      "monto_total":  123.00, 
+      "saldo_restante" : 153.00, 
+      "estado": "pendiente"
+    }
+    */
+
+    // const validar = validarPermiso('administrador');
+    // if (!validar) {
+    //   alert('No tienes permiso para realizar esta accion');
+    //   return;
+    // }
+
+    const data = {
+      caso_id: +nuevoPagoData.caso,
+      monto: +nuevoPagoData.monto,
+      fecha_pago: new Date(),
+      descripcion: nuevoPagoData.descripcion,
+      metodo_pago: nuevoPagoData.metodo_pago,
+      monto_total: pagosData[0]?.monto_total ? +pagosData[0].monto_total : 0,
+      saldo_restante: pagosData[0]?.saldo_restante
+        ? +pagosData[0].saldo_restante
+        : 0,
+      estado: pagosData[0]?.estado ? pagosData[0].estado : 'pendiente',
+    };
+
+    axios.post('http://localhost:3000/pagos', data).then((response) => {
+      console.log(response.data);
+      const modal = document.getElementById('modal-table-pagos');
+      modal.classList.add('hidden');
+      modal.setAttribute('aria-hidden', 'true');
+      setModalPago(false);
+      setDataTable([...dataTable, response.data]);
+    });
+  };
   return (
     <section className='w-full py-2 bg-primary-980 mt-20 lg:mt-10 mx-auto'>
       <div className='  bg-gray-100 dark:bg-secondary-900 dark:text-white text-gray-600 flex overflow-hidden text-sm'>
@@ -499,7 +542,12 @@ const Casos_component = () => {
                 </div>
               </div>
               <div className='flex flex-col p4 mt-4'>
-                <button className='  bg-primary-700 text-white p-2 rounded-md'>
+                <button
+                  className='  bg-primary-700 text-white p-2 rounded-md'
+                  onClick={() => {
+                    guardarNuevoPago();
+                  }}
+                >
                   Guardar
                 </button>
 
