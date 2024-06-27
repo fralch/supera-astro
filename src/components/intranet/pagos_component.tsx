@@ -43,9 +43,13 @@ const Casos_component = () => {
     const monto_pagado = pagosView.reduce((acc, pago) => {
       return acc + parseFloat(pago.monto);
     }, 0);
-    const saldo_restante =
+    let saldo_restante =
       pagosView[pagosView.length - 1].monto_total - monto_pagado;
     const estado = saldo_restante === 0 ? 'pagado' : 'pendiente';
+
+    if (saldo_restante < 0) {
+      saldo_restante = 0;
+    }
     const data = [
       {
         caso: pagosView[pagosView.length - 1].caso,
@@ -290,7 +294,7 @@ const Casos_component = () => {
                           S/ {data.monto_total}
                         </td>
                         <td className='sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 md:table-cell '>
-                          S/ {data.saldo_restante}
+                          S/ {data.monto_total ? data.saldo_restante : 0}
                         </td>
                         <td className='sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 md:table-cell '>
                           {data.estado}
