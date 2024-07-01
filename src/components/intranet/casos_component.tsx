@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
-
+import Swal from 'sweetalert2';
+import g from '../../../dist/_astro/clientes_component.DjfEeibR';
 const Casos_component = () => {
   const [dateTime, setDateTime] = useState(new Date());
   const [time, setTime] = useState(0);
@@ -17,6 +18,10 @@ const Casos_component = () => {
   const [permisoUsuario, setPermisoUsuario] = useState(false);
   const [userData, setUserData] = useState(null);
   const [userMesaPermiso, setUserMesaPermiso] = useState();
+  const [objCasoContrato, setObjCasoContrato] = useState({
+    id: 0,
+    monto_total: 0,
+  });
 
   const [clientes, setClientes] = useState([]);
 
@@ -161,7 +166,7 @@ const Casos_component = () => {
         culminado: culminado,
       })
       .then((response) => {
-        console.log(response);
+        // console.log(response);
         window.location.reload();
       });
   };
@@ -196,9 +201,46 @@ const Casos_component = () => {
   const handleCrearCaso = () => {
     // console.log(objNuevoCaso);
     axios.post('http://localhost:3000/casos', objNuevoCaso).then((response) => {
-      console.log(response);
+      // console.log(response);
       window.location.reload();
     });
+  };
+
+  const abrirModalContrato = (idCasoUpdate) => {
+    console.log(idCasoUpdate);
+    setObjCasoContrato({
+      ...objCasoContrato,
+      id: idCasoUpdate,
+    });
+    const modal = document.getElementById('modal-upload-file');
+    modal.classList.remove('hidden');
+    modal.setAttribute('aria-hidden', 'false');
+    setIsModalOpen(true);
+    blurRef.current.classList.add('modal-open');
+  };
+  const guardarContrato = async () => {
+    if (objCasoContrato.monto_total !== 0) {
+      console.log(objCasoContrato);
+      const ingresarMontoTotal = await axios.post(
+        'http://localhost:3000/pagos/montototal',
+        objCasoContrato
+      );
+
+      if (ingresarMontoTotal) {
+        Swal.fire({
+          icon: 'success',
+          title: 'Contrato guardado',
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      }
+    }
+
+    const modal = document.getElementById('modal-upload-file');
+    modal.classList.add('hidden');
+    modal.setAttribute('aria-hidden', 'true');
+    setIsModalOpen(false);
+    blurRef.current.classList.remove('modal-open');
   };
 
   return (
@@ -429,12 +471,7 @@ const Casos_component = () => {
                             <button
                               className='text-orange-500 hover:text-orange-700 focus:outline-none focus:ring-2 focus:ring-orange-300 font-medium rounded-lg text-sm px-2 py-1 text-center dark:text-orange-400 dark:hover:text-orange-500 dark:focus:ring-orange-800 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:z-10'
                               onClick={() => {
-                                const modal =
-                                  document.getElementById('modal-upload-file');
-                                modal.classList.remove('hidden');
-                                modal.setAttribute('aria-hidden', 'false');
-                                setIsModalOpen(true);
-                                blurRef.current.classList.add('modal-open');
+                                abrirModalContrato(data.id);
                               }}
                             >
                               {data.contrato}
@@ -1066,14 +1103,36 @@ const Casos_component = () => {
           </div>
           <div className='text-center'>
             <h2 className='mt-5 text-3xl font-bold text-white'>Contrato</h2>
-            <p className='mt-2 text-sm text-gray-400'>
-              Lorem ipsum is placeholder text.
+            <p className='mt-2 text-sm text-gray-400 subscribe-form'>
+              <input
+                type='number'
+                placeholder='Ingrese Monto Total S/'
+                onChange={(e) => {
+                  setObjCasoContrato({
+                    ...objCasoContrato,
+                    monto_total: +e.target.value,
+                  });
+                }}
+              />
+              <button
+                type='submit'
+                className='bg-primary-450 text-white px-4 py-2 rounded-lg hover:bg-primary-600'
+                onClick={
+                  () => {
+                    guardarContrato();
+                  }
+                  // uploadFile
+                }
+              >
+                Guardar
+              </button>
             </p>
           </div>
           <form
             className='mt-8 space-y-3'
             action='#'
             method='POST'
+            hidden
           >
             <div className=' text-center'>
               <button className=' w-2/3 py-4 bg-secondary-300 text-white px-4  rounded-full hover:bg-teal-700 focus:outline-none focus:ring-2 font-medium text-sm dark:bg-secondary-500 dark:hover:bg-secondary-700  dark:text-white'>
@@ -1089,33 +1148,21 @@ const Casos_component = () => {
                 Adjuntar Documento
               </label>
               <div className='flex items-center justify-center w-full'>
-                <label className='flex flex-col rounded-lg border-4 border-dashed w-full h-60 p-10 group text-center '>
-                  <div className='h-full w-full text-center flex flex-col items-center justify-center   '>
-                    <div className='flex flex-auto max-h-48 w-2/5 mx-auto -mt-10'>
-                      <img
-                        className='has-mask h-36 object-center mt-6'
-                        src='./upload.png'
-                        alt='freepik image'
-                      />
-                    </div>
-                    <p className='pointer-none text-gray-500 '>
-                      <span className='text-sm'>Arrastra y suelta el</span>{' '}
-                      Archivo aqui <br /> o{' '}
-                      <a
-                        href=''
-                        id=''
-                        className='text-amber-600 hover:underline'
-                      >
-                        selecciona un archivo
-                      </a>{' '}
-                      desde tu pc
-                    </p>
-                  </div>
-                  <input
-                    type='file'
-                    className='hidden'
-                  />
-                </label>
+                <p className='pointer-none text-gray-500 '>
+                  <a
+                    href=''
+                    id=''
+                    className='text-amber-600 hover:underline'
+                  >
+                    selecciona un archivo
+                  </a>{' '}
+                  desde tu pc
+                </p>
+
+                <input
+                  type='file'
+                  className='hidden'
+                />
               </div>
               <p className='text-sm text-gray-300'>
                 <span>Tipos: doc,pdf</span>
@@ -1357,9 +1404,33 @@ const Casos_component = () => {
 
       <style>
         {`
-                    .modal-open{
-                        filter: blur(5px);
-                    }
+        .modal-open{
+          filter: blur(5px);
+        }
+        .subscribe-form {
+            display: flex;
+            border: 1px solid #ccc;
+            border-radius: 25px;
+            overflow: hidden;
+        }
+        .subscribe-form input[type="number"] {
+            padding: 10px 20px;
+            border: none;
+            outline: none;
+            flex: 1;
+            font-size: 16px;
+        }
+        .subscribe-form button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #0A6C48;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .subscribe-form button:hover {
+            background-color: #23262D;
+        }
                 `}
       </style>
     </section>
