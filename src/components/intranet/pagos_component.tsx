@@ -121,17 +121,19 @@ const Casos_component = () => {
         : 0,
       estado: pagosData[0]?.estado ? pagosData[0].estado : 'pendiente',
     };
-    /* 
-    
-    */
 
     axios.post('http://localhost:3000/pagos', data).then((response) => {
-      console.log(response.data);
+      // recargar la tabla
+      axios.get('http://localhost:3000/pagos').then((response) => {
+        setDataTable(response.data);
+        setDataTableFilter(response.data);
+      });
+
+      // cerrar modal
       const modal = document.getElementById('modal-table-pagos');
       modal.classList.add('hidden');
       modal.setAttribute('aria-hidden', 'true');
       setModalPago(false);
-      setDataTable([...dataTable, response.data]);
     });
   };
   return (
