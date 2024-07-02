@@ -16,7 +16,7 @@
     <link
       rel="icon"
       type="image/svg+xml"
-      href="./favicon2.svg"
+      href="../favicon2.svg"
     />
     <meta
       name="generator"
@@ -37,7 +37,7 @@
     />
     <link
       rel="stylesheet"
-      href="/_astro/blog.Cedc4uKg.css"
+      href="/_astro/blog.BFm-OkvY.css"
     />
     <style>
       :root {
@@ -282,7 +282,7 @@
               class="text-gray-400 hover:text-white"
               href="/colaboradores"
               data-astro-cid-4p64u76j
-              >Rendimiento</a
+              >Colaboradores</a
             >
           </li>
         </ul>
@@ -316,7 +316,7 @@
               data-astro-cid-4p64u76j
             >
               <img
-                src="./supera-cromo.svg"
+                src="../supera-cromo.svg"
                 class="h-12 lg:h-20"
                 alt="Supera Logo"
                 data-astro-cid-4p64u76j
@@ -737,9 +737,9 @@
         })();
       </script>
       <astro-island
-        uid="NUcVi"
+        uid="Jigpz"
         prefix="r0"
-        component-url="/_astro/casos_component.Cs7mHoUh.js"
+        component-url="/_astro/casos_component.C7zG1Mng.js"
         component-export="default"
         renderer-url="/_astro/client.18JKDFkt.js"
         props='{"data-astro-cid-4p64u76j":[0,true]}'
@@ -834,6 +834,11 @@
                         placeholder="Buscar..."
                       />
                     </div>
+                    <button
+                      class="bg-primary-700 text-white p-2 rounded-md w-full mt-3 hover:bg-primary-800 focus:outline-none focus:ring-2 focus:ring-primary-450"
+                    >
+                      Agregar caso
+                    </button>
                   </div>
                 </div>
                 <div
@@ -891,11 +896,6 @@
                           <th
                             class="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800 sm:text-gray-400 text-white"
                           >
-                            Pagos
-                          </th>
-                          <th
-                            class="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800 sm:text-gray-400 text-white"
-                          >
                             Acto Procesal
                           </th>
                           <th
@@ -943,7 +943,77 @@
             class="hidden overflow-x-hidden overflow-y-auto fixed h-modal md:h-full top-0 left-0 right-0 md:inset-0 z-50 flex items-center justify-center mt-5"
             style="z-index: 9999"
           >
-            <p>Hola</p>
+            <div class="relative w-full max-w-2xl px-4 h-full md:h-auto">
+              <div class="bg-white rounded-lg shadow relative dark:bg-gray-700">
+                <div
+                  class="flex items-start justify-between p-5 border-b rounded-t dark:border-gray-600"
+                >
+                  <h3
+                    class="text-gray-900 text-xl lg:text-2xl font-semibold dark:text-white"
+                  >
+                    Actualización del caso
+                  </h3>
+                  <button
+                    type="button"
+                    class="text-gray-400 bg-gray-900 hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                    data-modal-toggle="default-modal"
+                  >
+                    <svg
+                      class="w-5 h-5"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                        clip-rule="evenodd"
+                      ></path>
+                    </svg>
+                  </button>
+                </div>
+                <div class="p-6 space-y-6 text-base">
+                  <div class="px-6 w-full">
+                    <label
+                      class="block text-base font-medium text-gray-700 dark:text-gray-200"
+                      >Culminado:<!-- -->
+                      <span class="text-gray-400 dark:text-gray-400"
+                        >0<!-- -->
+                        %</span
+                      ></label
+                    ><input
+                      type="range"
+                      class="w-full h-5"
+                      min="0"
+                      max="100"
+                      step="1"
+                      value="0"
+                    />
+                  </div>
+                  <div class="px-6 w-full">
+                    <label
+                      class="block text-base font-medium text-gray-700 dark:text-gray-200 mb-2"
+                      >Acto Procesal</label
+                    ><textarea
+                      class="w-full h-24 px-3 py-2 text-base placeholder-gray-300 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-450 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-100"
+                    ></textarea>
+                  </div>
+                  <button
+                    data-modal-toggle="default-modal"
+                    type="button"
+                    class="text-white bg-primary-450 hover:bg-primary-600 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-450 dark:hover:bg-primary-600 dark:focus:ring-blue-800 mr-2"
+                  >
+                    Guardar</button
+                  ><button
+                    data-modal-toggle="default-modal"
+                    type="button"
+                    class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:ring-gray-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600"
+                  >
+                    Cancelar
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
           <div
             id="modal-acto-procesal"
@@ -1038,7 +1108,7 @@
                   ></textarea>
                   <p class="text-gray-400 text-xs">
                     Fecha y hora actual:
-                    <!-- -->31/5/2024, 11:57:49
+                    <!-- -->2/7/2024, 12:39:08
                   </p>
                   <div class="flex justify-between mt-5">
                     <div class="space-x-2">
@@ -1289,14 +1359,23 @@
               </div>
               <div class="text-center">
                 <h2 class="mt-5 text-3xl font-bold text-white">Contrato</h2>
-                <p class="mt-2 text-sm text-gray-400">
-                  Lorem ipsum is placeholder text.
+                <p class="mt-2 text-sm text-gray-400 subscribe-form">
+                  <input
+                    type="number"
+                    placeholder="Ingrese Monto Total S/"
+                  /><button
+                    type="submit"
+                    class="bg-primary-450 text-white px-4 py-2 rounded-lg hover:bg-primary-600"
+                  >
+                    Guardar
+                  </button>
                 </p>
               </div>
               <form
                 class="mt-8 space-y-3"
                 action="#"
                 method="POST"
+                hidden=""
               >
                 <div class="text-center">
                   <button
@@ -1310,37 +1389,19 @@
                     >Adjuntar Documento</label
                   >
                   <div class="flex items-center justify-center w-full">
-                    <label
-                      class="flex flex-col rounded-lg border-4 border-dashed w-full h-60 p-10 group text-center"
-                      ><div
-                        class="h-full w-full text-center flex flex-col items-center justify-center"
+                    <p class="pointer-none text-gray-500">
+                      <a
+                        href=""
+                        id=""
+                        class="text-amber-600 hover:underline"
+                        >selecciona un archivo</a
                       >
-                        <div
-                          class="flex flex-auto max-h-48 w-2/5 mx-auto -mt-10"
-                        >
-                          <img
-                            class="has-mask h-36 object-center mt-6"
-                            src="./upload.png"
-                            alt="freepik image"
-                          />
-                        </div>
-                        <p class="pointer-none text-gray-500">
-                          <span class="text-sm">Arrastra y suelta el</span>
-                          <!-- -->Archivo aqui <br />
-                          o<!-- -->
-                          <a
-                            href=""
-                            id=""
-                            class="text-amber-600 hover:underline"
-                            >selecciona un archivo</a
-                          >
-                          <!-- -->desde tu pc
-                        </p>
-                      </div>
-                      <input
-                        type="file"
-                        class="hidden"
-                    /></label>
+                      <!-- -->desde tu pc
+                    </p>
+                    <input
+                      type="file"
+                      class="hidden"
+                    />
                   </div>
                   <p class="text-sm text-gray-300">
                     <span>Tipos: doc,pdf</span>
@@ -1357,9 +1418,190 @@
               </form>
             </div>
           </div>
+          <div
+            id="modal-agregar-caso"
+            data-modal-show="true"
+            aria-hidden="true"
+            class="hidden overflow-x-hidden overflow-y-auto fixed h-modal md:h-full top-0 left-0 right-0 md:inset-0 z-50 flex items-center justify-center"
+            style="z-index: 9999"
+          >
+            <div class="relative w-full max-w-2xl px-4 h-full md:h-auto">
+              <div class="bg-white rounded-lg shadow relative dark:bg-gray-700">
+                <div
+                  class="flex items-start justify-between p-5 border-b rounded-t dark:border-gray-600"
+                >
+                  <h3
+                    class="text-gray-900 text-xl lg:text-2xl font-semibold dark:text-white"
+                  >
+                    Agregar Caso
+                  </h3>
+                  <button
+                    type="button"
+                    class="text-gray-400 bg-gray-900 hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-red-400 dark:hover:text-white"
+                    data-modal-toggle="modal-agregar-caso"
+                  >
+                    <svg
+                      class="w-5 h-5"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                        clip-rule="evenodd"
+                      ></path>
+                    </svg>
+                  </button>
+                </div>
+                <div class="p-6 space-y-6 text-base">
+                  <div class="px-6 w-full">
+                    <label
+                      class="block text-base font-medium text-gray-700 dark:text-gray-200"
+                      >Cliente:<!-- --> </label
+                    ><select
+                      class="w-full h-10 px-3 py-2 text-base placeholder-gray-300 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-450 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-100"
+                    >
+                      <option value="">Selecciona un cliente</option>
+                    </select>
+                    <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+                      <div>
+                        <label
+                          class="block text-base font-medium text-gray-700 dark:text-gray-200"
+                          >Expediente:</label
+                        ><input
+                          type="text"
+                          class="w-full h-10 px-3 py-2 text-base placeholder-gray-300 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-450 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-100"
+                          placeholder="Expediente"
+                          value=""
+                        />
+                      </div>
+                      <div>
+                        <label
+                          class="block text-base font-medium text-gray-700 dark:text-gray-200"
+                          >Condicion:</label
+                        ><select
+                          class="w-full h-10 px-3 py-2 text-base placeholder-gray-300 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-450 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-100"
+                        >
+                          <option
+                            value=""
+                            disabled=""
+                            selected=""
+                          >
+                            Selecciona una condicion
+                          </option>
+                          <option value="Demandado">Demandado</option>
+                          <option value="Demandante">Demandante</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+                      <div>
+                        <label
+                          class="block text-base font-medium text-gray-700 dark:text-gray-200"
+                          >Fiscal:</label
+                        ><input
+                          type="text"
+                          class="w-full h-10 px-3 py-2 text-base placeholder-gray-300 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-450 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-100"
+                          placeholder="Fiscal"
+                          value=""
+                        />
+                      </div>
+                      <div>
+                        <label
+                          class="block text-base font-medium text-gray-700 dark:text-gray-200"
+                          >Materia</label
+                        ><input
+                          type="text"
+                          class="w-full h-10 px-3 py-2 text-base placeholder-gray-300 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-450 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-100"
+                          placeholder="Materia"
+                          value=""
+                        />
+                      </div>
+                    </div>
+                    <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+                      <div>
+                        <label
+                          class="block text-base font-medium text-gray-700 dark:text-gray-200"
+                          >Mesa</label
+                        ><select
+                          class="w-full h-10 px-3 py-2 text-base placeholder-gray-300 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-450 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-100"
+                        >
+                          <option
+                            value=""
+                            selected=""
+                          >
+                            Selecciona una mesa
+                          </option>
+                          <option value="Civil">Civil</option>
+                          <option value="Penal">Penal</option>
+                          <option value="Laboral">Laboral</option>
+                          <option value="Empresas">Empresas</option>
+                        </select>
+                      </div>
+                      <div>
+                        <label
+                          class="block text-base font-medium text-gray-700 dark:text-gray-200"
+                          >Contrato</label
+                        ><select
+                          class="w-full h-10 px-3 py-2 text-base placeholder-gray-300 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-450 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-100"
+                        >
+                          <option
+                            value=""
+                            disabled=""
+                          >
+                            Selecciona una mesa
+                          </option>
+                          <option value="SI">SI</option>
+                          <option value="NO">No</option>
+                        </select>
+                      </div>
+                    </div>
+                    <br /><button
+                      data-modal-toggle="modal-agregar-caso"
+                      type="button"
+                      class="text-white bg-primary-450 hover:bg-primary-600 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-450 dark:hover:bg-primary-600 dark:focus:ring-blue-800 mr-2"
+                    >
+                      Guardar</button
+                    ><button
+                      data-modal-toggle="modal-agregar-caso"
+                      type="button"
+                      class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:ring-gray-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600"
+                    >
+                      Cancelar
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
           <style>
             .modal-open {
               filter: blur(5px);
+            }
+            .subscribe-form {
+              display: flex;
+              border: 1px solid #ccc;
+              border-radius: 25px;
+              overflow: hidden;
+            }
+            .subscribe-form input[type='&quot;number&quot;'] {
+              padding: 10px 20px;
+              border: none;
+              outline: none;
+              flex: 1;
+              font-size: 16px;
+            }
+            .subscribe-form button {
+              padding: 10px 20px;
+              border: none;
+              background-color: #0a6c48;
+              color: white;
+              font-size: 16px;
+              cursor: pointer;
+            }
+            .subscribe-form button:hover {
+              background-color: #23262d;
             }
           </style>
         </section>

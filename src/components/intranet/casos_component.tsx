@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import Swal from 'sweetalert2';
-import g from '../../../dist/_astro/clientes_component.DjfEeibR';
 const Casos_component = () => {
   const [dateTime, setDateTime] = useState(new Date());
   const [time, setTime] = useState(0);

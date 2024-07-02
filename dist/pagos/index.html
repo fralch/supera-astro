@@ -16,7 +16,7 @@
     <link
       rel="icon"
       type="image/svg+xml"
-      href="./favicon2.svg"
+      href="../favicon2.svg"
     />
     <meta
       name="generator"
@@ -37,7 +37,7 @@
     />
     <link
       rel="stylesheet"
-      href="/_astro/blog.Cedc4uKg.css"
+      href="/_astro/blog.BFm-OkvY.css"
     />
     <style>
       :root {
@@ -282,7 +282,7 @@
               class="text-gray-400 hover:text-white"
               href="/colaboradores"
               data-astro-cid-fophji6l
-              >Rendimiento</a
+              >Colaboradores</a
             >
           </li>
         </ul>
@@ -316,7 +316,7 @@
               data-astro-cid-fophji6l
             >
               <img
-                src="./supera-cromo.svg"
+                src="../supera-cromo.svg"
                 class="h-12 lg:h-20"
                 alt="Supera Logo"
                 data-astro-cid-fophji6l
@@ -737,9 +737,9 @@
         })();
       </script>
       <astro-island
-        uid="2jYEcx"
+        uid="2j6gl3"
         prefix="r0"
-        component-url="/_astro/pagos_component.D-1Nbzhw.js"
+        component-url="/_astro/pagos_component.CBlCKFlO.js"
         component-export="default"
         renderer-url="/_astro/client.18JKDFkt.js"
         props='{"data-astro-cid-fophji6l":[0,true]}'
@@ -757,8 +757,8 @@
                   class="xl:w-72 w-48 flex-shrink-0 border-r border-gray-200 dark:border-gray-800 h-full overflow-y-auto lg:block hidden p-5"
                 >
                   <div class="flex items-center justify-between mb-6">
-                    <div class="text-xs text-gray-400 tracking-wider">
-                      FILTROS
+                    <div class="text-lg text-gray-400 tracking-wider">
+                      PAGOS
                     </div>
                   </div>
                   <div class="flex flex-col w-full">
@@ -787,6 +787,7 @@
                       <input
                         type="date"
                         class="border border-gray-200 dark:border-gray-800 rounded-md p-2 text-sm"
+                        placeholder="Fecha"
                       />
                     </div>
                     <div
@@ -801,8 +802,8 @@
                         class="border border-gray-200 dark:border-gray-800 rounded-md p-2 text-sm"
                       >
                         <option value="">Seleccionar</option>
-                        <option value="Pagado">Pagado</option>
-                        <option value="Pendiente">Pendiente</option>
+                        <option value="pagado">Pagado</option>
+                        <option value="pendiente">Pendiente</option>
                       </select>
                     </div>
                     <div
@@ -818,11 +819,6 @@
                         class="border border-gray-200 dark:border-gray-800 rounded-md p-2 text-sm"
                         placeholder="Monto total"
                       />
-                    </div>
-                    <div class="flex flex-col w-full mb-4">
-                      <button class="bg-slate-800 text-white p-2 rounded-md">
-                        Buscar
-                      </button>
                     </div>
                     <div class="flex flex-col w-full mb-4">
                       <button class="bg-primary-700 text-white p-2 rounded-md">
@@ -933,14 +929,24 @@
                     ><select
                       class="border border-gray-200 dark:border-gray-800 rounded-md p-2 text-sm w-full"
                     >
-                      <option value="">Seleccionar cliente</option></select
+                      <option
+                        value=""
+                        selected=""
+                      >
+                        Seleccionar cliente
+                      </option></select
                     ><label
                       class="block text-sm text-gray-700 dark:text-gray-200"
                       >Caso</label
                     ><select
                       class="border border-gray-200 dark:border-gray-800 rounded-md p-2 text-sm w-full"
                     >
-                      <option value="">Seleccionar caso</option>
+                      <option
+                        value=""
+                        selected=""
+                      >
+                        Seleccionar caso
+                      </option>
                     </select>
                   </div>
                   <table
@@ -948,11 +954,6 @@
                   >
                     <thead class="ltr:text-left rtl:text-right">
                       <tr>
-                        <th
-                          class="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white text-left"
-                        >
-                          Cliente
-                        </th>
                         <th
                           class="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white text-left"
                         >
@@ -971,107 +972,18 @@
                         <th
                           class="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white text-right"
                         >
-                          Monto
+                          Pagado
+                        </th>
+                        <th
+                          class="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white text-right"
+                        >
+                          Pendiente
                         </th>
                       </tr>
                     </thead>
                     <tbody
                       class="divide-y divide-gray-200 dark:divide-gray-700"
-                    >
-                      <tr>
-                        <td
-                          class="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white"
-                        >
-                          John Doe
-                        </td>
-                        <td
-                          class="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200"
-                        >
-                          00095-2023-0-1504-JP-FC-01
-                        </td>
-                        <td
-                          class="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200"
-                        >
-                          24/05/1995
-                        </td>
-                        <td
-                          class="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200"
-                        >
-                          <p
-                            class="text-yellow-500 font-medium rounded-lg text-sm px-2 py-1 text-center dark:text-yellow-400 dark:bg-gray-700"
-                          >
-                            Pendiente
-                          </p>
-                        </td>
-                        <td
-                          class="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200 text-right"
-                        >
-                          S/ 1900.00
-                        </td>
-                      </tr>
-                      <tr>
-                        <td
-                          class="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white"
-                        >
-                          Jane Doe
-                        </td>
-                        <td
-                          class="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200"
-                        >
-                          00095-2023-0-1504-JP-FC-01
-                        </td>
-                        <td
-                          class="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200"
-                        >
-                          04/11/1980
-                        </td>
-                        <td
-                          class="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200"
-                        >
-                          <p
-                            class="text-green-500 font-medium rounded-lg text-sm px-2 py-1 text-center dark:text-green-400 dark:bg-gray-700"
-                          >
-                            Pagado
-                          </p>
-                        </td>
-                        <td
-                          class="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200 text-right"
-                        >
-                          S/ 100.00
-                        </td>
-                      </tr>
-                      <tr>
-                        <td
-                          class="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white"
-                        >
-                          John Doe
-                        </td>
-                        <td
-                          class="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200"
-                        >
-                          00095-2023-0-1504-JP-FC-01
-                        </td>
-                        <td
-                          class="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200"
-                        >
-                          24/05/1995
-                        </td>
-                        <td
-                          class="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200"
-                        >
-                          <p
-                            class="text-red-500 font-medium rounded-lg text-sm px-2 py-1 text-center dark:text-red-400 dark:bg-gray-700"
-                          >
-                            Monto total
-                          </p>
-                        </td>
-                        <td
-                          class="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200 text-right"
-                        >
-                          S/ 2000.00
-                        </td>
-                      </tr>
-                    </tbody>
+                    ></tbody>
                   </table>
                   <div class="w-full bg-gray-100 dark:bg-secondary-800 mt-3">
                     <div class="flex flex-row">
