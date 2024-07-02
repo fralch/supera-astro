@@ -58,6 +58,7 @@ const Casos_component = () => {
         monto_pagado: monto_pagado,
         saldo_restante: saldo_restante,
         estado: estado,
+        monto_total: pagosView[pagosView.length - 1].monto_total,
       },
     ];
     setPagosData(data);
@@ -116,10 +117,13 @@ const Casos_component = () => {
       metodo_pago: nuevoPagoData.metodo_pago,
       monto_total: pagosData[0]?.monto_total ? +pagosData[0].monto_total : 0,
       saldo_restante: pagosData[0]?.saldo_restante
-        ? +pagosData[0].saldo_restante
+        ? pagosData[0].monto_total - +nuevoPagoData.monto
         : 0,
       estado: pagosData[0]?.estado ? pagosData[0].estado : 'pendiente',
     };
+    /* 
+    
+    */
 
     axios.post('http://localhost:3000/pagos', data).then((response) => {
       console.log(response.data);
