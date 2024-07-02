@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <!-- Creator: CorelDRAW -->
-<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="58.4536mm" height="119.191mm" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fillRule:evenodd; clipRule:evenodd"
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="58.4536mm" height="119.191mm" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
 viewBox="0 0 13945.19 28435.13"
  xmlns:xlink="http://www.w3.org/1999/xlink"
  xmlns:xodm="http://www.corel.com/coreldraw/odm/2003"
@@ -9,12 +9,12 @@ viewBox="0 0 13945.19 28435.13"
  <defs>
   <style type="text/css">
    <![CDATA[
-    .fil1 {fill:none;fillRule:nonzero}
-    .fil0 {fill:#002E1F;fillRule:nonzero}
-    .fil2 {fill:#E58E52;fillRule:nonzero}
+    .fil1 {fill:none;fill-rule:nonzero}
+    .fil0 {fill:#002E1F;fill-rule:nonzero}
+    .fil2 {fill:#E58E52;fill-rule:nonzero}
    ]]>
   </style>
-    <clipPath id="id0" style="clipRule:nonzero">
+    <clipPath id="id0" style="clip-rule:nonzero">
      <path d="M-0 0l13945.19 0 0 28435.13 -13945.19 0 0 -28435.13zm0 0z"/>
     </clipPath>
  </defs>

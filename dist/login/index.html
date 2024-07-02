@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  data-astro-cid-sgpqyurt
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="Astro description"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width"
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="../favicon2.svg"
+    />
+    <meta
+      name="generator"
+      content="Astro v4.5.9"
+    />
+    <title>Intranet</title>
+    <script
+      src="https://cdn.jsdelivr.net/npm/alpinejs@2.x.x/dist/alpine.min.js"
+      defer
+    ></script>
+    <link
+      rel="stylesheet"
+      href="/_astro/blog.BFm-OkvY.css"
+    />
+    <style>
+      :root {
+        --accent: 136, 58, 234;
+        --accent-light: 224, 204, 250;
+        --accent-dark: 49, 10, 101;
+        --accent-gradient: linear-gradient(
+          45deg,
+          rgb(var(--accent)),
+          rgb(var(--accent-light)) 30%,
+          white 60%
+        );
+      }
+      html {
+        font-family: system-ui, sans-serif;
+        background: #13151a;
+        background-size: 224px;
+      }
+      code {
+        font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
+          DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+      header {
+        background-color: #002e1f;
+        z-index: 1000;
+      }
+      main {
+        margin-top: 10%;
+        padding: 0;
+        width: 100%;
+        color: #fff;
+        font-size: 20px;
+        line-height: 1.6;
+      }
+      @media (max-width: 768px) {
+        main {
+          margin-top: 30%;
+          font-size: 16px;
+        }
+      }
+      body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+      footer[data-astro-cid-sgpqyurt] {
+        margin-top: auto;
+      }
+    </style>
+    <script type="module">
+      document.addEventListener('DOMContentLoaded', function () {
+        const r = document.querySelectorAll('.navbar-burger'),
+          n = document.querySelectorAll('.navbar-menu');
+        if (r.length && n.length)
+          for (var e = 0; e < r.length; e++)
+            r[e].addEventListener('click', function () {
+              for (var c = 0; c < n.length; c++)
+                n[c].classList.toggle('hidden');
+            });
+        const l = document.querySelectorAll('.navbar-close'),
+          o = document.querySelectorAll('.navbar-backdrop');
+        if (l.length)
+          for (var e = 0; e < l.length; e++)
+            l[e].addEventListener('click', function () {
+              for (var t = 0; t < n.length; t++)
+                n[t].classList.toggle('hidden');
+            });
+        if (o.length)
+          for (var e = 0; e < o.length; e++)
+            o[e].addEventListener('click', function () {
+              for (var t = 0; t < n.length; t++)
+                n[t].classList.toggle('hidden');
+            });
+      });
+    </script>
+  </head>
+  <body data-astro-cid-sgpqyurt>
+    <header
+      class="fixed top-0 right-0 border-gray-200 px-4 lg:px-6 py-4 dark:bg-0A4033 w-full fixed-header"
+      data-astro-cid-sgpqyurt
+    >
+      <nav
+        class="relative px-4 py-4 flex justify-between items-center bg-secondary-100"
+        data-astro-cid-sgpqyurt
+      >
+        <a
+          href="/"
+          class="flex items-center ml-0 xl:ml-0 2xl:ml-40"
+          data-astro-cid-sgpqyurt
+        >
+          <img
+            src="../supera-cromo.svg"
+            class="h-12 xl:h-20"
+            alt="Supera Logo"
+            data-astro-cid-sgpqyurt
+          />
+        </a>
+        <div
+          class="lg:hidden"
+          data-astro-cid-sgpqyurt
+        >
+          <button
+            class="navbar-burger flex items-center text-texto-secondary p-5"
+            data-astro-cid-sgpqyurt
+          >
+            <svg
+              class="block h-4 w-4 fill-current"
+              viewBox="0 0 20 20"
+              data-astro-cid-sgpqyurt
+            >
+              <path
+                d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"
+                data-astro-cid-sgpqyurt
+              ></path>
+            </svg>
+          </button>
+        </div>
+        <ul
+          class="hidden absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:items-center lg:w-auto lg:space-x-6"
+          data-astro-cid-sgpqyurt
+        >
+          <li data-astro-cid-sgpqyurt>
+            <a
+              class="text-gray-400 hover:text-white"
+              href="/"
+              data-astro-cid-sgpqyurt
+              >Inicio</a
+            >
+          </li>
+          <li
+            class="text-gray-300"
+            data-astro-cid-sgpqyurt
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              stroke="currentColor"
+              class="w-4 h-4 current-fill"
+              viewBox="0 0 24 24"
+              data-astro-cid-sgpqyurt
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
+                data-astro-cid-sgpqyurt
+              ></path>
+            </svg>
+          </li>
+          <li data-astro-cid-sgpqyurt>
+            <a
+              class="text-gray-400 hover:text-white"
+              href="/nosotros"
+              data-astro-cid-sgpqyurt
+              >Nosotros</a
+            >
+          </li>
+          <li
+            class="text-gray-300"
+            data-astro-cid-sgpqyurt
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              stroke="currentColor"
+              class="w-4 h-4 current-fill"
+              viewBox="0 0 24 24"
+              data-astro-cid-sgpqyurt
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
+                data-astro-cid-sgpqyurt
+              ></path>
+            </svg>
+          </li>
+          <!-- <li><a class="text-gray-400 hover:text-white" href="/blog">Publicaciones</a></li>
+					<li class="text-gray-300">
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" class="w-4 h-4 current-fill" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
+						</svg>
+					</li> -->
+          <li
+            x-data="{ open: false }"
+            @click.away="open = false"
+            class="relative"
+            data-astro-cid-sgpqyurt
+          >
+            <button
+              @click="open = !open"
+              class="flex items-center justify-between w-full py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
+              data-astro-cid-sgpqyurt
+            >
+              <span
+                style="color: white"
+                data-astro-cid-sgpqyurt
+                >Servicios</span
+              >
+              <svg
+                :class="{ 'transform rotate-180': open }"
+                class="w-4 h-4"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+                data-astro-cid-sgpqyurt
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M5.293 7.293a1 1 0 011.414 0L10 11.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                  clip-rule="evenodd"
+                  data-astro-cid-sgpqyurt
+                ></path>
+              </svg>
+            </button>
+            <div
+              x-show="open"
+              class="absolute z-10 w-500 max-w-xl py-2 mt-2 space-y-2 bg-white rounded-lg shadow-lg dark:bg-gray-800"
+              x-transition:enter="transition transform duration-300 ease-out"
+              x-transition:enter-start="opacity-0 -translate-y-2"
+              x-transition:enter-end="opacity-100 translate-y-0"
+              x-transition:leave="transition transform duration-300 ease-in"
+              x-transition:leave-start="opacity-100 translate-y-0"
+              x-transition:leave-end="opacity-0 -translate-y-3"
+              data-astro-cid-sgpqyurt
+            >
+              <a
+                href="/penal"
+                class="block py-2 pl-3 text-gray-700 hover:bg-gray-50 dark:text-gray-400 dark:hover:bg-gray-700 pr-20"
+                data-astro-cid-sgpqyurt
+                >Penal</a
+              >
+              <a
+                href="/civil"
+                class="block py-2 pl-3 text-gray-700 hover:bg-gray-50 dark:text-gray-400 dark:hover:bg-gray-700"
+                data-astro-cid-sgpqyurt
+                >Civil</a
+              >
+              <a
+                href="/laboral"
+                class="block py-2 pl-3 text-gray-700 hover:bg-gray-50 dark:text-gray-400 dark:hover:bg-gray-700"
+                data-astro-cid-sgpqyurt
+                >Laboral</a
+              >
+              <a
+                href="/corporativo"
+                class="block py-2 pl-3 text-gray-700 hover:bg-gray-50 dark:text-gray-400 dark:hover:bg-gray-700"
+                data-astro-cid-sgpqyurt
+                >Corporativo</a
+              >
+            </div>
+          </li>
+          <li
+            class="text-gray-300"
+            data-astro-cid-sgpqyurt
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              stroke="currentColor"
+              class="w-4 h-4 current-fill"
+              viewBox="0 0 24 24"
+              data-astro-cid-sgpqyurt
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
+                data-astro-cid-sgpqyurt
+              ></path>
+            </svg>
+          </li>
+          <li data-astro-cid-sgpqyurt>
+            <a
+              class="text-gray-400 hover:text-white"
+              href="/contacto"
+              data-astro-cid-sgpqyurt
+              >Contacto</a
+            >
+          </li>
+        </ul>
+        <a
+          class="hidden lg:hidden xl:ml-auto 2xl:mr-3 xl:mr-2 py-2 2xl:px-6 xl:px-2 bg-gray-50 hover:bg-gray-100 text-sm text-gray-900 font-bold xl:flex items-center rounded-xl transition duration-200"
+          href="https://wa.me/51971115006?text=Quisiera%20recibir%20apoyo%20legal%20de%20Supera%20Abogados"
+          data-astro-cid-sgpqyurt
+        >
+          <svg
+            class="icon icon-tabler icon-tabler-brand-whatsapp"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            data-astro-cid-sgpqyurt
+          >
+            <path
+              stroke="none"
+              d="M0 0h24v24H0z"
+              fill="none"
+              data-astro-cid-sgpqyurt
+            ></path>
+            <path
+              d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9"
+              data-astro-cid-sgpqyurt
+            ></path>
+            <path
+              d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1"
+              data-astro-cid-sgpqyurt
+            ></path>
+          </svg>
+          <span
+            class="ml-2"
+            data-astro-cid-sgpqyurt
+            >Contactanos</span
+          >
+        </a>
+        <a
+          class="hidden lg:inline-block py-3 2xl:px-6 xl:px-2 lg:px-5 bg-primary-500 hover:bg-primary-400 text-sm text-white font-bold rounded-xl transition duration-200"
+          href="/login"
+          data-astro-cid-sgpqyurt
+          >Inicia Sesión</a
+        >
+      </nav>
+      <div
+        class="navbar-menu relative z-50 hidden"
+        data-astro-cid-sgpqyurt
+      >
+        <div
+          class="navbar-backdrop fixed inset-0 bg-gray-800 opacity-25"
+          data-astro-cid-sgpqyurt
+        ></div>
+        <nav
+          class="fixed top-0 left-0 bottom-0 flex flex-col w-5/6 max-w-sm py-6 px-6 bg-secondary-100 overflow-y-auto"
+          data-astro-cid-sgpqyurt
+        >
+          <div
+            class="flex items-center mb-8"
+            data-astro-cid-sgpqyurt
+          >
+            <a
+              class="mr-auto text-3xl font-bold leading-none"
+              href="/"
+              data-astro-cid-sgpqyurt
+            >
+              <img
+                src="../supera-cromo.svg"
+                class="h-12 lg:h-20"
+                alt="Supera Logo"
+                data-astro-cid-sgpqyurt
+              />
+            </a>
+            <a
+              class="navbar-close p-3"
+              data-astro-cid-sgpqyurt
+            >
+              <svg
+                class="h-6 w-6 text-gray-400 cursor-pointer hover:text-gray-500"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                data-astro-cid-sgpqyurt
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M6 18L18 6M6 6l12 12"
+                  data-astro-cid-sgpqyurt
+                ></path>
+              </svg>
+            </a>
+          </div>
+          <div data-astro-cid-sgpqyurt>
+            <ul data-astro-cid-sgpqyurt>
+              <li
+                class="mb-1"
+                data-astro-cid-sgpqyurt
+              >
+                <a
+                  class="flex items-center justify-between w-full py-2 pr-4 pl-3 text-gray-700 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-blue-50 dark:hover:text-gray-400 lg:dark:hover:bg-transparent dark:border-gray-700"
+                  href="/"
+                  data-astro-cid-sgpqyurt
+                  >Inicio</a
+                >
+              </li>
+              <li
+                class="mb-1"
+                data-astro-cid-sgpqyurt
+              >
+                <a
+                  class="flex items-center justify-between w-full py-2 pr-4 pl-3 text-gray-700 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-blue-50 dark:hover:text-gray-400 lg:dark:hover:bg-transparent dark:border-gray-700"
+                  href="/nosotros"
+                  data-astro-cid-sgpqyurt
+                  >Nosotros</a
+                >
+              </li>
+              <!-- <li class="mb-1">
+								<a class="flex items-center justify-between w-full py-2 pr-4 pl-3 text-gray-700  hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-blue-50 dark:hover:text-gray-400 lg:dark:hover:bg-transparent dark:border-gray-700" href="/blog">Publicaciones</a>
+							</li> -->
+              <li
+                x-data="{ open: false }"
+                @click.away="open = false"
+                class="relative"
+                data-astro-cid-sgpqyurt
+              >
+                <button
+                  @click="open = !open"
+                  class="flex items-center justify-between w-full py-2 pr-4 pl-3 text-gray-700 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-blue-50 dark:hover:text-gray-400 lg:dark:hover:bg-transparent dark:border-gray-700"
+                  data-astro-cid-sgpqyurt
+                >
+                  <span data-astro-cid-sgpqyurt>Servicios</span>
+                  <svg
+                    :class="{ 'transform rotate-180': open }"
+                    class="w-4 h-4"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg"
+                    data-astro-cid-sgpqyurt
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M5.293 7.293a1 1 0 011.414 0L10 11.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                      clip-rule="evenodd"
+                      data-astro-cid-sgpqyurt
+                    ></path>
+                  </svg>
+                </button>
+                <div
+                  x-show="open"
+                  class="absolute z-10 w-500 max-w-xl py-2 mt-2 space-y-2 bg-white rounded-lg shadow-lg dark:bg-gray-800"
+                  x-transition:enter="transition transform duration-300 ease-out"
+                  x-transition:enter-start="opacity-0 -translate-y-2"
+                  x-transition:enter-end="opacity-100 translate-y-0"
+                  x-transition:leave="transition transform duration-300 ease-in"
+                  x-transition:leave-start="opacity-100 translate-y-0"
+                  x-transition:leave-end="opacity-0 -translate-y-3"
+                  data-astro-cid-sgpqyurt
+                >
+                  <a
+                    href="/penal"
+                    class="block py-2 pl-3 text-gray-700 hover:bg-gray-50 dark:text-gray-400 dark:hover:bg-gray-700 pr-20"
+                    data-astro-cid-sgpqyurt
+                    >Penal</a
+                  >
+                  <a
+                    href="/civil"
+                    class="block py-2 pl-3 text-gray-700 hover:bg-gray-50 dark:text-gray-400 dark:hover:bg-gray-700"
+                    data-astro-cid-sgpqyurt
+                    >Civil</a
+                  >
+                  <a
+                    href="/laboral"
+                    class="block py-2 pl-3 text-gray-700 hover:bg-gray-50 dark:text-gray-400 dark:hover:bg-gray-700"
+                    data-astro-cid-sgpqyurt
+                    >Laboral</a
+                  >
+                  <a
+                    href="/corporativo"
+                    class="block py-2 pl-3 text-gray-700 hover:bg-gray-50 dark:text-gray-400 dark:hover:bg-gray-700"
+                    data-astro-cid-sgpqyurt
+                    >Corporativo</a
+                  >
+                </div>
+              </li>
+              <li
+                class="mb-1"
+                data-astro-cid-sgpqyurt
+              >
+                <a
+                  class="flex items-center justify-between w-full py-2 pr-4 pl-3 text-gray-700 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-blue-50 dark:hover:text-gray-400 lg:dark:hover:bg-transparent dark:border-gray-700"
+                  href="/contacto"
+                  data-astro-cid-sgpqyurt
+                  >Contacto</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div
+            class="mt-auto"
+            data-astro-cid-sgpqyurt
+          >
+            <div
+              class="pt-6"
+              data-astro-cid-sgpqyurt
+            >
+              <a
+                class="px-4 py-3 mb-3 leading-loose text-xs text-center font-semibold bg-gray-50 hover:bg-gray-100 rounded-xl flex justify-center"
+                href="https://wa.me/51971115006?text=Quisiera%20recibir%20apoyo%20legal%20de%20Supera%20Abogados"
+                data-astro-cid-sgpqyurt
+              >
+                <svg
+                  class="icon icon-tabler icon-tabler-brand-whatsapp"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  data-astro-cid-sgpqyurt
+                >
+                  <path
+                    stroke="none"
+                    d="M0 0h24v24H0z"
+                    fill="none"
+                    data-astro-cid-sgpqyurt
+                  ></path>
+                  <path
+                    d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9"
+                    data-astro-cid-sgpqyurt
+                  ></path>
+                  <path
+                    d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1"
+                    data-astro-cid-sgpqyurt
+                  ></path>
+                </svg>
+                <span
+                  class="ml-2"
+                  data-astro-cid-sgpqyurt
+                  >Contactanos</span
+                >
+              </a>
+              <a
+                class="block px-4 py-3 mb-2 leading-loose text-xs text-center text-white font-semibold bg-primary-500 hover:bg-primary-400 rounded-xl"
+                href="#"
+                data-astro-cid-sgpqyurt
+                >Comunidades</a
+              >
+            </div>
+            <p
+              class="my-4 text-xs text-center text-gray-400"
+              data-astro-cid-sgpqyurt
+            >
+              <span data-astro-cid-sgpqyurt>FrankCairampoma © 2024</span>
+            </p>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <main data-astro-cid-sgpqyurt>
+      <style>
+        astro-island,
+        astro-slot,
+        astro-static-slot {
+          display: contents;
+        }
+      </style>
+      <script>
+        (() => {
+          var l = (s, i, o) => {
+            let r = async () => {
+                await (
+                  await s()
+                )();
+              },
+              t = typeof i.value == 'object' ? i.value : void 0,
+              c = { rootMargin: t == null ? void 0 : t.rootMargin },
+              n = new IntersectionObserver((e) => {
+                for (let a of e)
+                  if (a.isIntersecting) {
+                    n.disconnect(), r();
+                    break;
+                  }
+              }, c);
+            for (let e of o.children) n.observe(e);
+          };
+          (self.Astro || (self.Astro = {})).visible = l;
+          window.dispatchEvent(new Event('astro:visible'));
+        })();
+        (() => {
+          var v = Object.defineProperty;
+          var A = (c, s, a) =>
+            s in c
+              ? v(c, s, {
+                  enumerable: !0,
+                  configurable: !0,
+                  writable: !0,
+                  value: a,
+                })
+              : (c[s] = a);
+          var d = (c, s, a) => (A(c, typeof s != 'symbol' ? s + '' : s, a), a);
+          var u;
+          {
+            let c = {
+                0: (t) => m(t),
+                1: (t) => a(t),
+                2: (t) => new RegExp(t),
+                3: (t) => new Date(t),
+                4: (t) => new Map(a(t)),
+                5: (t) => new Set(a(t)),
+                6: (t) => BigInt(t),
+                7: (t) => new URL(t),
+                8: (t) => new Uint8Array(t),
+                9: (t) => new Uint16Array(t),
+                10: (t) => new Uint32Array(t),
+              },
+              s = (t) => {
+                let [e, n] = t;
+                return e in c ? c[e](n) : void 0;
+              },
+              a = (t) => t.map(s),
+              m = (t) =>
+                typeof t != 'object' || t === null
+                  ? t
+                  : Object.fromEntries(
+                      Object.entries(t).map(([e, n]) => [e, s(n)])
+                    );
+            customElements.get('astro-island') ||
+              customElements.define(
+                'astro-island',
+                ((u = class extends HTMLElement {
+                  constructor() {
+                    super(...arguments);
+                    d(this, 'Component');
+                    d(this, 'hydrator');
+                    d(this, 'hydrate', async () => {
+                      var f;
+                      if (!this.hydrator || !this.isConnected) return;
+                      let e =
+                        (f = this.parentElement) == null
+                          ? void 0
+                          : f.closest('astro-island[ssr]');
+                      if (e) {
+                        e.addEventListener('astro:hydrate', this.hydrate, {
+                          once: !0,
+                        });
+                        return;
+                      }
+                      let n = this.querySelectorAll('astro-slot'),
+                        r = {},
+                        l = this.querySelectorAll(
+                          'template[data-astro-template]'
+                        );
+                      for (let o of l) {
+                        let i = o.closest(this.tagName);
+                        i != null &&
+                          i.isSameNode(this) &&
+                          ((r[
+                            o.getAttribute('data-astro-template') || 'default'
+                          ] = o.innerHTML),
+                          o.remove());
+                      }
+                      for (let o of n) {
+                        let i = o.closest(this.tagName);
+                        i != null &&
+                          i.isSameNode(this) &&
+                          (r[o.getAttribute('name') || 'default'] =
+                            o.innerHTML);
+                      }
+                      let h;
+                      try {
+                        h = this.hasAttribute('props')
+                          ? m(JSON.parse(this.getAttribute('props')))
+                          : {};
+                      } catch (o) {
+                        let i =
+                            this.getAttribute('component-url') || '<unknown>',
+                          b = this.getAttribute('component-export');
+                        throw (
+                          (b && (i += ` (export ${b})`),
+                          console.error(
+                            `[hydrate] Error parsing props for component ${i}`,
+                            this.getAttribute('props'),
+                            o
+                          ),
+                          o)
+                        );
+                      }
+                      let p;
+                      await this.hydrator(this)(this.Component, h, r, {
+                        client: this.getAttribute('client'),
+                      }),
+                        this.removeAttribute('ssr'),
+                        this.dispatchEvent(new CustomEvent('astro:hydrate'));
+                    });
+                    d(this, 'unmount', () => {
+                      this.isConnected ||
+                        this.dispatchEvent(new CustomEvent('astro:unmount'));
+                    });
+                  }
+                  disconnectedCallback() {
+                    document.removeEventListener(
+                      'astro:after-swap',
+                      this.unmount
+                    ),
+                      document.addEventListener(
+                        'astro:after-swap',
+                        this.unmount,
+                        { once: !0 }
+                      );
+                  }
+                  connectedCallback() {
+                    if (
+                      !this.hasAttribute('await-children') ||
+                      document.readyState === 'interactive' ||
+                      document.readyState === 'complete'
+                    )
+                      this.childrenConnectedCallback();
+                    else {
+                      let e = () => {
+                          document.removeEventListener('DOMContentLoaded', e),
+                            n.disconnect(),
+                            this.childrenConnectedCallback();
+                        },
+                        n = new MutationObserver(() => {
+                          var r;
+                          ((r = this.lastChild) == null
+                            ? void 0
+                            : r.nodeType) === Node.COMMENT_NODE &&
+                            this.lastChild.nodeValue === 'astro:end' &&
+                            (this.lastChild.remove(), e());
+                        });
+                      n.observe(this, { childList: !0 }),
+                        document.addEventListener('DOMContentLoaded', e);
+                    }
+                  }
+                  async childrenConnectedCallback() {
+                    let e = this.getAttribute('before-hydration-url');
+                    e && (await import(e)), this.start();
+                  }
+                  async start() {
+                    let e = JSON.parse(this.getAttribute('opts')),
+                      n = this.getAttribute('client');
+                    if (Astro[n] === void 0) {
+                      window.addEventListener(
+                        `astro:${n}`,
+                        () => this.start(),
+                        { once: !0 }
+                      );
+                      return;
+                    }
+                    try {
+                      await Astro[n](
+                        async () => {
+                          let r = this.getAttribute('renderer-url'),
+                            [l, { default: h }] = await Promise.all([
+                              import(this.getAttribute('component-url')),
+                              r ? import(r) : () => () => {},
+                            ]),
+                            p =
+                              this.getAttribute('component-export') ||
+                              'default';
+                          if (!p.includes('.')) this.Component = l[p];
+                          else {
+                            this.Component = l;
+                            for (let y of p.split('.'))
+                              this.Component = this.Component[y];
+                          }
+                          return (this.hydrator = h), this.hydrate;
+                        },
+                        e,
+                        this
+                      );
+                    } catch (r) {
+                      console.error(
+                        `[astro-island] Error hydrating ${this.getAttribute(
+                          'component-url'
+                        )}`,
+                        r
+                      );
+                    }
+                  }
+                  attributeChangedCallback() {
+                    this.hydrate();
+                  }
+                }),
+                d(u, 'observedAttributes', ['props']),
+                u)
+              );
+          }
+        })();
+      </script>
+      <astro-island
+        uid="Ptqpw"
+        prefix="r0"
+        component-url="/_astro/login.CPeCcyop.js"
+        component-export="default"
+        renderer-url="/_astro/client.18JKDFkt.js"
+        props='{"data-astro-cid-sgpqyurt":[0,true]}'
+        ssr=""
+        client="visible"
+        opts='{"name":"Login_","value":true}'
+        await-children=""
+        ><div class="py-5">
+          <div class="max-w-7xl mx-auto px-0 sm:px-6 lg:px-8">
+            <div class="max-w-4xl mx-auto text-center">
+              <h2 class="text-3xl text-primary-450 sm:text-3xl font-bold mb-6">
+                Iniciar sesión
+              </h2>
+              <div class="w-ful">
+                <input
+                  type="text"
+                  placeholder="Correo electrónico"
+                  class="border border-gray-300 rounded-lg shadow-sm px-4 py-2 mb-4 text-gray-900"
+                /><br /><input
+                  type="password"
+                  placeholder="Contraseña"
+                  class="border border-gray-300 rounded-lg shadow-sm px-4 py-2 mb-4 text-gray-900"
+                /><br /><button
+                  class="bg-primary-450 text-white rounded-lg shadow-sm px-4 py-2 mb-4"
+                >
+                  Iniciar sesión
+                </button>
+              </div>
+            </div>
+          </div>
+          <style>
+            .swal2-confirm {
+              background-color: #0a6c48 !important;
+              color: #fff !important;
+            }
+            .swal2-modal {
+              background-color: #23262d !important;
+              color: #fff !important;
+            }
+          </style>
+        </div>
+        <!--astro:end--></astro-island
+      >
+    </main>
+  </body>
+</html>

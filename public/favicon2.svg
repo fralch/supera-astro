@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <!-- Creator: CorelDRAW -->
-<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="18.8197mm" height="26.0114mm" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fillRule:evenodd; clipRule:evenodd"
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="18.8197mm" height="26.0114mm" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
 viewBox="0 0 443.83 613.44"
  xmlns:xlink="http://www.w3.org/1999/xlink"
  xmlns:xodm="http://www.corel.com/coreldraw/odm/2003">
@@ -9,8 +9,8 @@ viewBox="0 0 443.83 613.44"
   <style type="text/css">
    <![CDATA[
     .fil1 {fill:none}
-    .fil0 {fill:#0A4033;fillRule:nonzero}
-    .fil2 {fill:#EDD6A9;fillRule:nonzero}
+    .fil0 {fill:#0A4033;fill-rule:nonzero}
+    .fil2 {fill:#EDD6A9;fill-rule:nonzero}
    ]]>
   </style>
    <clipPath id="id0">
