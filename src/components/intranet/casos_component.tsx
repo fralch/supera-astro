@@ -51,21 +51,25 @@ const Casos_component = () => {
   }, []);
 
   useEffect(() => {
-    axios.get('http://localhost:3000/casos').then((response) => {
-      console.log(response.data);
-      setDataTable(response.data);
-      setDataTableFilter(response.data);
-      const pageSize = 10;
-      const paginatedData = dividirArray(response.data, pageSize);
-      setPaginatedData(paginatedData);
-    });
+    axios
+      .get('http://162.248.55.24:3000/superabackend/casos')
+      .then((response) => {
+        console.log(response.data);
+        setDataTable(response.data);
+        setDataTableFilter(response.data);
+        const pageSize = 10;
+        const paginatedData = dividirArray(response.data, pageSize);
+        setPaginatedData(paginatedData);
+      });
   }, []);
 
   useEffect(() => {
-    axios.get('http://localhost:3000/clientes').then((response) => {
-      console.log(response.data);
-      setClientes(response.data);
-    });
+    axios
+      .get('http://162.248.55.24:3000/superabackend/clientes')
+      .then((response) => {
+        console.log(response.data);
+        setClientes(response.data);
+      });
   }, []);
 
   useEffect(() => {
@@ -161,10 +165,13 @@ const Casos_component = () => {
   const updateCaso = () => {
     // console.log(idCasoUpdate, actoProcesal, culminado);
     axios
-      .post(`http://localhost:3000/casos/update/${idCasoUpdate}`, {
-        acto_procesal: actoProcesal,
-        culminado: culminado,
-      })
+      .post(
+        `http://162.248.55.24:3000/superabackend/casos/update/${idCasoUpdate}`,
+        {
+          acto_procesal: actoProcesal,
+          culminado: culminado,
+        }
+      )
       .then((response) => {
         // console.log(response);
         window.location.reload();
@@ -200,10 +207,12 @@ const Casos_component = () => {
 
   const handleCrearCaso = () => {
     // console.log(objNuevoCaso);
-    axios.post('http://localhost:3000/casos', objNuevoCaso).then((response) => {
-      // console.log(response);
-      window.location.reload();
-    });
+    axios
+      .post('http://162.248.55.24:3000/superabackend/casos', objNuevoCaso)
+      .then((response) => {
+        // console.log(response);
+        window.location.reload();
+      });
   };
 
   const abrirModalContrato = (idCasoUpdate) => {
@@ -222,7 +231,7 @@ const Casos_component = () => {
     if (objCasoContrato.monto_total !== 0) {
       console.log(objCasoContrato);
       const ingresarMontoTotal = await axios.post(
-        'http://localhost:3000/pagos/montototal',
+        'http://162.248.55.24:3000/superabackend/pagos/montototal',
         objCasoContrato
       );
 
