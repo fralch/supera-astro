@@ -17,11 +17,13 @@ const Casos_component = () => {
   });
 
   useEffect(() => {
-    axios.get('http://localhost:4000/clientes').then((response) => {
-      console.log(response.data);
-      setDataTable(response.data);
-      setDataTableFilter(response.data);
-    });
+    axios
+      .get('https://www.superaabogados.com/superabackend/clientes')
+      .then((response) => {
+        console.log(response.data);
+        setDataTable(response.data);
+        setDataTableFilter(response.data);
+      });
   }, []);
 
   const handleCasos = (casos) => {

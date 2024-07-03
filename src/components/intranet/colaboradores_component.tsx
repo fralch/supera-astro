@@ -17,11 +17,13 @@ const Casos_component = () => {
     cargo: '',
   });
   useEffect(() => {
-    axios.get('http://localhost:4000/usuarios').then((response) => {
-      console.log(response.data);
-      setDataTable(response.data);
-      setDataTableFilter(response.data);
-    });
+    axios
+      .get('https://www.superaabogados.com/superabackend/usuarios')
+      .then((response) => {
+        console.log(response.data);
+        setDataTable(response.data);
+        setDataTableFilter(response.data);
+      });
   }, []);
 
   const handleEditar = (data) => {
@@ -39,10 +41,12 @@ const Casos_component = () => {
       };
       console.log(datos_enviar);
       const response = await axios.post(
-        'http://localhost:4000/usuarios/create',
+        'https://www.superaabogados.com/superabackend/usuarios/create',
         datos_enviar
       );
-      const usuario_again = await axios.get('http://localhost:4000/usuarios');
+      const usuario_again = await axios.get(
+        'https://www.superaabogados.com/superabackend/usuarios'
+      );
       setDataTable(usuario_again.data);
       setDataTableFilter(usuario_again.data);
     } catch (error) {
