@@ -29,11 +29,14 @@ const Login_ = () => {
       // console.log(usuario, clave);
       try {
         //http://162.248.55.24:3000/superabackend
-        // http://localhost:4000/
-        const res = await axios.post('http://localhost:4000/usuarios/login', {
-          usuario,
-          clave,
-        });
+        //https://www.superaabogados.com/superabackend/
+        const res = await axios.post(
+          'https://www.superaabogados.com/superabackend/usuarios/login',
+          {
+            usuario,
+            clave,
+          }
+        );
         console.log(res.data);
         if (res.data) {
           localStorage.setItem('userData', JSON.stringify(res.data));
