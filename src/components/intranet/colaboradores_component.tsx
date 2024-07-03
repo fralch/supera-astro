@@ -17,13 +17,11 @@ const Casos_component = () => {
     cargo: '',
   });
   useEffect(() => {
-    axios
-      .get('http://162.248.55.24:3000/superabackend/usuarios')
-      .then((response) => {
-        console.log(response.data);
-        setDataTable(response.data);
-        setDataTableFilter(response.data);
-      });
+    axios.get('http://localhost:4000/usuarios').then((response) => {
+      console.log(response.data);
+      setDataTable(response.data);
+      setDataTableFilter(response.data);
+    });
   }, []);
 
   const handleEditar = (data) => {
@@ -41,12 +39,10 @@ const Casos_component = () => {
       };
       console.log(datos_enviar);
       const response = await axios.post(
-        'http://162.248.55.24:3000/superabackend/usuarios/create',
+        'http://localhost:4000/usuarios/create',
         datos_enviar
       );
-      const usuario_again = await axios.get(
-        'http://162.248.55.24:3000/superabackend/usuarios'
-      );
+      const usuario_again = await axios.get('http://localhost:4000/usuarios');
       setDataTable(usuario_again.data);
       setDataTableFilter(usuario_again.data);
     } catch (error) {
