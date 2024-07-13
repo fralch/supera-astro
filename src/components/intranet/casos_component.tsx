@@ -50,25 +50,21 @@ const Casos_component = () => {
   }, []);
 
   useEffect(() => {
-    axios
-      .get('https://www.superaabogados.com/superabackend/casos')
-      .then((response) => {
-        console.log(response.data);
-        setDataTable(response.data);
-        setDataTableFilter(response.data);
-        const pageSize = 10;
-        const paginatedData = dividirArray(response.data, pageSize);
-        setPaginatedData(paginatedData);
-      });
+    axios.get('http://localhost:4000/casos').then((response) => {
+      console.log(response.data);
+      setDataTable(response.data);
+      setDataTableFilter(response.data);
+      const pageSize = 10;
+      const paginatedData = dividirArray(response.data, pageSize);
+      setPaginatedData(paginatedData);
+    });
   }, []);
 
   useEffect(() => {
-    axios
-      .get('https://www.superaabogados.com/superabackend/clientes')
-      .then((response) => {
-        console.log(response.data);
-        setClientes(response.data);
-      });
+    axios.get('http://localhost:4000/clientes').then((response) => {
+      console.log(response.data);
+      setClientes(response.data);
+    });
   }, []);
 
   useEffect(() => {
@@ -164,13 +160,10 @@ const Casos_component = () => {
   const updateCaso = () => {
     // console.log(idCasoUpdate, actoProcesal, culminado);
     axios
-      .post(
-        `https://www.superaabogados.com/superabackend/casos/update/${idCasoUpdate}`,
-        {
-          acto_procesal: actoProcesal,
-          culminado: culminado,
-        }
-      )
+      .post(`http://localhost:4000/casos/update/${idCasoUpdate}`, {
+        acto_procesal: actoProcesal,
+        culminado: culminado,
+      })
       .then((response) => {
         // console.log(response);
         window.location.reload();
@@ -206,12 +199,10 @@ const Casos_component = () => {
 
   const handleCrearCaso = () => {
     // console.log(objNuevoCaso);
-    axios
-      .post('https://www.superaabogados.com/superabackend/casos', objNuevoCaso)
-      .then((response) => {
-        // console.log(response);
-        window.location.reload();
-      });
+    axios.post('http://localhost:4000/casos', objNuevoCaso).then((response) => {
+      // console.log(response);
+      window.location.reload();
+    });
   };
 
   const abrirModalContrato = (idCasoUpdate) => {
@@ -230,7 +221,7 @@ const Casos_component = () => {
     if (objCasoContrato.monto_total !== 0) {
       console.log(objCasoContrato);
       const ingresarMontoTotal = await axios.post(
-        'https://www.superaabogados.com/superabackend/pagos/montototal',
+        'http://localhost:4000/pagos/montototal',
         objCasoContrato
       );
 
@@ -419,6 +410,9 @@ const Casos_component = () => {
                         Mesa
                       </th>
                       <th className='font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800 sm:text-gray-400 text-white'>
+                        Archivo
+                      </th>
+                      <th className='font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800 sm:text-gray-400 text-white'>
                         Contrato
                       </th>
 
@@ -474,6 +468,22 @@ const Casos_component = () => {
                           </td>
                           <td className='sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 md:table-cell '>
                             {data.mesa}
+                          </td>
+                          <td className='sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 md:table-cell '>
+                            <button
+                              className='text-red-500 hover:text-red-700 focus:outline-none focus:ring-2 focus:ring-red-300 font-medium rounded-lg text-sm px-2 py-1 text-center dark:text-red-400 dark:hover:text-red-500 dark:focus:ring-red-800 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:z-10'
+                              onClick={() => {
+                                const modal = document.getElementById(
+                                  'modal-subir-archivo'
+                                );
+                                modal.classList.remove('hidden');
+                                modal.setAttribute('aria-hidden', 'false');
+                                setIsModalOpen(true);
+                                blurRef.current.classList.add('modal-open');
+                              }}
+                            >
+                              Abrir
+                            </button>
                           </td>
                           <td className='sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 md:table-cell '>
                             <button
@@ -1406,6 +1416,107 @@ const Casos_component = () => {
                 </button>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+
+      {/* modal para subir archivo a servidor */}
+      <div
+        id='modal-subir-archivo'
+        data-modal-show='true'
+        aria-hidden='true'
+        className='hidden overflow-x-hidden overflow-y-auto fixed h-modal md:h-full top-0 left-0 right-0 md:inset-0 z-50 flex items-center justify-center'
+        style={{ zIndex: 9999 }}
+      >
+        <div className='sm:max-w-lg w-full p-10 bg-primary-980 rounded-xl z-10'>
+          <div className='flex items-start justify-between'>
+            <button
+              type='button'
+              className='text-gray-400 bg-gray-900 hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-red-400 dark:hover:text-white'
+              data-modal-toggle='modal-subir-archivo'
+              onClick={() => {
+                const modal = document.getElementById('modal-subir-archivo');
+                modal.classList.add('hidden');
+                modal.setAttribute('aria-hidden', 'true');
+                setIsModalOpen(false);
+                blurRef.current.classList.remove('modal-open');
+              }}
+            >
+              <svg
+                className='w-5 h-5'
+                fill='currentColor'
+                viewBox='0 0 20 20'
+                xmlns='http://www.w3.org/2000/svg'
+              >
+                <path
+                  fill-rule='evenodd'
+                  d='M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z'
+                  clip-rule='evenodd'
+                ></path>
+              </svg>
+            </button>
+          </div>
+          <div className='text-center'>
+            <form
+              className='mt-8 space-y-3'
+              action='#'
+              method='POST'
+            >
+              <div className=' text-center'>
+                <button className=' w-2/3 py-4 bg-secondary-300 text-white px-4  rounded-full hover:bg-teal-700 focus:outline-none focus:ring-2 font-medium text-sm dark:bg-secondary-500 dark:hover:bg-secondary-700  dark:text-white'>
+                  Descargar
+                </button>
+              </div>
+              <div
+                className={
+                  !permisoUsuario ? 'grid grid-cols-1 space-y-2' : 'hidden'
+                }
+              >
+                <label className='text-sm font-bold text-gray-500 tracking-wide'>
+                  Adjuntar Documento
+                </label>
+                <div className='flex items-center justify-center w-full'>
+                  <label className='flex flex-col rounded-lg border-4 border-dashed w-full h-60 p-10 group text-center '>
+                    <div className='h-full w-full text-center flex flex-col items-center justify-center   '>
+                      <div className='flex flex-auto max-h-48 w-2/5 mx-auto -mt-10'>
+                        <img
+                          className='has-mask h-36 object-center mt-6'
+                          src='./upload.png'
+                          alt='freepik image'
+                        />
+                      </div>
+                      <p className='pointer-none text-gray-500 '>
+                        <span className='text-sm'>Arrastra y suelta el</span>{' '}
+                        Archivo aqui <br /> o{' '}
+                        <a
+                          href=''
+                          id=''
+                          className='text-amber-600 hover:underline'
+                        >
+                          selecciona un archivo
+                        </a>{' '}
+                        desde tu pc
+                      </p>
+                    </div>
+                    <input
+                      type='file'
+                      className='hidden'
+                    />
+                  </label>
+                </div>
+                <p className='text-sm text-gray-300'>
+                  <span>Tipos: doc,pdf</span>
+                </p>
+                <div>
+                  <button
+                    type='submit'
+                    className='my-5 w-full flex justify-center bg-primary-450 text-gray-100 p-4  rounded-full tracking-wide font-semibold  focus:outline-none focus:shadow-outline hover:bg-secondary-50 shadow-lg cursor-pointer transition ease-in duration-300'
+                  >
+                    Upload
+                  </button>
+                </div>
+              </div>
+            </form>
           </div>
         </div>
       </div>

@@ -29,13 +29,11 @@ const Casos_component = () => {
   }, []);
 
   useEffect(() => {
-    axios
-      .get('https://www.superaabogados.com/superabackend/pagos')
-      .then((response) => {
-        // console.log(response.data);
-        setDataTable(response.data);
-        setDataTableFilter(response.data);
-      });
+    axios.get('http://localhost:4000/pagos').then((response) => {
+      // console.log(response.data);
+      setDataTable(response.data);
+      setDataTableFilter(response.data);
+    });
   }, []);
 
   useEffect(() => {
@@ -73,9 +71,7 @@ const Casos_component = () => {
     //   return;
     // }
 
-    const clientes = await axios.get(
-      'https://www.superaabogados.com/superabackend/clientes'
-    );
+    const clientes = await axios.get('http://localhost:4000/clientes');
     console.log(clientes.data);
     setClientesView(clientes.data);
     const modal = document.getElementById('modal-table-pagos');
@@ -126,23 +122,19 @@ const Casos_component = () => {
       estado: pagosData[0]?.estado ? pagosData[0].estado : 'pendiente',
     };
 
-    axios
-      .post('https://www.superaabogados.com/superabackend/pagos', data)
-      .then((response) => {
-        // recargar la tabla
-        axios
-          .get('https://www.superaabogados.com/superabackend/pagos')
-          .then((response) => {
-            setDataTable(response.data);
-            setDataTableFilter(response.data);
-          });
-
-        // cerrar modal
-        const modal = document.getElementById('modal-table-pagos');
-        modal.classList.add('hidden');
-        modal.setAttribute('aria-hidden', 'true');
-        setModalPago(false);
+    axios.post('http://localhost:4000/pagos', data).then((response) => {
+      // recargar la tabla
+      axios.get('http://localhost:4000/pagos').then((response) => {
+        setDataTable(response.data);
+        setDataTableFilter(response.data);
       });
+
+      // cerrar modal
+      const modal = document.getElementById('modal-table-pagos');
+      modal.classList.add('hidden');
+      modal.setAttribute('aria-hidden', 'true');
+      setModalPago(false);
+    });
   };
   return (
     <section className='w-full py-2 bg-primary-980 mt-20 lg:mt-10 mx-auto'>
