@@ -1420,7 +1420,6 @@ const Casos_component = () => {
         </div>
       </div>
 
-      {/* modal para subir archivo a servidor */}
       <div
         id='modal-subir-archivo'
         data-modal-show='true'
